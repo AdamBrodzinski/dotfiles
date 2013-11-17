@@ -1,0 +1,44 @@
+[user]
+	name = Adam Brodzinski
+	email = adambrodzinski@gmail.com
+[color]
+	ui = true
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+[color "branch"]
+    current = green reverse
+    remote = cyan
+[credential]
+	helper = osxkeychain
+[core]
+	excludesfile = /Users/adam/.gitignore_global
+[difftool "gitk"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "gitk"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+
+[alias]
+  co = checkout
+  di = diff
+  dc = diff --cached
+  ammend = comit --amend
+  aa = add --all
+  lazy = commit -am
+  pom = push origin master
+  b = branch
+
+  l = "!source ~/.githelpers && pretty_git_log"
+  la = !git l --all
+  r = !git l -30
+  ra = !git r --all
+
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
