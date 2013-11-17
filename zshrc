@@ -7,9 +7,6 @@ ZSH_THEME="miloshadzic"
 alias ezsh="vim ~/.zshrc"
 alias rzsh="source ~/.zshrc"
 
-alias ll='ls -l'
-alias lla='ls -la'
-
 alias gd='git diff | mvim -'
 alias co='git checkout'
 
@@ -32,7 +29,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git npm brew)
 
 source $ZSH/oh-my-zsh.sh
 
