@@ -1,0 +1,9 @@
+#!/bin/bash
+
+sudo npm install jshint -g
+sudo npm install meteor-generate -g
+sudo npm install meteorite -g
+sudo npm install mocha -g
+sudo npm install chai -g
+sudo npm install coffee-script -g
+
