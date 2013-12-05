@@ -20,6 +20,10 @@ curl https://install.meteor.com | /bin/sh
 # Compass Sass
 sudo gem install compass
 
+# PC Keyboard Hack / KeyRemap4Macbook
+https://pqrs.org/macosx/keyremap4macbook/pckeyboardhack.html.en
+https://pqrs.org/macosx/keyremap4macbook/index.html.en
+
 
 # ------------------------ User Interface ---------------------
 
