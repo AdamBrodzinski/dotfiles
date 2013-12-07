@@ -6,4 +6,5 @@ sudo npm install meteorite -g
 sudo npm install mocha -g
 sudo npm install chai -g
 sudo npm install coffee-script -g
+sudo npm install -g phonegap
 
