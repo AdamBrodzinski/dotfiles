@@ -19,10 +19,7 @@ alias cleardns='dscacheutil -flushcache'
 alias server='open http://localhost:8000 && python -m SimpleHTTPServer'
 
 # Link vim command to MacVim binary
-alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
-
-alias stageit='make stageit'
-alias deployit='make deployit'
+#alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 
 alias dmgen='~/Projects/meteor-generate/bin/mgen'
 # red dots to be displayed while waiting for completion
