@@ -1,0 +1,244 @@
+snippet // "Comment"
+<!-- $1 -->$0
+endsnippet
+
+snippet input "Input Element" b
+<formset class='form-group'>
+  <label for='$3'>$1</label>
+  <span class='err-msg'></span>
+  <input type='${2:text}' name='$3'$4 data-required='true'>
+</formset>
+
+endsnippet
+
+snippet % "ERB/Underscore"
+<%= $1 %>$0
+endsnippet
+
+snippet tmpl "Underscore Inline Template"
+<script type="text/template" id='${1:task}-tmpl'>
+  $2
+</script>$0
+endsnippet
+
+snippet form "Basic Form" b
+<form id='$1'>
+  $0
+
+  <span class="general-err"></span>
+</form>
+endsnippet
+
+snippet label "Form Label" b
+<label>$1</label>
+$0
+endsnippet
+
+
+############
+#  Custom  #
+############
+
+snippet tb "target blank" w
+target="_blank"$0
+endsnippet
+
+snippet copy "Copyright Symbol"
+&copy;
+endsnippet
+
+snippet style "style"
+<style type="text/css">
+    $0
+</style> 
+endsnippet   
+
+snippet il "inline style" w
+style="$0"
+endsnippet
+
+snippet link "link" w
+<link rel="stylesheet" href="$1" type="text/css" />$0
+endsnippet
+
+##############
+#  Elements  #
+##############
+
+snippet html "html" w
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>$1</title>
+</head>
+<body>
+    <div class="${2:wrapper}">
+      $3
+    </div>
+</body>
+</html>
+endsnippet
+
+snippet script "js script" 
+<script type="text/javascript"${1: src="$2"}>$3</script>$0
+endsnippet
+
+snippet b "br" w
+<br>$0
+endsnippet
+
+snippet 2b "2x br" w
+<br><br>$0
+endsnippet
+
+snippet s "strong" w
+<strong>$1</strong>$0
+endsnippet
+
+snippet e "em" w
+<em>$1</em>$0
+endsnippet
+
+snippet div "div" w
+<div>
+    $0
+</div>
+endsnippet
+
+snippet divc "div with class" w
+<div class="$1">
+  $0
+</div>
+endsnippet
+
+snippet divi "div with id" w
+<div id="$1">
+  $0
+</div>
+endsnippet
+
+snippet span "span" w
+<span>$1</span>$0
+endsnippet
+
+snippet p "paragraph" w
+<p>$0</p>
+endsnippet
+
+snippet img "image" w
+<img src="$1" alt="$2">$0
+endsnippet
+
+snippet ul "unordered list" w
+<ul>
+    $0
+</ul>
+endsnippet
+
+snippet ol "ordered list" w
+<ol>
+    $0
+</ol>
+endsnippet
+
+snippet li "list item"
+<li>$0</li>
+endsnippet
+
+snippet h1 "h1" w
+<h1>$1</h1>$0
+endsnippet
+
+snippet h2 "h2" w
+<h2>$1</h2>$0
+endsnippet
+
+snippet h3 "h3" w
+<h3>$1</h3>$0
+endsnippet
+
+snippet h4 "h4" w
+<h4>$1</h4>$0
+endsnippet
+
+snippet h5 "h5" w
+<h5>$1</h5>$0
+endsnippet
+
+snippet h6 "h6" w
+<h6>$1</h6>$0
+endsnippet
+
+snippet a "anchor" w
+<a href="$1">$0</a>
+endsnippet
+
+# Handlebars
+snippet h "handlebars block"
+{{$1}}$0
+endsnippet
+
+snippet hh "escaped handlebars"
+{{{$1}}}$0
+endsnippet
+
+snippet par "handlebars/meteor partial"
+{{>$1}}$0
+endsnippet
+
+snippet block "Meteor Block" b
+{{#$1}}
+  $0
+{{/$1}}
+endsnippet
+
+snippet each "Handlebars Each block" !b
+{{#each $1}}
+  $0
+{{/each}}
+endsnippet
+
+snippet with "Handlebars With block" !b
+{{#with $1}}
+  $0
+{{/with}}
+endsnippet
+
+snippet if "If block"
+{{#if $1 }}
+  $0
+{{/if}}    
+endsnippet
+
+snippet ifelse "If else block"
+{{#if $1 }}
+  $2
+{{else}}
+  $0
+{{/if}}    
+endsnippet
+
+snippet temp "Handlebars/Meteor Template"
+<template name='$1'>
+  $0
+</template>
+endsnippet
+
+snippet unless "Handlebars Unless Block" !b
+{{# unless ${1:condition}}}
+  $0
+{{/unless}}
+endsnippet
+
+snippet markdown "Markdown Block" b
+{{#markdown}} {{>$1}} {{/markdown}}$0
+endsnippet
+
+snippet testiframe "Load iframe to test re-rendering" !b
+<iframe src="http://www.appple.com"></iframe>
+endsnippet
+
+snippet button "Button"
+<button class='$1'>$2</button>$0
+endsnippet

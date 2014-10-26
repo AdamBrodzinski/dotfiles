@@ -1,0 +1,224 @@
+snippet puts "Puts alis for console.log" b
+puts ${2:"$1"}$0
+endsnippet
+
+snippet def "Define a method" b
+${1:methodName}: ${2:(${3:param}) }->
+  $0
+endsnippet
+
+snippet doc "Biscotto Block" b
+# ${1:Public}: ${2:Does some stuff}
+#
+# ${3:param-name} - ${4:The thing that's passed in}
+# ${5:${6:opts} - ${7:The options}
+#        ${8::speed - The String speed
+#        :repeat -  How many Number times to repeat
+#        :tasks - The Tasks tasks to do}}
+# Returns ${9: a {${10:String}} ${11:thing}}
+endsnippet  
+
+
+# --------------------------------------------------
+#                    BDD
+# --------------------------------------------------
+
+snippet spech "Spec Helper" b
+require "..$1/spec_helper"
+$0
+endsnippet
+
+snippet desc "Describe block"
+describe "$1", ->
+  $0
+endsnippet
+
+snippet it "It block"
+it "should $1", (done, sr, cl$2) ->
+  $0
+endsnippet
+
+snippet pending "pending test case (Mocha)"
+it "$1"
+  #$0
+endsnippet
+
+snippet se "Mocha should equal" b
+$1.should.equal $0
+endsnippet
+
+snippet clon "Client on event" b
+cl.on "$1", ($2) ->
+  $0
+endsnippet
+
+snippet sre "Eval Server on Laik" b
+sr.eval ->
+  $0
+  done()
+endsnippet
+
+snippet sron "Server on Event" b
+sr.on "$1", ($2) ->
+  $0
+  done()
+endsnippet
+
+snippet em "Emit event Laika" b
+emit("$1", $2)$0
+endsnippet
+
+snippet emit "Emit event Laika" b
+emit("$1", $2)$0
+endsnippet
+
+# ------ Sinon ------
+
+snippet spy "Create Sinon Spy" b
+${1:spyName} = sinon.spy(${2:obj}, '${3:method}')
+endsnippet
+
+
+# From the TextMate bundle
+
+snippet fun "Function" b
+${1:name} = (${2:args}) ->
+	${0:# body...}
+endsnippet
+
+snippet bfun "Function (bound)" b
+${1:(${2:args}) }=>
+	${0:# body...}
+endsnippet
+
+snippet if "If" b
+if ${1:condition}
+	${0:# body...}
+endsnippet
+
+snippet ife "If .. Else" b
+if ${1:condition}
+	${2:# body...}
+else
+	${3:# body...}
+endsnippet
+
+snippet elif "Else if" b
+else if ${1:condition}
+	${0:# body...}
+endsnippet
+
+snippet ifte "Ternary if" b
+if ${1:condition} then ${2:value} else ${3:other}
+endsnippet
+
+snippet unl "Unless" b
+${1:action} unless ${2:condition}
+endsnippet
+
+snippet fora "Array Comprehension" b
+for ${1:name} in ${2:array}
+	${0:# body...}
+endsnippet
+
+snippet foro "Object Comprehension" b
+for ${1:key}, ${2:value} of ${3:Object}
+	${0:# body...}
+endsnippet
+
+snippet forr "Range Comprehension (inclusive)" b
+for ${1:name} in [${2:start}..${3:finish}]${4: by ${5:step}}
+	${0:# body...}
+endsnippet
+
+snippet forrex "Range Comprehension (exclusive)" b
+for ${1:name} in [${2:start}...${3:finish}]${4: by ${5:step}}
+	${0:# body...}
+endsnippet
+
+snippet swi "Switch" b
+switch ${1:object}
+	when ${2:value}
+		${0:# body...}
+endsnippet
+
+snippet cla "Class" b
+class ${1:ClassName}${2: extends ${3:Ancestor}}
+
+	${4:constructor: (${5:args}) ->
+		${6:# body...}}
+	$7
+endsnippet
+
+snippet try "Try .. Catch" b
+try
+	$1
+catch ${2:err}
+  trackError(err)
+	$3
+endsnippet
+
+snippet req "Require" b
+${1/^'?(\w+)'?$/\L$1\E/} = require(${1:'${2:sys}'})
+endsnippet
+
+snippet # "Interpolated Code"
+#{$1}$0
+endsnippet
+
+snippet log "Log" b
+console.log ${1:"${2:msg}"}
+endsnippet
+
+snippet to "setTimeout" b
+setTimeout(->
+  $0
+, $1)
+endsnippet
+
+
+#--------------------------------------------
+#      Browser
+#--------------------------------------------
+
+snippet prev "Prevent Default Event" !b
+e.preventDefault()
+$0
+endsnippet
+
+snippet form "New Form Handler" b
+'submit form': (e) ->
+  e.preventDefault()
+
+  form = ParseForm('${1:form-el}')
+
+  data = {
+    $2
+  }
+
+endsnippet
+
+snippet j "jQuery selctor"
+$('$1').$2
+endsnippet
+
+
+#--------------------------------------------
+#      Meteor Snippets
+#--------------------------------------------
+
+snippet check "Check fn" b
+check($1, $2)$0
+endsnippet
+
+snippet events "Meteor Events" b
+Template.${1:name}.events = {
+  "${2:method}": (e) ->
+    $0
+}
+endsnippet
+
+snippet pf "ParseForm" b
+form = new ParseForm('${1:form}')
+$0
+endsnippet
