@@ -57,12 +57,36 @@ set expandtab       " use spaces instead of tabs
 set tabstop=2       " each tab is 2 spaces unless overridden below
 set shiftwidth=2    " auto intents will be 2 spaces
 
+
 " code folding
 map <leader>f za
 set foldmethod=indent   "fold based on indent
 set foldnestmax=10      "deepest fold is 10 levels
 set nofoldenable        "dont fold by default
 set foldlevel=1         "this is just what i use
+
+
+" window tabs
+if has("gui_macvim")
+  " Press Ctrl-Tab to switch between open tabs (like browser tabs) to 
+  " the right side. Ctrl-Shift-Tab goes the other way.
+  noremap <C-Tab> :tabnext<CR>
+  noremap <C-S-Tab> :tabprev<CR>
+
+  " Switch to specific tab numbers with Command-number
+  noremap <D-1> :tabn 1<CR>
+  noremap <D-2> :tabn 2<CR>
+  noremap <D-3> :tabn 3<CR>
+  noremap <D-4> :tabn 4<CR>
+  noremap <D-5> :tabn 5<CR>
+  noremap <D-6> :tabn 6<CR>
+  noremap <D-7> :tabn 7<CR>
+  noremap <D-8> :tabn 8<CR>
+  noremap <D-9> :tabn 9<CR>
+  " Command-0 goes to the last tab
+  noremap <D-0> :tablast<CR>
+endif
+
 
 " Use Ack for searching
 set grepprg=ack
