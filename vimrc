@@ -31,6 +31,9 @@ set foldnestmax=10      "deepest fold is 10 levels
 set nofoldenable        "dont fold by default
 set foldlevel=1         "this is just what i use
 
+" Use Ack for searching
+set grepprg=ack
+
 
 " ----------------  Language Support  ----------------
 Bundle 'pangloss/vim-javascript' 
