@@ -11,6 +11,8 @@ ln -s ~/Dotfiles/vim ~/.vim
 ln -s ~/Dotfiles/vimrc ~/.vimrc
 ln -s ~/Dotfiles/zshrc ~/.zshrc
 
+# install Vundle plugin manageer
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 while true; do
     read -p "Would you like to run NPM install script? " yn
