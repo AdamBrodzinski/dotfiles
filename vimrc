@@ -74,7 +74,7 @@ set foldlevel=1         "this is just what i use
 set background=dark
 colorscheme base16-ocean
 set guifont=Source\ Code\ Pro\:h14
-set encoding=utf-8  
+set encoding=utf-8
 set linespace=2
 set mousehide
 set guioptions-=T
@@ -94,7 +94,7 @@ set nocursorcolumn
 
 " window tabs
 if has("gui_macvim")
-  " Press Ctrl-Tab to switch between open tabs (like browser tabs) to 
+  " Press Ctrl-Tab to switch between open tabs (like browser tabs) to
   " the right side. Ctrl-Shift-Tab goes the other way.
   noremap <C-Tab> :tabnext<CR>
   noremap <C-S-Tab> :tabprev<CR>
@@ -120,7 +120,7 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 
-" Search Settings 
+" Search Settings
 set grepprg=ack
 set wrapscan
 set ignorecase
