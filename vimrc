@@ -42,6 +42,8 @@ Bundle 'cakebaker/scss-syntax.vim'
 
 " Themes
 Plugin 'chriskempson/base16-vim'
+Plugin 'bling/vim-airline'
+set laststatus=2    " always show airline
 
 
 
