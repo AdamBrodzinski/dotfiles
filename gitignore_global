@@ -2,3 +2,4 @@
 .sass-cache
 *.swp
 *.swo
+.netrwhist
