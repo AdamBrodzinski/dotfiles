@@ -21,6 +21,7 @@ nmap <silent> <leader>es :UltiSnipsEdit<CR>
 
 " Auto close brackets/parens
 Plugin 'AutoClose'
+let AutoCloseExpandEnterOn = '{'
 
 
 " NerdTree file finder tray
@@ -58,7 +59,10 @@ set relativenumber  " use ultra swift rel numbering
 set expandtab       " use spaces instead of tabs
 set tabstop=2       " each tab is 2 spaces unless overridden below
 set shiftwidth=2    " auto intents will be 2 spaces
-
+set vb              " set visual bell to prev beeping
+set history=100     " keep some stuff
+set virtualedit=all " allow cursor to go in "invalid" places
+set diffopt+=iwhite
 
 " code folding
 map <leader>f za
@@ -72,7 +76,13 @@ set foldlevel=1         "this is just what i use
 set background=dark
 colorscheme base16-ocean
 set guifont=Source\ Code\ Pro\:h14
+set encoding=utf-8  
 set linespace=2
+set mousehide
+set guioptions-=T
+set scrolloff=8
+set fillchars = ""
+syntax on
 
 
 
@@ -97,7 +107,18 @@ if has("gui_macvim")
   noremap <D-0> :tablast<CR>
 endif
 
+" toggle between panes
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
 
-" Use Ack for searching
+
+" Search Settings 
 set grepprg=ack
+set wrapscan
+set ignorecase
+set hls            " search highlighting
+set incsearch      " incrementally match the search
+
 
