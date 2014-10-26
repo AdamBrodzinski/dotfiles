@@ -1,6 +1,10 @@
 [user]
 	name = Adam Brodzinski
 	email = adambrodzinski@gmail.com
+ [filter "media"]
+  required = true
+  clean = git media clean %f
+  smudge = git media smudge %f
 [color]
 	ui = true
 [color "status"]
