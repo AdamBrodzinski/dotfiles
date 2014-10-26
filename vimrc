@@ -54,6 +54,16 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 " Control P - Fuzzy finder like PeepOpen & Sublime
 Plugin 'kien/ctrlp.vim'   
 
+" UltiSnips Snippets Manager
+Plugin 'SirVer/ultisnips'
+let g:UltiSnipsSnippetDirectories = [ "snippets" ]
+let g:UltiSnipsEditSplit = "vertical"
+let g:UltiSnipsExpandTrigger = "<Tab>"
+let g:UltiSnipsJumpForwardTrigger = "<Tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+nmap <silent> <leader>es :UltiSnipsEdit<CR>
+
+
 
 " ----------------  Theme / UI  ----------------
 syntax on           " syntax highlighting
