@@ -9,7 +9,6 @@ Plugin 'gmarik/Vundle.vim'
 
 " ----------------  Start Plugins  ----------------
 
-
 " Snippet Manager
 Plugin 'SirVer/ultisnips'
 let g:UltiSnipsEditSplit = "vertical"
@@ -18,11 +17,9 @@ let g:UltiSnipsJumpForwardTrigger = "<Tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 nmap <silent> <leader>es :UltiSnipsEdit<CR>
 
-
 " Auto close brackets/parens
 Plugin 'AutoClose'
 let AutoCloseExpandEnterOn = '{'
-
 
 " NerdTree file finder tray
 Plugin 'scrooloose/nerdtree'
@@ -30,28 +27,21 @@ map <leader>d :NERDTreeToggle<CR>
 " If buffer closes before NerdTree, close NerdTree too
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-
 " Control P - Fuzzy finder like PeepOpen & Sublime
 Plugin 'kien/ctrlp.vim'
-
 
 " Language Support
 Bundle 'pangloss/vim-javascript'
 Bundle 'cakebaker/scss-syntax.vim'
-
 
 " Themes
 Plugin 'chriskempson/base16-vim'
 Plugin 'bling/vim-airline'
 set laststatus=2    " always show airline
 
-
-
 call vundle#end()            " required
 filetype plugin indent on    " required
-
 " ----------------  End Plugins  ----------------
-
 
 
 " sane defaults
@@ -65,6 +55,12 @@ set vb              " set visual bell to prev beeping
 set history=100     " keep some stuff
 set virtualedit=all " allow cursor to go in "invalid" places
 set diffopt+=iwhite
+" toggle rel/reg number on insert
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
+" spell check
+map <F6> :setlocal spell! spelllang=en_us<CR>
+
 
 " code folding
 map <leader>f za
@@ -85,6 +81,14 @@ set guioptions-=T
 set scrolloff=8
 set fillchars = ""
 syntax on
+" hide scrollbars
+set guioptions-=L
+set guioptions-=r
+" speed up vim
+set synmaxcol=2048
+set nocursorline
+set nocursorcolumn
+
 
 
 
@@ -122,5 +126,4 @@ set wrapscan
 set ignorecase
 set hls            " search highlighting
 set incsearch      " incrementally match the search
-
 
