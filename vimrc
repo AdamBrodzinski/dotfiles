@@ -1,13 +1,10 @@
 " ----------------  Initialize Vundle Plugin Manager  ----------------
+let mapleader=' '
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
-
-
-" General settings before plugins
-let mapleader=' '   " remap vim leader to ,
 
 
 " ----------------  Start Plugins  ----------------
@@ -42,6 +39,11 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'cakebaker/scss-syntax.vim'
 
 
+" Themes
+Plugin 'chriskempson/base16-vim'
+
+
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -64,6 +66,14 @@ set foldmethod=indent   "fold based on indent
 set foldnestmax=10      "deepest fold is 10 levels
 set nofoldenable        "dont fold by default
 set foldlevel=1         "this is just what i use
+
+
+" Theme UI Settings
+set background=dark
+colorscheme base16-ocean
+set guifont=Source\ Code\ Pro\:h14
+set linespace=2
+
 
 
 " window tabs
