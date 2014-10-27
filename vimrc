@@ -6,7 +6,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
-
 " ----------------  Start Plugins  ----------------
 
 " Snippet Manager
@@ -30,14 +29,20 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 " Control P - Fuzzy finder like PeepOpen & Sublime
 Plugin 'kien/ctrlp.vim'
 
+" HTML scaffolding
+Plugin 'rstacruz/sparkup'
+
+" Statusline
+Plugin 'bling/vim-airline'
+let g:airline_powerline_fonts = 1
+set laststatus=2    " always show airline
+
 " Language Support
 Bundle 'pangloss/vim-javascript'
 Bundle 'cakebaker/scss-syntax.vim'
 
 " Themes
 Plugin 'chriskempson/base16-vim'
-Plugin 'bling/vim-airline'
-set laststatus=2    " always show airline
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -73,7 +78,7 @@ set foldlevel=1         "this is just what i use
 " Theme UI Settings
 set background=dark
 colorscheme base16-ocean
-set guifont=Source\ Code\ Pro\:h14
+set guifont=Sauce\ Code\ Powerline\:h14
 set encoding=utf-8
 set linespace=2
 set mousehide
