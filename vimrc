@@ -22,7 +22,9 @@ let AutoCloseExpandEnterOn = '{'
 
 " NerdTree file finder tray
 Plugin 'scrooloose/nerdtree'
-map <leader>d :NERDTreeToggle<CR>
+" Fixes tabs in NerdTree
+Plugin 'jistr/vim-nerdtree-tabs'
+map <leader>d :NERDTreeTabsToggle<CR>
 " If buffer closes before NerdTree, close NerdTree too
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
