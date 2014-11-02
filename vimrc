@@ -66,6 +66,8 @@ set shiftwidth=2    " auto intents will be 2 spaces
 set vb              " set visual bell to prev beeping
 set history=100     " keep some stuff
 set virtualedit=all " allow cursor to go in "invalid" places
+set splitbelow      " split windows the `right` way
+set splitright
 set diffopt+=iwhite
 " toggle rel/reg number on insert
 autocmd InsertEnter * :set number
