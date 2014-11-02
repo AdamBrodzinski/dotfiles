@@ -37,6 +37,13 @@ Plugin 'bling/vim-airline'
 let g:airline_powerline_fonts = 1
 set laststatus=2    " always show airline
 
+Plugin 'marijnh/tern_for_vim'
+let g:tern_show_argument_hints='on_hold'
+" close tern preview window with `Esc`
+nmap <Esc> <Esc>:pc<CR>
+nmap <leader>t <Esc>:TernDefPreview<CR>
+
+
 " Language Support
 Bundle 'pangloss/vim-javascript'
 Bundle 'cakebaker/scss-syntax.vim'
