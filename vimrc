@@ -74,6 +74,7 @@ set diffopt+=iwhite
 " toggle rel/reg number on insert
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
+
 " spell check
 map <F6> :setlocal spell! spelllang=en_us<CR>
 
@@ -142,4 +143,13 @@ set wrapscan
 set ignorecase
 set hls            " search highlighting
 set incsearch      " incrementally match the search
+
+
+" Automatically reload vimrc when it's saved
+augroup VimrcSo
+  au!
+  autocmd BufWritePost $MYVIMRC so $MYVIMRC
+augroup END
+" Edit vimrc file
+nmap <leader>ev <Esc> :tabe ~/.vimrc<CR>
 
