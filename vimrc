@@ -1,4 +1,5 @@
 " ----------------  Initialize Vundle Plugin Manager  ----------------
+nnoremap <space> <Nop>
 let mapleader=' '
 set nocompatible
 filetype off
@@ -22,7 +23,6 @@ let AutoCloseExpandEnterOn = '{'
 
 " NerdTree file finder tray
 Plugin 'scrooloose/nerdtree'
-" Fixes tabs in NerdTree
 Plugin 'jistr/vim-nerdtree-tabs'
 map <leader>d :NERDTreeTabsToggle<CR>
 " If buffer closes before NerdTree, close NerdTree too
@@ -39,16 +39,25 @@ Plugin 'bling/vim-airline'
 let g:airline_powerline_fonts = 1
 set laststatus=2    " always show airline
 
+" Badass JS completion/refs/defs
 Plugin 'marijnh/tern_for_vim'
 let g:tern_show_argument_hints='on_hold'
 " close tern preview window with `Esc`
 nmap <Esc> <Esc>:pc<CR>
 nmap <leader>t <Esc>:TernDefPreview<CR>
 
+" Commenting plugin
+Plugin 'scrooloose/nerdcommenter'
+
+Plugin 'justinmk/vim-sneak'
+
 
 " Language Support
 Bundle 'pangloss/vim-javascript'
 Bundle 'cakebaker/scss-syntax.vim'
+Bundle 'Slava/vim-spacebars'
+set omnifunc=csscomplete#CompleteCSS
+autocmd BufNewFile,BufRead *.scss  set ft=scss.css
 
 " Themes
 Plugin 'chriskempson/base16-vim'
@@ -105,7 +114,6 @@ set guioptions-=r
 set synmaxcol=2048
 set nocursorline
 set nocursorcolumn
-
 
 
 
