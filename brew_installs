@@ -1,5 +1,6 @@
 #!/bin/bash
 
+brew install wget
 #brew install git
 brew install z
 brew install ack
