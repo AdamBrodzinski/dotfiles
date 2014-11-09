@@ -56,6 +56,8 @@ Plugin 'justinmk/vim-sneak'
 Bundle 'pangloss/vim-javascript'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'Slava/vim-spacebars'
+Plugin 'kchmck/vim-coffee-script'
+" CSS/SCSS support
 set omnifunc=csscomplete#CompleteCSS
 autocmd BufNewFile,BufRead *.scss  set ft=scss.css
 
