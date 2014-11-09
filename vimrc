@@ -154,6 +154,10 @@ set ignorecase
 set hls            " search highlighting
 set incsearch      " incrementally match the search
 
+" toggle showing tabs and end of lines"
+nmap <leader>l :set list!<CR>
+set listchars=tab:▸\ ,eol:¬,trail:*   " use pretty tab/line chars
+
 
 " Automatically reload vimrc when it's saved
 augroup VimrcSo
