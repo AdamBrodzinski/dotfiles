@@ -100,6 +100,9 @@ set foldlevel=1         "this is just what i use
 
 " Theme UI Settings
 set background=dark
+" set terminal vim background to none
+highlight Normal ctermbg=NONE
+highlight nonText ctermbg=NONE
 colorscheme base16-ocean
 set guifont=Sauce\ Code\ Powerline\:h14
 set encoding=utf-8
@@ -157,6 +160,7 @@ set incsearch      " incrementally match the search
 let hlstate=0
 nnoremap <space><space> :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=hlstate+1<cr>
 
+set t_Co=256
 
 " toggle showing tabs and end of lines"
 nmap <leader>l :set list!<CR>
