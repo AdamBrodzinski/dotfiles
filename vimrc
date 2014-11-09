@@ -153,6 +153,10 @@ set wrapscan
 set ignorecase
 set hls            " search highlighting
 set incsearch      " incrementally match the search
+" toggle search highlighting
+let hlstate=0
+nnoremap <space><space> :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=hlstate+1<cr>
+
 
 " toggle showing tabs and end of lines"
 nmap <leader>l :set list!<CR>
