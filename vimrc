@@ -25,6 +25,7 @@ let AutoCloseExpandEnterOn = '{'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 map <leader>d :NERDTreeTabsToggle<CR>
+map <leader>b :NERDTreeFromBookmark 
 " If buffer closes before NerdTree, close NerdTree too
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
@@ -49,7 +50,11 @@ nmap <leader>t <Esc>:TernDefPreview<CR>
 " Commenting plugin
 Plugin 'scrooloose/nerdcommenter'
 
+" uses leader s + 2 chars to jump to that area
 Plugin 'justinmk/vim-sneak'
+
+" highlights all whitespace and has StripWhitespace command
+Plugin 'ntpeters/vim-better-whitespace'
 
 
 " Language Support
