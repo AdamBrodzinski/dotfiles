@@ -31,6 +31,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 " Control P - Fuzzy finder like PeepOpen & Sublime
 Plugin 'kien/ctrlp.vim'
+let g:ctrlp_custom_ignore = 'engine\|platforms\|plugins\|node_modules\|DS_Store\|git\|build\|app/tests/acceptance/vendor\|app/tests/acceptance/path_ext'
 
 " HTML scaffolding
 Plugin 'rstacruz/sparkup'
@@ -56,6 +57,9 @@ Plugin 'justinmk/vim-sneak'
 " highlights all whitespace and has StripWhitespace command
 Plugin 'ntpeters/vim-better-whitespace'
 
+" lint with Syntastic
+ Plugin 'scrooloose/syntastic'
+ let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-","<ion-", "</ion-", "template"]
 
 " Language Support
 Bundle 'pangloss/vim-javascript'

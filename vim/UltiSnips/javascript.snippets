@@ -162,6 +162,10 @@ switch($1) {
 
 endsnippet
 
+# ---- JS Hint ----
+snippet glob "Global declaration" b
+/*global $1 */$0
+endsnippet
 
 #--------------------------------------------------------------------------
 #           Typo derived aliases (faster than backspacing)
@@ -239,7 +243,7 @@ describe("$1", function($2) {
 endsnippet
 
 snippet it "It block"
-it("should $1", function(${2:done, sr, cl}) {
+it("$1", function() {
   $0    
 });
 endsnippet
@@ -252,6 +256,9 @@ snippet exte "expect().toEqual"
 expect($1).toEqual($2);$0
 endsnippet
 
+snippet spy "Spy On" !b
+spyOn($1, $2)$0
+endsnippet
 
 # Meteor
 snippet M "Metor"
@@ -259,7 +266,7 @@ Meteor.$0
 endsnippet
 
 snippet coll "New Collection" !b
-$1 = new Meteor.Collection('$2');$0
+db.$1 = new Meteor.Collection('$1');$0
 endsnippet
 
 snippet subs "Subscribe to Collection" !b
@@ -268,7 +275,7 @@ endsnippet
 
 snippet publ "Publish a Collection" !b
 Meteor.publish('$1', function($2) {
-  return ${3:Thing}.find({ $4 }${5:, { $6 }});
+  return db.${3:collname}.find({ $4 }${5:, { $6 }});
 });
 $0
 endsnippet
@@ -302,14 +309,13 @@ endsnippet
 
 snippet form "Meteor Form Event" b
 'submit form': function(e) {
-  var form, data;
   e.preventDefault();
-  form = $(e.target);
+  var form = new ParseForm(e.target);
 
-  data = {
-    ${1:${2:foo}: form.inputVal('$3'),
-    $4}
-  };
+	${1:NAME}Controller.${2:create}({
+    ${3:key}: form.$3,
+		$0
+  });
 }
 endsnippet
 
@@ -371,6 +377,12 @@ snippet check "Check inputs" b
 check($1, $2);$0
 endsnippet
 
+snippet schema "Schema Check" b
+check(data, {
+	${1:key1}: $2,$0
+});
+endsnippet
+
 # ------------------- Mixpanel --------------------
 
 snippet track "Track event" b
@@ -388,4 +400,19 @@ try {
 catch (e) {
   return trackError(e);
 }
+endsnippet
+
+# ---------- ANGULAR ------
+
+snippet sc "$scope"
+$scope.
+endsnippet
+
+snippet service "Angular Service" b
+angular.module('app')
+
+.service('$1', function(){
+  $0
+})
+
 endsnippet

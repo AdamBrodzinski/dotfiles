@@ -1,0 +1,41 @@
+snippet it "RSpec it block" b
+it "$1"${2:, tag('Smoke')} do
+  $0
+end
+endsnippet
+
+snippet desc "Description" !b
+describe "$1" do
+  before(:each) do
+    visit('/')
+  end
+
+  $0
+end
+endsnippet
+
+snippet feature "Feature Block" !b
+feature "$1" do
+  $0
+ end
+endsnippet
+
+snippet context "Context Block" !b
+context "$1" do
+  $0
+end
+endsnippet
+
+snippet scenario "Scenario Block" !b
+scenario "$1" do
+  $0
+end
+endsnippet
+
+snippet before "Before block" !b
+before(:each) do
+  visit root_path
+  $0
+end
+endsnippet
+

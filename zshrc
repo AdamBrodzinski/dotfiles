@@ -11,7 +11,7 @@ COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # ZSH Plugins
-plugins=(osx git npm brew meteor vi-mode)
+plugins=(osx git npm brew meteor history-substring-search vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -19,6 +19,9 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # get Z running
 . `brew --prefix`/etc/profile.d/z.sh
+
+# C Libs
+export LDLIBS=-lcs50
 
 
 # --------------------  Aliases  --------------------
@@ -43,3 +46,10 @@ alias server='open http://localhost:8000 && python -m SimpleHTTPServer'
 
 # Dev version aliases
 alias dmgen='~/projects/meteor-generate/bin/mgen'
+
+# add Android commands to path
+export PATH=${PATH}:~/Development/android-sdk/tools
+export PATH=${PATH}:~/Development/android-sdk/build-tools/19.1.0
+
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
