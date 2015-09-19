@@ -2,12 +2,47 @@ snippet // "Comment"
 <!-- $1 -->$0
 endsnippet
 
+snippet doc "Block Comments" !b
+<!--
+  $1
+-->
+$0
+endsnippet
+
 snippet input "Input Element" b
-<formset class='form-group'>
+<div class='form-group'>
   <label for='$3'>$1</label>
-  <span class='err-msg'></span>
-  <input type='${2:text}' name='$3'$4 data-required='true'>
-</formset>
+  <span for='$3' class='err-msg'></span>
+  <input type='${2:text}' name='$3' class='form-control'
+	  value={{$3}} $4 data-required data-onblur $0>
+</div>
+
+endsnippet
+
+snippet inputc "Input Component"
+{{> input label='$1' name='$2' col='$3' $4}}$0
+endsnippet
+
+snippet select "Select Dropdown" b
+<div class='form-group'>
+  <label for='$2'>$1</label>
+  <span for='$2' class='err-msg'></span>
+
+	<select class="form-control" name='$2' data-required data-onblur>
+		<option value="" disabled selected>Select your Organization</option>
+		<option>Foo</option>
+		<option>Bar</option>
+	</select>
+</div>
+$0
+endsnippet
+
+snippet text "Textarea Element" b
+<div class='form-group'>
+  <label for='$3'>$1</label>
+  <span for='$3' class='err-msg'></span>
+  <textarea name='$3' class='form-control' $4 data-required data-onblur></textarea>
+</div>
 
 endsnippet
 
@@ -22,7 +57,7 @@ snippet tmpl "Underscore Inline Template"
 endsnippet
 
 snippet form "Basic Form" b
-<form id='$1'>
+<form id='$1' class='validate'>
   $0
 
   <span class="general-err"></span>
@@ -50,8 +85,8 @@ endsnippet
 snippet style "style"
 <style type="text/css">
     $0
-</style> 
-endsnippet   
+</style>
+endsnippet
 
 snippet il "inline style" w
 style="$0"
@@ -80,7 +115,7 @@ snippet html "html" w
 </html>
 endsnippet
 
-snippet script "js script" 
+snippet script "js script"
 <script type="text/javascript"${1: src="$2"}>$3</script>$0
 endsnippet
 
@@ -208,7 +243,7 @@ endsnippet
 snippet if "If block"
 {{#if $1 }}
   $0
-{{/if}}    
+{{/if}}
 endsnippet
 
 snippet ifelse "If else block"
@@ -216,7 +251,7 @@ snippet ifelse "If else block"
   $2
 {{else}}
   $0
-{{/if}}    
+{{/if}}
 endsnippet
 
 snippet temp "Handlebars/Meteor Template"
@@ -245,4 +280,12 @@ endsnippet
 
 snippet lorem "Lorem Ipsum" w
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+endsnippet
+
+snippet < "bracket escaped" w
+&lt;
+endsnippet
+
+snippet > "bracket escapted" w
+&gt;
 endsnippet

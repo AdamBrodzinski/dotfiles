@@ -18,23 +18,25 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 nmap <silent> <leader>es :UltiSnipsEdit<CR>
 
 " Auto close brackets/parens
-Plugin 'AutoClose'
-let AutoCloseExpandEnterOn = '{'
+Plugin 'jiangmiao/auto-pairs'
 
 " NerdTree file finder tray
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 map <leader>d :NERDTreeTabsToggle<CR>
-map <leader>b :NERDTreeFromBookmark 
+map <leader>b :NERDTreeFromBookmark
 " If buffer closes before NerdTree, close NerdTree too
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " Control P - Fuzzy finder like PeepOpen & Sublime
 Plugin 'kien/ctrlp.vim'
-let g:ctrlp_custom_ignore = 'engine\|platforms\|plugins\|node_modules\|DS_Store\|git\|build\|app/tests/acceptance/vendor\|app/tests/acceptance/path_ext'
+let g:ctrlp_custom_ignore = 'engine\|platforms\|plugins\|node_modules\|DS_Store\|git\|build\|app/tests/acceptance/vendor\|app/tests/acceptance/path_ext/tests/karma/node_modules'
+nmap <leader>p <C-p>
 
 " HTML scaffolding
-Plugin 'rstacruz/sparkup'
+Plugin 'mattn/emmet-vim'
+let g:user_emmet_jsx = 1
+let g:user_emmet_leader_key='<C-e>'
 
 " Statusline
 Plugin 'bling/vim-airline'
@@ -43,10 +45,8 @@ set laststatus=2    " always show airline
 
 " Badass JS completion/refs/defs
 Plugin 'marijnh/tern_for_vim'
-let g:tern_show_argument_hints='on_hold'
 " close tern preview window with `Esc`
 nmap <Esc> <Esc>:pc<CR>
-nmap <leader>t <Esc>:TernDefPreview<CR>
 
 " Commenting plugin
 Plugin 'scrooloose/nerdcommenter'
@@ -58,20 +58,37 @@ Plugin 'justinmk/vim-sneak'
 Plugin 'ntpeters/vim-better-whitespace'
 
 " lint with Syntastic
- Plugin 'scrooloose/syntastic'
- let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-","<ion-", "</ion-", "template"]
+Plugin 'scrooloose/syntastic'
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-","<ion-", "</ion-", "template"]
+let g:syntastic_javascript_checkers = ['eslint']
+
+
+" run RSpec from vim
+Plugin 'thoughtbot/vim-rspec'
+map <Leader>rc :call RunCurrentSpecFile()<CR>
+map <Leader>rs :call RunNearestSpec()<CR>
+map <Leader>rl :call RunLastSpec()<CR>
+map <Leader>ra :call RunAllSpecs()<CR>
 
 " Language Support
 Bundle 'pangloss/vim-javascript'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'Slava/vim-spacebars'
 Plugin 'kchmck/vim-coffee-script'
-" CSS/SCSS support
+Plugin 'mxw/vim-jsx'
+Plugin 'lambdatoast/elm.vim'
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+" highlight JSON like files
+au BufRead,BufNewFile .{eslintrc,babelrc} setf json
+" enable Sass
 set omnifunc=csscomplete#CompleteCSS
 autocmd BufNewFile,BufRead *.scss  set ft=scss.css
 
 " Themes
 Plugin 'chriskempson/base16-vim'
+Plugin 'vim-scripts/pyte'
+Bundle "Slava/vim-colors-tomorrow"
+Plugin 'yosiat/oceanic-next-vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -101,10 +118,10 @@ map <F6> :setlocal spell! spelllang=en_us<CR>
 
 " code folding
 map <leader>f za
-set foldmethod=indent   "fold based on indent
+set foldmethod=syntax   "fold based on syntax
 set foldnestmax=10      "deepest fold is 10 levels
 set nofoldenable        "dont fold by default
-set foldlevel=1         "this is just what i use
+set foldlevel=3         "this is just what i use
 
 
 " Theme UI Settings
@@ -112,10 +129,20 @@ set background=dark
 " set terminal vim background to none
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
-colorscheme base16-ocean
+set t_Co=256
+let g:tomorrow_termcolors = 256
+let g:tomorrow_termtrans = 0 " set to 1 if using transparant background
+let g:tomorrow_diffmode = "high"
+try
+  colorscheme tomorrow
+  "colorscheme base16-ocean
+catch
+    " we don't have this theme or it throws
+endtry
+
 set guifont=Sauce\ Code\ Powerline\:h14
 set encoding=utf-8
-set linespace=2
+set linespace=4
 set mousehide
 set guioptions-=T
 set scrolloff=8
@@ -133,11 +160,6 @@ set nocursorcolumn
 
 " window tabs
 if has("gui_macvim")
-  " Press Ctrl-Tab to switch between open tabs (like browser tabs) to
-  " the right side. Ctrl-Shift-Tab goes the other way.
-  noremap <C-Tab> :tabnext<CR>
-  noremap <C-S-Tab> :tabprev<CR>
-
   " Switch to specific tab numbers with Command-number
   noremap <D-1> :tabn 1<CR>
   noremap <D-2> :tabn 2<CR>
@@ -171,10 +193,6 @@ nnoremap <space><space> :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsear
 
 set t_Co=256
 
-" toggle showing tabs and end of lines"
-nmap <leader>l :set list!<CR>
-set listchars=tab:▸\ ,eol:¬,trail:*   " use pretty tab/line chars
-
 
 " Automatically reload vimrc when it's saved
 augroup VimrcSo
@@ -183,4 +201,3 @@ augroup VimrcSo
 augroup END
 " Edit vimrc file
 nmap <leader>ev <Esc> :tabe ~/.vimrc<CR>
-

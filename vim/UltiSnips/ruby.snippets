@@ -1,3 +1,7 @@
+snippet ex "Exprect"
+expect(${1:page}).to $0
+endsnippet
+
 snippet it "RSpec it block" b
 it "$1"${2:, tag('Smoke')} do
   $0
@@ -26,7 +30,7 @@ context "$1" do
 end
 endsnippet
 
-snippet scenario "Scenario Block" !b
+snippet scen "Scenario Block" !b
 scenario "$1" do
   $0
 end
@@ -39,3 +43,10 @@ before(:each) do
 end
 endsnippet
 
+snippet cont "should have content" b
+expect(page).to have_content("$1")$0
+endsnippet
+
+snippet fill "Fill in input" b
+fill_in '$1', with: '$2'$0
+endsnippet

@@ -2,12 +2,23 @@
 #                          Vanilla... ice ice baby
 #--------------------------------------------------------------------------
 
+snippet ar "dunder ar"
+if (!Array.prototype.__$1) {
+	Array.prototype.__$1 = function($2) {
+		return _.$1(this, $2);
+	};
+}
+
+$0
+endsnippet
+
+
 snippet log "log package" w
-console.log("$1"${2:, $3});$0
+log("$1"${2:, $3});$0
 endsnippet
 
 snippet bug "console debug" w
-console.debug('$1');$0
+log.debug('$1');$0
 endsnippet
 
 snippet warn "console warning" w
@@ -79,10 +90,9 @@ $1.forEach(function($2) {
 endsnippet
 
 snippet def "Object Method" !b
-${1:myMethod}: function($3) {
+${1:myMethod}($3) {
 	$0
-}${4:,
-}
+}${4:,}
 endsnippet
 
 # last method in obj
@@ -104,9 +114,17 @@ snippet :: "Prototype" w
 .prototype.
 endsnippet
 
-snippet class "Description"
-function ${1:Name}($2) {
-  $0
+snippet class "ES6 Class"
+class $1 ${2:extends ${3:React.Component}} {
+	constructor() {
+	}
+}
+endsnippet
+
+snippet cons "Class Constructor"
+constructor(props) {
+  super(props);
+	this.state = {};
 }
 endsnippet
 
@@ -114,17 +132,12 @@ snippet super "Call Super Method"
 ${1:Foo}.call(this, ${2:args});$0
 endsnippet
 
-snippet doc "Method Documentation" b
-// ${1:Public:} ${2:Description here}${3:
-// 
-// Examples:
-//
-// ${4:Foo}}
-//
-// ${5:param} - The {${6:type}} ${7: params description}
-//
-// Returns
-//
+snippet doc "JS Doc Bock" b
+/**
+ * ${1:Description here}
+ *
+ * @param ${2:{TYPE}} - ${3: params description}
+ */
 endsnippet
 
 # DOM
@@ -164,7 +177,7 @@ endsnippet
 
 # ---- JS Hint ----
 snippet glob "Global declaration" b
-/*global $1 */$0
+/* global $1 */$0
 endsnippet
 
 #--------------------------------------------------------------------------
@@ -185,7 +198,23 @@ endsnippet
 #--------------------------------------------------------------------------
 
 snippet req "CommonJS Require" w
-var ${1:foo} = require('${2:$1}');$0
+var ${1:foo} = require('${2:./}$1');$0
+endsnippet
+
+snippet imp "ES6 Require" w
+import ${1:FOO} from '${2:.$3/}$1';$0
+endsnippet
+
+snippet impage "import page" b
+import ${1:Foo} from 'pages/$1';
+endsnippet
+
+snippet imcomp "import component" b
+import ${1:Foo} from 'components/$1';
+endsnippet
+
+snippet immodel "import model" b
+import ${1:Foo} from 'model/$1';
 endsnippet
 
 snippet define "Define an AMD Module" w
@@ -243,17 +272,32 @@ describe("$1", function($2) {
 endsnippet
 
 snippet it "It block"
-it("$1", function() {
+it("$1", () => {
   $0    
 });
+endsnippet
+
+snippet bef "Before Each" b
+beforeEach(function($1){
+  $2
+});
+
 endsnippet
 
 snippet ex "Expect"
 expect($1).$0;
 endsnippet
 
+snippet tobe "toBe" b
+expect($1).toBe($2);$0
+endsnippet
+
 snippet exte "expect().toEqual"
 expect($1).toEqual($2);$0
+endsnippet
+
+snippet beencalled "been called"
+expect($1).toHaveBeenCalled();
 endsnippet
 
 snippet spy "Spy On" !b
@@ -281,18 +325,11 @@ $0
 endsnippet
 
 snippet latency "Simulate Latency in Dev" !b
-if (! this.isSimulation) {
-  var Future = Npm.require('fibers/future');
-  var future = new Future();
-  Meteor.setTimeout(function() {
-      future.return();
-      }, 3 * 1000);
-  future.wait();
-}
+Meteor._sleepForMs($1);$0
 endsnippet
 
 snippet autorun "Meteor Autorun Callback"
-Deps.autorun(function() {
+Tracker.autorun(function() {
   $0
 });
 
@@ -307,10 +344,18 @@ Template.${1:tmplName}.events({
 });
 endsnippet
 
+snippet created "onCreated callback"
+Template.${1:tmplName}.onCreated(() => {
+
+});
+
+endsnippet
+
 snippet form "Meteor Form Event" b
 'submit form': function(e) {
   e.preventDefault();
   var form = new ParseForm(e.target);
+	var isValid = ValidateForm.validate(e.target);
 
 	${1:NAME}Controller.${2:create}({
     ${3:key}: form.$3,
@@ -319,11 +364,17 @@ snippet form "Meteor Form Event" b
 }
 endsnippet
 
-snippet help "Template Helper" !b
+snippet helpers "Template Helper" !b
 Template.${1:tmplName}.helpers({
   ${2:name}: function($3) {
     return $0;
   }
+});
+endsnippet
+
+snippet ghelper "Global Template Helper" !b
+Blaze.registerHelper('$1', function () {
+  return $0;
 });
 endsnippet
 
@@ -358,7 +409,7 @@ if (${1:!user}) throw new Meteor.error(${2:401}, "${3:You need to login to upvot
 endsnippet
 
 snippet tre "trackError call"
-trackError(err);
+trackError(err, {showError: true});
 endsnippet
 
 snippet sset "Set session var"
@@ -416,3 +467,399 @@ angular.module('app')
 })
 
 endsnippet
+
+# ------- React Native --------
+snippet view "View"
+<View${1: style={styles.${2:}}}>
+	$0
+</View>
+endsnippet
+
+snippet text "Text" b
+<Text${1: style={styles.${2:}}}>$0</Text>
+endsnippet
+
+snippet style "inline style"
+style={styles.${1:someProp}}$0
+endsnippet
+
+snippet styles "Style Def" !b
+var styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    //flexDirection: 'column',
+  }
+});
+endsnippet
+
+snippet tag "XML Tag"
+<$1>$2</$1>
+endsnippet
+
+snippet tagc "XML Self Closing"
+<${1:TagName} />
+endsnippet
+
+snippet tagb "XML Tag Block"
+<$1>
+  $2
+</$1>
+endsnippet
+
+snippet comp "Component" !b
+<${1:compName}
+    style={styles.$2}
+		${3:attr}
+  />
+
+endsnippet
+
+snippet compb "Component Block" b
+<$1>
+  $0
+</$1>
+endsnippet
+
+snippet comps "Self closing Component" !b
+<${1:compName} />
+endsnippet
+
+snippet render "react render" !b
+render() {
+  return (
+		<View style={styles.container}>
+	    $0
+		</View>
+	);
+}
+endsnippet
+
+
+snippet react "React Comp"
+import React from 'react';
+let styles;
+
+class $1 extends React.Component {
+  render() {
+    return (
+      <div className="$1" style={styles.container}>
+			  $1
+      </div>
+    );
+  }
+}
+
+styles = {
+  container: {
+    flex: 1,
+  },
+
+};
+
+export default $1;
+endsnippet
+
+
+
+snippet reactn "React Comp"
+import React from 'react-native';
+var Colors = require('../../Styles/Colors');
+var Fonts = require('../../Styles/Fonts');
+let styles;
+const {
+  Text,
+  View,
+  StyleSheet,
+} = React;
+
+
+class $1 extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+     		<Text>Hello $1</Text>$0
+      </View>
+    );
+  }
+}
+
+styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
+
+export default $1;
+endsnippet
+
+
+snippet container "React Comp"
+import React from 'react-native';
+import connectToStores from 'alt/utils/connectToStores';
+
+
+@connectToStores
+class ${1:Foo}Container extends React.Component {
+  static getStores() {
+    return [${2:Bar}Store];
+  }
+
+  static getPropsFromStores() {
+    return $2Store.getState();
+  }
+
+  render() {
+    return (
+      <View style={{flex:1}}>
+			  <$1 />
+      </View>
+    );
+  }
+}
+
+module.exports = $1;
+endsnippet
+
+
+snippet reactm "React Web for Meteor" b
+/* jshint maxlen: false */
+
+Comps.${1:Foo} = React.createClass({
+  render() {
+    return (
+      <div className='$1'>
+        $0
+      </div>
+    );
+  }
+});
+
+endsnippet
+
+
+
+snippet exdef "Description" !b
+
+export default $1;$0
+endsnippet
+
+snippet div "JSX div" b
+<div className="$1">
+  $0
+</div>
+endsnippet
+
+snippet p "paragraph tag JSX"
+<p>$1</p>$0
+endsnippet
+
+snippet a "JSX link" b
+<a href="$1">$2</a>$0
+endsnippet
+
+snippet ob "Object" b
+$1: {
+	$0
+},
+endsnippet
+
+snippet key "Object Key" b
+$1: $0,
+endsnippet
+
+snippet reactunit "React Unit Test" !b
+/*global $1, renderComponent */
+
+describe("$1 Component", function() {
+  var defProps, renderWithProps, component, el, $el;
+
+  beforeEach(() => {
+    defProps = {
+      label: 'Check me',
+    };
+
+    renderWithProps = function(props) {
+      component = renderComponent($1, props);
+      el = React.findDOMNode(component);
+      $el = $(el);
+    };
+		renderWithProps(defProps);
+  });
+
+  it("should be mounted in DOM", () => {
+    expect($el.length).toEqual(1);
+  });
+});
+endsnippet
+
+snippet ss "Set React State"
+this.setState({$1: $2});$0
+endsnippet
+
+snippet didmount "ComponentDidMount" !b
+componentDidMount() {
+	$0
+}
+endsnippet
+
+snippet didunmount "ComponentDidUnmount" !b
+componentDidUnmount() {
+	$0
+}
+endsnippet
+
+snippet initialstate "getInitialState" !b
+getInitialState() {
+	return {
+		$0
+	};
+},
+
+endsnippet
+
+snippet cosmicaction "Meteor Actions" b
+/*global $1Actions:true */
+
+$1Actions = {
+  $0
+};
+endsnippet
+
+snippet action "Alt Action" b
+const $1Actions = alt.generateActions(
+  "${2:toggleFoo}",
+);
+
+module.exports = $1Actions;
+
+class ${1:Foo}Actions {
+  $2() {
+    this.dispatch();
+  }
+}
+
+module.exports = alt.createActions($1Actions);
+endsnippet
+
+snippet store "Alt Store" b
+import $1Actions from '../Actions/$1Actions';
+
+class ${1:Foo}Store {
+  constructor() {
+    this.bindActions($1Actions);
+  }
+
+  on${2:Bar}() {
+  }
+}
+
+export default alt.createStore($1Store, '$1Store');
+endsnippet
+
+snippet reqaction "Require Action" b
+import $1Actions from '${2:../../}Actions/$1Actions';
+endsnippet
+
+snippet reqstore "Require Store" b
+import $1Store from '${2:../../}Stores/$1Store';
+endsnippet
+
+snippet proptypes "PropTypes" b
+propTypes: {
+  ${1:key}: React.PropTypes.$2,$0
+},
+endsnippet
+
+snippet sproptypes "PropTypes" b
+static propTypes = {
+  ${1:key}: React.PropTypes.$2,$0
+};
+endsnippet
+
+snippet css "CSS Block" b
+$1: {
+  $2: $3,$0
+},
+endsnippet
+
+snippet async "Async Wrapper" b
+(async () => {
+var $1 = await $2;
+})()
+
+endsnippet
+
+snippet li "HTML LI" b
+<li>$1</li>
+endsnippet
+
+snippet getstate "getInitialState" b
+getInitialState(){
+	return {
+		$1
+	};
+},$0
+endsnippet
+
+snippet br "JSX linebreak"
+<br />$0
+endsnippet
+
+snippet row "JSX Row" b
+<Row>
+  $0
+</Row>
+endsnippet
+
+snippet column "JSX Column" b
+<Column width='${1:12}'>
+  $0
+</Column>
+endsnippet
+
+snippet generator "yo generator"
+var generators = require('yeoman-generator');
+
+module.exports = generators.Base.extend({
+  constructor: function constr() {
+    generators.Base.apply(this, arguments);
+
+    this.option('coffee');
+  },
+
+  hello: function hello() {
+    this.log('component test');
+  },
+});
+endsnippet
+snippet meth "es3 method"
+$1: function $1() {
+  $0
+},
+endsnippet
+
+snippet gfun "global function" !b
+${1:foo} = function $1($2) {
+  $0
+}
+endsnippet
+
+snippet raction "Redux action" !b
+${1:foo} = function $1(payload) {
+	return {
+		type: $2,
+		payload: $0
+	};
+}
+endsnippet
+
+snippet shouldupdate "React lifecycle" b
+shouldComponentUpdate() {
+	return true
+},
+endsnippet
+
+snippet react "import React" b
+import React from 'react';$0
+endsnippet
+
