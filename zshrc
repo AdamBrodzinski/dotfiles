@@ -11,7 +11,7 @@ COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # ZSH Plugins
-plugins=(osx git npm brew meteor vi-mode history-substring-search)
+plugins=(osx git vi-mode npm brew meteor history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -46,9 +46,12 @@ alias cleardns='dscacheutil -flushcache'
 # startup a Python server
 alias server='open http://localhost:8000 && python -m SimpleHTTPServer'
 alias met='./met'
+alias rethink='cd ~ && rethinkdb'
 
-# Dev version aliases
 alias dmgen='~/projects/meteor-generate/bin/mgen'
+alias red='~/projects/RedScript/bin/redscript'
+alias run='./run'
+
 
 # ----------------- Exports -----------------
 
@@ -70,5 +73,10 @@ export ANDROID_HOME=/usr/local/opt/android-sdk
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-export NVM_DIR="/Users/adam/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+#export NVM_DIR="/Users/adam/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
+
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin

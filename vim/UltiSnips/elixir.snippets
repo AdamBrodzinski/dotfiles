@@ -1,0 +1,43 @@
+snippet doc "Document block" b
+@doc """
+$0
+"""
+endsnippet
+
+snippet moddoc "Module document block" b
+@moduledoc """
+$0
+"""
+endsnippet
+
+snippet def "define function" b
+def $1 do
+  $0
+end
+endsnippet
+
+snippet defp "define private function" b
+def $1 do
+  $0
+end
+endsnippet
+
+snippet defmod "define module" b
+defmodule $1 do
+	$0
+end
+endsnippet
+
+snippet test "test block" !b
+test "$1" do
+  assert $0
+end
+endsnippet
+
+snippet puts "puts" b
+IO.puts "$0"
+endsnippet
+
+snippet ins "inspect" b
+IO.inspect $0
+endsnippet

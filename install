@@ -6,13 +6,13 @@ ln -s ~/Dotfiles/ackrc ~/.ackrc
 ln -s ~/Dotfiles/gitconfig ~/.gitconfig
 ln -s ~/Dotfiles/githelpers ~/.githelpers
 ln -s ~/Dotfiles/gitignore_global ~/.gitignore_global
-ln -s ~/Dotfiles/jshintrc ~/.jshintrc
 ln -s ~/Dotfiles/vim ~/.vim
 ln -s ~/Dotfiles/vimrc ~/.vimrc
 ln -s ~/Dotfiles/zshrc ~/.zshrc
+ln -s ~/Dotfiles/npmrc ~/.npmrc
 
 # install Vundle plugin manageer
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+#git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 while true; do
     read -p "Would you like to run NPM install script? " yn

@@ -1,19 +1,4 @@
 #!/bin/bash
 
-# build tools
-sudo npm install coffee-script -g
-sudo npm install jshint -g
-sudo npm install bower -g
-
-# Meteor packages
-sudo npm install meteor-generate -g
-sudo npm install meteorite -g
-sudo npm install ddp-analyzer -g
-
-# Testing packages
-sudo npm install mocha -g
-sudo npm install chai -g
+sudo npm install eslint -g
 sudo npm install phantomjs -g
-
-#sudo npm install -g cordova
-

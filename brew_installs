@@ -1,10 +1,14 @@
 #!/bin/bash
 
 brew install wget
-#brew install git
 brew install z
 brew install ack
 brew install tree
-brew install ctags
-brew install node
-
+brew install git
+brew install nvm
+echo "Set default nvm with:\n  nvm alias default 5.0"
+brew install npm
+brew install trash
+brew install elixir
+brew install rethinkdb
+brew install mongodb

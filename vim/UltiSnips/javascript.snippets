@@ -266,7 +266,7 @@ endsnippet
 #--- TDD BDD -----
 
 snippet desc "Describe Block"
-describe("$1", function($2) {
+describe("$1", ($2) => {
   $0
 });
 endsnippet
@@ -278,7 +278,7 @@ it("$1", () => {
 endsnippet
 
 snippet bef "Before Each" b
-beforeEach(function($1){
+beforeEach(($1) => {
   $2
 });
 
@@ -536,26 +536,19 @@ endsnippet
 
 
 snippet react "React Comp"
-import React from 'react';
-let styles;
+import {React, View, connect, dispatch, pushState, Link} from 'view';
 
-class $1 extends React.Component {
-  render() {
-    return (
-      <div className="$1" style={styles.container}>
-			  $1
-      </div>
-    );
-  }
-}
+const ${1:CompName} = (props) => (
+  <View>
+	  $0
+  </View>
+);
 
-styles = {
+const styles = {
   container: {
     flex: 1,
   },
-
 };
-
 export default $1;
 endsnippet
 
@@ -622,9 +615,7 @@ endsnippet
 
 
 snippet reactm "React Web for Meteor" b
-/* jshint maxlen: false */
-
-Comps.${1:Foo} = React.createClass({
+const ${1:Foo} = React.createClass({
   render() {
     return (
       <div className='$1'>
@@ -634,6 +625,7 @@ Comps.${1:Foo} = React.createClass({
   }
 });
 
+Comps.$1 = $1;
 endsnippet
 
 
@@ -859,7 +851,66 @@ shouldComponentUpdate() {
 },
 endsnippet
 
-snippet react "import React" b
+snippet willmount "React lifecycle" b
+componentWillMount() {
+  $0
+},
+endsnippet
+
+snippet imp:react "import React" b
 import React from 'react';$0
 endsnippet
 
+snippet importform "Form widgets" !b
+import FormRow from 'components/Form/FormRow';
+import Checkbox from 'components/Form/Checkbox';
+import Input from 'components/Form/Input';
+import {RadioYesNo} from 'components/Form/Radio';
+import Select from 'components/Form/Select';$0
+endsnippet
+
+snippet connect "Redux Connect"
+function mapStateToProps(state) {
+  return {${2:compKey}: state.${3:storeKey} };
+}
+Comps.${1:CompName} = connect(mapStateToProps)($1);
+endsnippet
+
+snippet action "Description" !b
+
+/* global PropertyActions:true */
+const A = {};
+
+// userDoc: Object logged in user's document
+A.viewerChanged = function viewerChanged(userDoc) {
+  return {
+    type: 'VIEWER_CHANGED',
+    payload: userDoc,
+  };
+};
+
+PropertyActions = A;
+endsnippet
+
+snippet stateless "Stateless Comp" b
+/* @flow */
+import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router';
+import View from 'components/View';
+let styles;
+
+const ${1:CompName} = (props) => (
+  <View>
+	  $0
+  </View>
+);
+export default $1;
+//export default connect(s => ({foo: s.foo}))($1);
+
+styles = {
+  container: {
+    height: '100%',
+  }
+};
+endsnippet

@@ -23,6 +23,7 @@ Plugin 'jiangmiao/auto-pairs'
 " NerdTree file finder tray
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
+let g:NERDTreeIgnore=['node_modules$[[dir]]', 'build$[[dir]]', '_build$[[dir]]', 'deps$[[dir]]']
 map <leader>d :NERDTreeTabsToggle<CR>
 map <leader>b :NERDTreeFromBookmark
 " If buffer closes before NerdTree, close NerdTree too
@@ -30,7 +31,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 " Control P - Fuzzy finder like PeepOpen & Sublime
 Plugin 'kien/ctrlp.vim'
-let g:ctrlp_custom_ignore = 'engine\|platforms\|plugins\|node_modules\|DS_Store\|git\|build\|app/tests/acceptance/vendor\|app/tests/acceptance/path_ext/tests/karma/node_modules'
+let g:ctrlp_custom_ignore = 'build\|client/tests/acceptance/path_ext\|_build\|deps\|engine\|platforms\|plugins\|node_modules\|DS_Store\|git\|build\|app/tests/acceptance/vendor\|app/tests/acceptance/path_ext/tests/karma/node_modules'
 nmap <leader>p <C-p>
 
 " HTML scaffolding
@@ -42,11 +43,6 @@ let g:user_emmet_leader_key='<C-e>'
 Plugin 'bling/vim-airline'
 let g:airline_powerline_fonts = 1
 set laststatus=2    " always show airline
-
-" Badass JS completion/refs/defs
-Plugin 'marijnh/tern_for_vim'
-" close tern preview window with `Esc`
-nmap <Esc> <Esc>:pc<CR>
 
 " Commenting plugin
 Plugin 'scrooloose/nerdcommenter'
@@ -61,6 +57,8 @@ Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'scrooloose/syntastic'
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-","<ion-", "</ion-", "template"]
 let g:syntastic_javascript_checkers = ['eslint']
+autocmd VimEnter * SyntasticToggleMode " disable syntastic by default
+map <Leader>l :call SyntasticCheck()<CR>
 
 
 " run RSpec from vim
@@ -77,12 +75,14 @@ Bundle 'Slava/vim-spacebars'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'mxw/vim-jsx'
 Plugin 'lambdatoast/elm.vim'
+Plugin 'elixir-lang/vim-elixir'
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 " highlight JSON like files
 au BufRead,BufNewFile .{eslintrc,babelrc} setf json
 " enable Sass
 set omnifunc=csscomplete#CompleteCSS
 autocmd BufNewFile,BufRead *.scss  set ft=scss.css
+au BufReadPost *.rs set ft=elixir
 
 " Themes
 Plugin 'chriskempson/base16-vim'
