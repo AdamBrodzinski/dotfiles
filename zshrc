@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -66,9 +68,9 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export LDLIBS=-lcs50
 
 # add Android commands to path
-export PATH=${PATH}:~/Development/android-sdk/tools
-export PATH=${PATH}:~/Development/android-sdk/build-tools/19.1.0
-export ANDROID_HOME=/usr/local/opt/android-sdk
+#export PATH=${PATH}:~/Development/android-sdk/tools
+#export PATH=${PATH}:~/Development/android-sdk/build-tools/19.1.0
+#export ANDROID_HOME=/usr/local/opt/android-sdk
 
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
@@ -80,3 +82,8 @@ source $(brew --prefix nvm)/nvm.sh
 
 
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
+
+#export ANDROID_HOME=/usr/local/opt/android-sdk
+export ANDROID_HOME=~/Android/sdk
+export PATH=$PATH:~/Library/Android/sdk/platform-tools
+export PATH=$PATH:~/Library/Android/sdk/tools

@@ -914,3 +914,26 @@ styles = {
   }
 };
 endsnippet
+
+snippet reducer "Redux reducer" b
+const initialState = {
+  bar: 0,
+};
+
+export default function ${1:reducerName}(state = initialState, action) {
+  switch (action.type) {
+
+  case '${2:FOO}':
+    return {...state,
+      bar: action.content};
+
+  default:
+    return state;
+  }
+};
+endsnippet
+
+snippet fill "Description" !b
+fillIn({name: $1}, $2)
+
+endsnippet
