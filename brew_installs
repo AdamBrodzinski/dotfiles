@@ -6,9 +6,12 @@ brew install ack
 brew install tree
 brew install git
 brew install nvm
-echo "Set default nvm with:\n  nvm alias default 5.0"
 brew install npm
 brew install trash
 brew install elixir
 brew install rethinkdb
 brew install mongodb
+brew install macvim
+brew install emacs
+
+echo "Set default nvm with:\n  nvm alias default 5.0"
