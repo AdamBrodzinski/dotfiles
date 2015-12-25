@@ -1,4 +1,4 @@
-# ------------------------ Command Line Utils ---------------------
+# ------------------------ Software  ----------------------
 # iTerm2
 http://www.iterm2.com/#/section/home
 https://github.com/mbadolato/iTerm2-Color-Schemes
@@ -9,20 +9,15 @@ ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)
 # Oh my zsh
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 
-
-# ------------------------ Software  ---------------------
-# NodeJS
-http://nodejs.org/
-
 # Meteor JS
 curl https://install.meteor.com | /bin/sh
 
 # Compass Sass
-sudo gem install compass
+sudo gem install heroku
 
 # PC Keyboard Hack / KeyRemap4Macbook
-https://pqrs.org/macosx/keyremap4macbook/pckeyboardhack.html.en
-https://pqrs.org/macosx/keyremap4macbook/index.html.en
+https://pqrs.org/osx/karabiner/seil.html.en
+https://pqrs.org/osx/karabiner/index.html.en
 
 
 # ------------------------ User Interface ---------------------
@@ -32,6 +27,3 @@ http://www.alfredapp.com/
 
 # TotalSpaces - remove annoying fullscreen app sliding
 http://totalspaces.binaryage.com/
-
-
-
