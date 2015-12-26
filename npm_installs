@@ -1,4 +1,5 @@
 #!/bin/bash
 
 sudo npm install eslint -g
-sudo npm install phantomjs -g
+sudo npm install sass -g
+sudo npm install chimp -g
