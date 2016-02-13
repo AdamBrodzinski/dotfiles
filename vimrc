@@ -140,7 +140,7 @@ catch
     " we don't have this theme or it throws
 endtry
 
-set guifont=Sauce\ Code\ Powerline\:h14
+set guifont=Sauce\ Code\ Powerline\:h15
 set encoding=utf-8
 set linespace=4
 set mousehide

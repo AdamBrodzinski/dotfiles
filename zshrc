@@ -49,10 +49,12 @@ alias cleardns='dscacheutil -flushcache'
 alias server='open http://localhost:8000 && python -m SimpleHTTPServer'
 alias met='./met'
 alias rethink='cd ~ && rethinkdb'
+alias rn=react-native
 
 alias dmgen='~/projects/meteor-generate/bin/mgen'
 alias red='~/projects/RedScript/bin/redscript'
 alias run='./run'
+alias l='clear && ls -la'
 
 
 # ----------------- Exports -----------------
@@ -83,7 +85,6 @@ source $(brew --prefix nvm)/nvm.sh
 
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
 
-#export ANDROID_HOME=/usr/local/opt/android-sdk
-export ANDROID_HOME=~/Android/sdk
+export ANDROID_HOME=~/Library/Android/sdk
 export PATH=$PATH:~/Library/Android/sdk/platform-tools
 export PATH=$PATH:~/Library/Android/sdk/tools
