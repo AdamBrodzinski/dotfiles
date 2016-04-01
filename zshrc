@@ -30,6 +30,7 @@ bindkey '\e[B' history-beginning-search-forward
 
 # Use macvim in the terminal
 alias vim='mvim -v'
+alias mivm='mvim'
 
 # ZSH
 alias ezsh="vim ~/.zshrc"
