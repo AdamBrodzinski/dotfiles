@@ -3,3 +3,4 @@
 sudo npm install eslint -g
 sudo npm install sass -g
 sudo npm install chimp -g
+sudo npm install react-native -g
