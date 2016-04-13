@@ -307,19 +307,38 @@
 	<string></string>
 	<key>NSScrollAnimationEnabled</key>
 	<false/>
+	<key>NSScrollViewShouldScrollUnderTitlebar</key>
+	<false/>
+	<key>NSTableView Columns KeyBingingTable</key>
+	<array>
+		<data>
+		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
+		hAErATCG
+		</data>
+		<string>198</string>
+		<data>
+		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
+		hAErATGG
+		</data>
+		<string>322</string>
+	</array>
+	<key>NSTableView Hidden Columns KeyBingingTable</key>
+	<array/>
+	<key>NSTableView Sort Ordering KeyBingingTable</key>
+	<array/>
 	<key>NSToolbar Configuration com.apple.NSColorPanel</key>
 	<dict>
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame Preferences</key>
-	<string>1188 365 924 485 0 0 2560 1417 </string>
+	<string>269 139 924 485 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>-818 26 818 1391 -2560 0 2560 1417 </string>
+	<string>630 20 650 757 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>192 387 946 842 0 0 2560 1417 </string>
+	<string>517 105 714 672 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>419 143 650 451 0 0 2560 1417 </string>
+	<string>173 27 570 451 0 0 1280 777 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1801,10 +1820,14 @@
 			<string>/Users/adam</string>
 		</dict>
 	</array>
+	<key>NoSyncHaveShownPromoWithId_4</key>
+	<true/>
+	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
+	<real>477532606.97708201</real>
 	<key>NoSyncTimeOfLastPromo</key>
-	<real>471917325.60821998</real>
+	<real>477527046.209418</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>472093222.12053901</real>
+	<real>481620055.72156399</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -1862,12 +1885,14 @@
 	<integer>3</integer>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
+	<key>SUFeedAlternateAppNameKey</key>
+	<string>iTerm</string>
 	<key>SUFeedURL</key>
 	<string>https://iterm2.com/appcasts/testing.xml</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-12-18T00:08:22Z</date>
+	<date>2016-04-06T07:19:55Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -1897,7 +1922,7 @@
 	<key>UseCompactLabel</key>
 	<true/>
 	<key>UseLionStyleFullscreen</key>
-	<true/>
+	<false/>
 	<key>Window Arrangements</key>
 	<dict>
 		<key>Badger</key>
