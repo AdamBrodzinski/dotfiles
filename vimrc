@@ -10,7 +10,7 @@ Plugin 'gmarik/Vundle.vim'
 " ----------------  Start Plugins  ----------------
 
 " Snippet Manager
-Plugin 'SirVer/ultisnips'
+"Plugin 'SirVer/ultisnips'
 let g:UltiSnipsEditSplit = "vertical"
 let g:UltiSnipsExpandTrigger = "<Tab>"
 let g:UltiSnipsJumpForwardTrigger = "<Tab>"
@@ -201,3 +201,13 @@ augroup VimrcSo
 augroup END
 " Edit vimrc file
 nmap <leader>ev <Esc> :tabe ~/.vimrc<CR>
+
+
+" spacemacs bindings
+nnoremap <leader>pt :NERDTreeTabsToggle<CR>
+nnoremap <leader>pf :CtrlP<CR>  
+nnoremap <leader>wv :vsplit<CR>
+nnoremap <leader>wh :split<CR>
+
+nnoremap <leader>0 :NERDTreeFocus<CR>
+nnoremap <leader>1 :NERDTreeFocus<CR>
