@@ -1,4 +1,4 @@
-" ----------------  Initialize Vundle Plugin Manager  ----------------
+" ------ Initialize Vundle Plugin Manager -----
 nnoremap <space> <Nop>
 let mapleader=' '
 set nocompatible
@@ -7,95 +7,49 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
-" ----------------  Start Plugins  ----------------
 
-" Snippet Manager
-"Plugin 'SirVer/ultisnips'
-let g:UltiSnipsEditSplit = "vertical"
-let g:UltiSnipsExpandTrigger = "<Tab>"
-let g:UltiSnipsJumpForwardTrigger = "<Tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-nmap <silent> <leader>es :UltiSnipsEdit<CR>
 
-" Auto close brackets/parens
+" ---------------- Plugins ----------------
 Plugin 'jiangmiao/auto-pairs'
-
-" NerdTree file finder tray
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-let g:NERDTreeIgnore=['node_modules$[[dir]]', 'build$[[dir]]', '_build$[[dir]]', 'deps$[[dir]]']
-map <leader>d :NERDTreeTabsToggle<CR>
-map <leader>b :NERDTreeFromBookmark
-" If buffer closes before NerdTree, close NerdTree too
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-" Control P - Fuzzy finder like PeepOpen & Sublime
 Plugin 'kien/ctrlp.vim'
-let g:ctrlp_custom_ignore = 'build\|client/tests/acceptance/path_ext\|_build\|deps\|engine\|platforms\|plugins\|node_modules\|DS_Store\|git\|build\|app/tests/acceptance/vendor\|app/tests/acceptance/path_ext/tests/karma/node_modules'
-nmap <leader>p <C-p>
-
-" HTML scaffolding
-Plugin 'mattn/emmet-vim'
-let g:user_emmet_jsx = 1
-let g:user_emmet_leader_key='<C-e>'
-
-" Statusline
-Plugin 'bling/vim-airline'
-let g:airline_powerline_fonts = 1
-set laststatus=2    " always show airline
-
-" Commenting plugin
 Plugin 'scrooloose/nerdcommenter'
-
-" uses leader s + 2 chars to jump to that area
-Plugin 'justinmk/vim-sneak'
-
-" highlights all whitespace and has StripWhitespace command
 Plugin 'ntpeters/vim-better-whitespace'
-
-" lint with Syntastic
-Plugin 'scrooloose/syntastic'
-let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-","<ion-", "</ion-", "template"]
-let g:syntastic_javascript_checkers = ['eslint']
-autocmd VimEnter * SyntasticToggleMode " disable syntastic by default
-map <Leader>l :call SyntasticCheck()<CR>
+let g:ctrlp_custom_ignore = 'build\|_build\|deps\|plugins\|node_modules\|git\'
 
 
-" run RSpec from vim
-Plugin 'thoughtbot/vim-rspec'
-map <Leader>rc :call RunCurrentSpecFile()<CR>
-map <Leader>rs :call RunNearestSpec()<CR>
-map <Leader>rl :call RunLastSpec()<CR>
-map <Leader>ra :call RunAllSpecs()<CR>
 
-" Language Support
+" ----------- Language Support ------------
 Bundle 'pangloss/vim-javascript'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'Slava/vim-spacebars'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'mxw/vim-jsx'
 Plugin 'lambdatoast/elm.vim'
 Plugin 'elixir-lang/vim-elixir'
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
-" highlight JSON like files
+" json like files
 au BufRead,BufNewFile .{eslintrc,babelrc} setf json
 " enable Sass
 set omnifunc=csscomplete#CompleteCSS
 autocmd BufNewFile,BufRead *.scss  set ft=scss.css
+" redscript
 au BufReadPost *.rs set ft=elixir
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
-" Themes
-Plugin 'chriskempson/base16-vim'
-Plugin 'vim-scripts/pyte'
+
+
+" -------------------- Themes ---------------------
+"Plugin 'chriskempson/base16-vim'
+"Plugin 'yosiat/oceanic-next-vim'
 Bundle "Slava/vim-colors-tomorrow"
-Plugin 'yosiat/oceanic-next-vim'
 
+
+
+" ---------------- end plugins ----------------
 call vundle#end()            " required
 filetype plugin indent on    " required
-" ----------------  End Plugins  ----------------
 
 
-" sane defaults
+
+" ------------------ Customize -------------
 set backspace=2     " backspace in insert mode works like normal editor
 set wildmenu        " show auto complete menus like Bash
 set relativenumber  " use ultra swift rel numbering
@@ -115,16 +69,6 @@ autocmd InsertLeave * :set relativenumber
 " spell check
 map <F6> :setlocal spell! spelllang=en_us<CR>
 
-
-" code folding
-map <leader>f za
-set foldmethod=syntax   "fold based on syntax
-set foldnestmax=10      "deepest fold is 10 levels
-set nofoldenable        "dont fold by default
-set foldlevel=3         "this is just what i use
-
-
-" Theme UI Settings
 set background=dark
 " set terminal vim background to none
 highlight Normal ctermbg=NONE
@@ -135,11 +79,9 @@ let g:tomorrow_termtrans = 0 " set to 1 if using transparant background
 let g:tomorrow_diffmode = "high"
 try
   colorscheme tomorrow
-  "colorscheme base16-ocean
 catch
     " we don't have this theme or it throws
 endtry
-
 set guifont=Sauce\ Code\ Powerline\:h15
 set encoding=utf-8
 set linespace=4
@@ -157,23 +99,6 @@ set nocursorline
 set nocursorcolumn
 
 
-
-" window tabs
-if has("gui_macvim")
-  " Switch to specific tab numbers with Command-number
-  noremap <D-1> :tabn 1<CR>
-  noremap <D-2> :tabn 2<CR>
-  noremap <D-3> :tabn 3<CR>
-  noremap <D-4> :tabn 4<CR>
-  noremap <D-5> :tabn 5<CR>
-  noremap <D-6> :tabn 6<CR>
-  noremap <D-7> :tabn 7<CR>
-  noremap <D-8> :tabn 8<CR>
-  noremap <D-9> :tabn 9<CR>
-  " Command-0 goes to the last tab
-  noremap <D-0> :tablast<CR>
-endif
-
 " toggle between panes
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -187,12 +112,12 @@ set wrapscan
 set ignorecase
 set hls            " search highlighting
 set incsearch      " incrementally match the search
+
 " toggle search highlighting
 let hlstate=0
 nnoremap <space><space> :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=hlstate+1<cr>
 
 set t_Co=256
-
 
 " Automatically reload vimrc when it's saved
 augroup VimrcSo
@@ -205,9 +130,8 @@ nmap <leader>ev <Esc> :tabe ~/.vimrc<CR>
 
 " spacemacs bindings
 nnoremap <leader>pt :NERDTreeTabsToggle<CR>
-nnoremap <leader>pf :CtrlP<CR>  
+nnoremap <leader>pf :CtrlP<CR>
 nnoremap <leader>wv :vsplit<CR>
 nnoremap <leader>wh :split<CR>
-
 nnoremap <leader>0 :NERDTreeFocus<CR>
 nnoremap <leader>1 :NERDTreeFocus<CR>
