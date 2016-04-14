@@ -205,6 +205,23 @@ values."
   "Initialization function for user code.
 It is called immediately after `dotspacemacs/init'.  You are free to put any
 user code."
+
+  (setq ns-use-native-fullscreen nil) ; disable lion style fullscreen
+  (tool-bar-mode -1) ; hides toolbar
+  )
+
+(defun my-setup-indent (n)
+  ;; java/c/c++
+  (setq c-basic-offset n)
+  ;; web development
+  (setq coffee-tab-width n) ; coffeescript
+  (setq javascript-indent-level n) ; javascript-mode
+  (setq js-indent-level n) ; js-mode
+  (setq js2-basic-offset n) ; js2-mode, in latest js2-mode, it's alias of js-indent-level
+  (setq web-mode-markup-indent-offset n) ; web-mode, html tag in html file
+  (setq web-mode-css-indent-offset n) ; web-mode, css in html file
+  (setq web-mode-code-indent-offset n) ; web-mode, js code in html file
+  (setq css-indent-offset n) ; css-mode
   )
 
 (defun dotspacemacs/user-config ()
@@ -212,9 +229,21 @@ user code."
   (add-to-list 'auto-mode-alist '("\\.js\\'" . react-mode))
   ;; (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-jsx-mode))
   ;; (add-to-list 'interpreter-mode-alist '("node" . js2-jsx-mode))
-  (setq js-indent-level 2)
-  (setq-default js2-basic-offset 2)
   (setq-default js2-strict-trailing-comma-warning nil)
+  ;; (setq tab-width 2)
+  ;; (setq c-basic-offset 2)
+  ;; (setq js-basic-offset 2)
+  ;; (setq js-tab-width 2)
+  ;; (setq react-basic-offset 2)
+  ;; (setq react-tab-width 2)
+
+  (setq indent-tabs-mode nil) ; use space instead of tab
+  (my-setup-indent 2) ; indent 2 spaces width
+
+  (global-linum-mode nil) ; show line numbers by default
+  (linum-relative-toggle) ; show relative numbers by default
+  (setq neo-show-hidden-files nil) ; hides hidden files by default in NeoTree
+  (setq neo-hidden-regexp-list '(".DS_Store" "node_modules/*" ".meteor/local/*"))
   )
 
 (defun dotspacemacs/config ()
