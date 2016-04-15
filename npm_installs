@@ -3,8 +3,9 @@
 sudo npm install -g eslint
 sudo npm install -g eslint-plugin-react
 sudo npm install -g eslint-config-airbnb
-sudo npm install sass -g
-sudo npm install chimp -g
-sudo npm install react-native -g
-sudo npm install karma-cli -g
-sudo npm install tern -g
+sudo npm install -g sass
+sudo npm install -g chimp
+sudo npm install -g karma-cli
+sudo npm install -g react-native-cli
+sudo npm install -g tern
+sudo npm install -g apphub
