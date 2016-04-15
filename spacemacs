@@ -164,7 +164,12 @@ user code."
   (linum-relative-toggle) ; show relative numbers by default
   (setq neo-show-hidden-files nil) ; hides hidden files by default in NeoTree
   (setq neo-hidden-regexp-list '(".DS_Store" ".git/*" "node_modules/*" ".meteor/*"))
+  ;; map snippet expansion to Ctrl Tab
+  (define-key yas-minor-mode-map (kbd "<tab>") nil)
+  (define-key yas-minor-mode-map (kbd "TAB") nil)
+  (define-key yas-minor-mode-map (kbd "<C-tab>") 'yas-expand)
   )
+
 
 (defun dotspacemacs/config ()
   (add-hook 'prog-mode-hook #'linum-mode)
