@@ -11,41 +11,39 @@ values."
    dotspacemacs-configuration-layer-path '()
    dotspacemacs-configuration-layers
    '(
-     ;; Uncomment some layer names and press <SPC f e R> (Vim style)
+     ;; ------- Editor Config ---------
+     osx
      auto-completion
-     ;; better-defaults
+     syntax-checking
+     company-mode ; displays completion box
+     ;; spell-checking
+     ;; version-control
+
+     ;; -------- Themes ---------
+     themes-megapack
+     ;; colors  ; colorize each identifier differently
+
+     ;; -------- language support --------
      emacs-lisp
      markdown
      html
-     osx
-     ;; org
-     colors
-     editorconfig
-     themes-megapack
-     perspectives
-     syntax-checking
-     company-mode
      erlang
      elixir
      git
-     dash
-     editorsconfig
      react
-     eyebrowse
-
 
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
-     ;; spell-checking
-     ;; version-control
-     )
+   )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
    dotspacemacs-additional-packages '(base16-theme js2-mode)
+
    dotspacemacs-excluded-packages '()
+
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'. (default t)
