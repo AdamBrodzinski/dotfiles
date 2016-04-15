@@ -243,7 +243,7 @@ user code."
   (global-linum-mode nil) ; show line numbers by default
   (linum-relative-toggle) ; show relative numbers by default
   (setq neo-show-hidden-files nil) ; hides hidden files by default in NeoTree
-  (setq neo-hidden-regexp-list '(".DS_Store" "node_modules/*" ".meteor/local/*"))
+  (setq neo-hidden-regexp-list '(".DS_Store" ".git/*" "node_modules/*" ".meteor/*"))
   )
 
 (defun dotspacemacs/config ()
