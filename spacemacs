@@ -72,7 +72,7 @@
   (add-to-list 'auto-mode-alist '("\\.js\\'" . react-mode)) ; make mode work with .js
   (setq-default js2-strict-trailing-comma-warning nil)
   (setq neo-show-hidden-files nil) ; hides hidden files by default in NeoTree
-  (setq neo-hidden-regexp-list '(".DS_Store" ".git/*" "node_modules/*" ".meteor/*"))
+  (setq neo-hidden-regexp-list '(".DS_Store" ".tern-port" ".git/*" "node_modules/*" ".meteor/*"))
   ;; map snippet expansion to Ctrl Tab
   (define-key yas-minor-mode-map (kbd "<tab>") nil)
   (define-key yas-minor-mode-map (kbd "TAB") nil)
