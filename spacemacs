@@ -53,7 +53,7 @@ values."
    ;; Press <SPC> T n to cycle or <Spc> T h to select from list
    dotspacemacs-themes '(sanityinc-tomorrow-night sanityinc-tomorrow-day)
    line-spacing 3
-   dotspacemacs-default-font '("Source Code Pro" :size 15 :weight normal :width normal :powerline-scale 1.1)
+   dotspacemacs-default-font '("Source Code Pro" :size 14 :weight normal :width normal :powerline-scale 1.1)
    dotspacemacs-leader-key "SPC"
    dotspacemacs-distinguish-gui-tab nil
    dotspacemacs-auto-resume-layouts nil
