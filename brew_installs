@@ -11,7 +11,20 @@ brew install trash
 brew install elixir
 brew install rethinkdb
 brew install mongodb
-brew install macvim
-brew install emacs
+brew tap railwaycat/homebrew-emacsmacport
+brew cask install emacs-mac
+brew cask install graphiql
+brew cask install github-desktop
+brew cask install iterm2
+brew cask install slack
+brew cask install alfred
+brew cask install atom
+brew cask install brave
+brew cask install google-chrome
+brew cask install spotify
+brew cask install karabiner
+brew cask install karabiner
+brew cask install seil
+brew linkapps
 
-echo "Set default nvm with:\n  nvm alias default 5.0"
+echo "Set default nvm with:\n  nvm alias default 4.2.0"
