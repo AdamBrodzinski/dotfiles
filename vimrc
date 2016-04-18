@@ -129,7 +129,7 @@ nmap <leader>ev <Esc> :tabe ~/.vimrc<CR>
 
 
 " spacemacs bindings
-nnoremap <leader>pt :NERDTreeTabsToggle<CR>
+nnoremap <leader>pt :Explore<CR>
 nnoremap <leader>pf :CtrlP<CR>
 nnoremap <leader>wv :vsplit<CR>
 nnoremap <leader>wh :split<CR>
