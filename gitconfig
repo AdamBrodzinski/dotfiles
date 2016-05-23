@@ -27,18 +27,18 @@
 
 [alias]
   co = checkout
-  di = diff
-  dc = diff --cached
-  ammend = comit --amend
+  ammend = commit --amend
   aa = add --all
   lazy = commit -am
   pom = push origin master
   b = branch
+  unstage = reset
+  uncommit = reset --soft HEAD^
 
-  l = "!source ~/.githelpers && pretty_git_log"
-  la = !git l --all
-  r = !git l -30
-  ra = !git r --all
+  details = "!source ~/.githelpers && pretty_git_log"
+  l = log --oneline --decorate --graph --all
+  gl = log -E -i --grep
+	glog = log -E -i --grep
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
@@ -54,3 +54,5 @@
 	clean = git lfs clean %f
 	smudge = git lfs smudge %f
 	required = true
+[push]
+	default = matching

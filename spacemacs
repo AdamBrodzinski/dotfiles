@@ -30,6 +30,7 @@ values."
      elixir
      git
      react
+     elm
      )
    ;; additional packages that will be installed without being wrapped in a layer
    dotspacemacs-additional-packages '(
@@ -92,11 +93,12 @@ you should place you code here."
 
   (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js2-jsx-mode))
   (add-to-list 'interpreter-mode-alist '("node" . js2-jsx-mode))
+  (add-to-list 'company-backends 'company-elm)
 
   (my-personal-indents 2)
 
   (setq neo-show-hidden-files nil) ; hides hidden files by default in NeoTree
-  (setq neo-hidden-regexp-list '(".DS_Store" ".tern-port" ".git/*" "node_modules/*" ".meteor/*"))
+  (setq neo-hidden-regexp-list '(".DS_Store" ".tern-port" ".git/*" "node_modules/*" ".meteor" "_build" "deps"))
 
   ;; map snippet expansion to Ctrl Tab
   (define-key yas-minor-mode-map (kbd "<tab>") nil)

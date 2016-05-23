@@ -9,5 +9,6 @@ sudo npm install -g karma-cli
 sudo npm install -g react-native-cli
 sudo npm install -g tern
 sudo npm install -g apphub
+sudo npm install -g elm-oracle
 # eslint stuff
 npm install -g babel-eslint@6 eslint-config-airbnb eslint-plugin-import eslint
