@@ -63,8 +63,6 @@ alias l='clear && ls -la'
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-export REACT_EDITOR=vim
-
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # C Libs

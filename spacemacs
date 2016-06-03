@@ -94,6 +94,8 @@ you should place you code here."
   (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js2-jsx-mode))
   (add-to-list 'interpreter-mode-alist '("node" . js2-jsx-mode))
   (add-to-list 'company-backends 'company-elm)
+  (setq-default js2-strict-trailing-comma-warning nil)
+  (add-to-list 'auto-mode-alist '("\\.exjs?\\'" . elixir-mode))
 
   (my-personal-indents 2)
 
