@@ -29,6 +29,7 @@ bindkey '\e[B' history-beginning-search-forward
 
 
 # Use macvim in the terminal
+alias em='emacs . &'
 alias vim='mvim -v'
 alias mivm='mvim'
 
