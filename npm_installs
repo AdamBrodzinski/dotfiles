@@ -1,14 +1,12 @@
 #!/bin/bash
 
-sudo npm install -g eslint
-sudo npm install -g eslint-plugin-react
-sudo npm install -g eslint-config-airbnb
-sudo npm install -g sass
-sudo npm install -g chimp
-sudo npm install -g karma-cli
-sudo npm install -g react-native-cli
-sudo npm install -g tern
-sudo npm install -g apphub
-sudo npm install -g elm-oracle
-# eslint stuff
-npm install -g babel-eslint@6 eslint-config-airbnb eslint-plugin-import eslint
+npm install -g chimp
+npm install -g karma-cli
+npm install -g react-native-cli
+npm install -g tern
+npm install -g create-react-app
+#sudo npm install -g elm-oracle
+#sudo npm install -g eslint
+#sudo npm install -g eslint-plugin-react
+#sudo npm install -g apphub
+#npm install -g babel-eslint@6 eslint-config-airbnb eslint-plugin-import eslint
