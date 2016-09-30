@@ -79,6 +79,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   (setq ns-use-native-fullscreen nil) ; disable lion style fullscreen
   (tool-bar-mode -1) ; hides toolbar
+  (setq x-select-enable-clipboard nil)
   )
 
 
@@ -92,6 +93,8 @@ you should place you code here."
   (linum-relative-toggle) ; show relative numbers by default
 
   (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js2-jsx-mode))
+  (add-to-list 'auto-mode-alist '("\\Fastfile\\'" . ruby-mode))
+  (add-to-list 'auto-mode-alist '("\\Matchfile\\'" . ruby-mode))
   (add-to-list 'interpreter-mode-alist '("node" . js2-jsx-mode))
   (add-to-list 'company-backends 'company-elm)
   (setq-default js2-strict-trailing-comma-warning nil)
