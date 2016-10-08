@@ -5,8 +5,5 @@ npm install -g karma-cli
 npm install -g react-native-cli
 npm install -g tern
 npm install -g create-react-app
-#sudo npm install -g elm-oracle
-#sudo npm install -g eslint
-#sudo npm install -g eslint-plugin-react
-#sudo npm install -g apphub
-#npm install -g babel-eslint@6 eslint-config-airbnb eslint-plugin-import eslint
+npm install -g create-react-app
+npm install -g phantomjs
