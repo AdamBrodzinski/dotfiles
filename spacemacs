@@ -104,6 +104,7 @@ you should place you code here."
 
   (setq neo-show-hidden-files nil) ; hides hidden files by default in NeoTree
   (setq neo-hidden-regexp-list '(".DS_Store" ".tern-port" ".git/*" "node_modules/*" ".meteor" "_build" "deps"))
+  (fset 'evil-visual-update-x-selection 'ignore)
 
   ;; map snippet expansion to Ctrl Tab
   (define-key yas-minor-mode-map (kbd "<tab>") nil)
