@@ -517,44 +517,25 @@
 	<string></string>
 	<key>NSScrollAnimationEnabled</key>
 	<false/>
-	<key>NSScrollViewShouldScrollUnderTitlebar</key>
-	<false/>
-	<key>NSTableView Columns KeyBingingTable</key>
-	<array>
-		<data>
-		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
-		hAErATCG
-		</data>
-		<string>198</string>
-		<data>
-		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
-		hAErATGG
-		</data>
-		<string>322</string>
-	</array>
-	<key>NSTableView Hidden Columns KeyBingingTable</key>
-	<array/>
-	<key>NSTableView Sort Ordering KeyBingingTable</key>
-	<array/>
 	<key>NSToolbar Configuration com.apple.NSColorPanel</key>
 	<dict>
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame Preferences</key>
-	<string>269 226 606 456 0 0 1280 777 </string>
-	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>330 289 620 392 0 0 1280 777 </string>
-	<key>NSWindow Frame SessionsPreferences</key>
-	<string>269 139 606 456 0 0 1280 777 </string>
-	<key>NSWindow Frame SharedPreferences</key>
-	<string>269 214 770 381 0 0 1280 777 </string>
+	<string>-1924 557 924 485 -2560 0 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1280 800 0 0 1280 777 </string>
+	<string>-2560 0 2560 1440 -2560 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 4 1274 773 0 0 1280 777 </string>
+	<string>-1398 590 650 451 -2560 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>0 0 1280 800 0 0 1280 777 </string>
+	<string>-1294 898 650 451 -2560 0 2560 1417 </string>
+	<key>NSWindow Frame iTerm Window 3</key>
+	<string>-1412 928 650 451 -2560 0 2560 1417 </string>
+	<key>NSWindow Frame iTerm Window 4</key>
+	<string>-2299 348 922 961 -2560 0 2560 1417 </string>
+	<key>NSWindow Frame iTerm Window 5</key>
+	<string>377 189 650 451 0 0 2560 1417 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -2036,63 +2017,14 @@
 			<string>/Users/adam</string>
 		</dict>
 	</array>
-	<key>NoSyncConfirmBeta</key>
-	<true/>
 	<key>NoSyncHaveShownPromoWithId_4</key>
 	<true/>
-	<key>NoSyncInstallationId</key>
-	<string>A196873B-9662-41C6-B7F6-1B4024A81176</string>
-	<key>NoSyncLastTipTime</key>
-	<real>496866798.49557501</real>
-	<key>NoSyncPermissionToShowTip</key>
+	<key>NoSyncNeverRemindPrefsChangesCopy</key>
 	<true/>
-	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>477532606.97708201</real>
 	<key>NoSyncTimeOfLastPromo</key>
-	<real>477527046.209418</real>
+	<real>477606252.06645399</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>488671041.080966</real>
-	<key>NoSyncTipsToNotShow</key>
-	<array>
-		<string>000</string>
-		<string>0000</string>
-		<string>0001</string>
-		<string>0002</string>
-		<string>0001</string>
-		<string>0002</string>
-		<string>0003</string>
-		<string>0004</string>
-		<string>0005</string>
-		<string>0006</string>
-		<string>0007</string>
-		<string>0008</string>
-		<string>0009</string>
-		<string>0010</string>
-		<string>0011</string>
-		<string>0012</string>
-		<string>0013</string>
-		<string>0014</string>
-		<string>0015</string>
-		<string>0016</string>
-		<string>0017</string>
-		<string>0018</string>
-		<string>0019</string>
-		<string>0020</string>
-		<string>0021</string>
-		<string>0022</string>
-		<string>0023</string>
-		<string>0024</string>
-		<string>0025</string>
-		<string>0026</string>
-		<string>0027</string>
-		<string>0028</string>
-		<string>0029</string>
-		<string>0030</string>
-		<string>0031</string>
-		<string>0032</string>
-		<string>0033</string>
-		<string>0034</string>
-	</array>
+	<real>497420015.41739202</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -2152,14 +2084,12 @@
 	<integer>3</integer>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
-	<key>SUFeedAlternateAppNameKey</key>
-	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/testing.xml?shard=59</string>
+	<string>https://iterm2.com/appcasts/testing.xml</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-09-27T17:40:26Z</date>
+	<date>2016-10-06T04:13:07Z</date>
 	<key>SUSkippedVersion</key>
 	<string>3.0.10</string>
 	<key>SavePasteHistory</key>
@@ -2171,7 +2101,7 @@
 	<key>SmartPlacement</key>
 	<false/>
 	<key>SplitPaneDimmingAmount</key>
-	<real>0.33343601073974216</real>
+	<real>0.33343601226806641</real>
 	<key>SwitchTabModifier</key>
 	<integer>4</integer>
 	<key>SwitchWindowModifier</key>
@@ -39218,6 +39148,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.5</string>
+	<string>2.1.4</string>
 </dict>
 </plist>
