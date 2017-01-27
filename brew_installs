@@ -11,6 +11,7 @@ brew install trash
 brew install elixir
 brew install rethinkdb
 brew install mongodb
+brew install diff-so-fancy
 brew tap railwaycat/homebrew-emacsmacport
 brew cask install emacs-mac
 brew cask install graphiql
