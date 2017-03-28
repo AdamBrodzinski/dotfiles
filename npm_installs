@@ -1,9 +1,6 @@
 #!/bin/bash
 
-npm install -g chimp
-npm install -g karma-cli
-npm install -g react-native-cli
 npm install -g tern
-npm install -g create-react-app
+npm install -g react-native-cli
 npm install -g create-react-app
 npm install -g phantomjs

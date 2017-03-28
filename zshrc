@@ -88,3 +88,4 @@ export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
 export ANDROID_HOME=~/Library/Android/sdk
 export PATH=$PATH:~/Library/Android/sdk/platform-tools
 export PATH=$PATH:~/Library/Android/sdk/tools
+eval $(/usr/libexec/path_helper -s)

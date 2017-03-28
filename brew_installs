@@ -1,16 +1,17 @@
 #!/bin/bash
 
+brew install git
 brew install wget
 brew install z
 brew install ack
 brew install tree
-brew install git
 brew install nvm
 brew install npm
 brew install trash
 brew install elixir
 brew install rethinkdb
-brew install mongodb
+brew install mongodb && brew services start mongo
+brew install postgres && brew services start postgresql
 brew tap railwaycat/homebrew-emacsmacport
 brew cask install emacs-mac
 brew cask install graphiql
@@ -23,8 +24,21 @@ brew cask install brave
 brew cask install google-chrome
 brew cask install spotify
 brew cask install karabiner
-brew cask install karabiner
 brew cask install seil
+brew cask install sketch
+brew cask install google-chrome-canary
+brew cask install totalspaces
+brew cask install skype
+brew cask install fluid
+brew cask install balsamiq-mockups
+brew cask install the-unarchiver
+brew cask install flux
+brew cask install virtualbox
+brew cask install appcleaner
+brew cask install libreoffice
+brew cask install visual-studio
+brew cask install screenhero
+
 brew linkapps
 
 echo "Set default nvm with:\n  nvm alias default 4.2.0"
