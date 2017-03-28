@@ -18,6 +18,7 @@
 	helper = osxkeychain
 [core]
 	excludesfile = /Users/adam/.gitignore_global
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [difftool "gitk"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 

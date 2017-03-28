@@ -8,6 +8,7 @@ brew install tree
 brew install nvm
 brew install npm
 brew install trash
+brew install diff-so-fancy
 brew install elixir
 brew install rethinkdb
 brew install mongodb && brew services start mongo
