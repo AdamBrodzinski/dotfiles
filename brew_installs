@@ -12,8 +12,12 @@ brew install elixir
 brew install rethinkdb
 brew install mongodb && brew services start mongo
 brew install postgres && brew services start postgresql
-brew tap railwaycat/homebrew-emacsmacport
-brew cask install emacs-mac
+
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+brew tap d12frosted/emacs-plus # for MacOS
+brew install emacs-plus
+brew linkapps emacs-plus
+
 brew cask install graphiql
 brew cask install github-desktop
 brew cask install iterm2
