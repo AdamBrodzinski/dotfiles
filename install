@@ -13,23 +13,3 @@ ln -s ~/Dotfiles/zshrc ~/.zshrc
 
 # install Vundle plugin manageer
 #git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
-while true; do
-    read -p "Would you like to run NPM install script? " yn
-    case $yn in
-        [Yy]* ) ~/Dotfiles/npm_installs; break;;
-        [Nn]* ) exit;;
-         *    ) echo "Please answer yes or no.";;
-    esac
-done
-
-
-while true; do
-    read -p "Would you like to run brew install script? " yn
-    case $yn in
-        [Yy]* ) ~/Dotfiles/brew_installs; break;;
-        [Nn]* ) exit;;
-         *    ) echo "Please answer yes or no.";;
-    esac
-done
-

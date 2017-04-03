@@ -43,6 +43,7 @@ brew cask install appcleaner
 brew cask install libreoffice
 brew cask install visual-studio
 brew cask install screenhero
+brew cask install psequel
 
 brew linkapps
 
