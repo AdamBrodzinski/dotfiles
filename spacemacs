@@ -79,7 +79,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   (setq ns-use-native-fullscreen nil) ; disable lion style fullscreen
   (tool-bar-mode -1) ; hides toolbar
-  (setq x-select-enable-clipboard nil)
   )
 
 
