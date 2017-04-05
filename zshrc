@@ -28,9 +28,9 @@ bindkey '\e[B' history-beginning-search-forward
 # --------------------  Aliases  --------------------
 
 
-# Use macvim in the terminal
 alias em='emacs . &'
-alias vim='mvim -v'
+alias vim='mvim -v' # Use macvim in the terminal
+alias vi='mvim -v'
 alias mivm='mvim'
 
 # ZSH
@@ -78,8 +78,7 @@ export LDLIBS=-lcs50
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
+. "/usr/local/opt/nvm/nvm.sh"
 
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
 
