@@ -15,7 +15,7 @@ brew install mongodb && brew services start mongo
 brew install postgres && brew services start postgresql
 
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-brew tap d12frosted/emacs-plus # for MacOS
+brew tap d12frosted/emacs-plus # for macOS
 brew install emacs-plus
 brew linkapps emacs-plus
 
@@ -32,18 +32,18 @@ brew cask install karabiner
 brew cask install seil
 brew cask install sketch
 brew cask install google-chrome-canary
-brew cask install totalspaces
 brew cask install skype
 brew cask install fluid
 brew cask install balsamiq-mockups
 brew cask install the-unarchiver
-brew cask install flux
 brew cask install virtualbox
 brew cask install appcleaner
 brew cask install libreoffice
-brew cask install visual-studio
 brew cask install screenhero
 brew cask install psequel
+#brew cask install totalspaces
+brew cask install visual-studio
+echo "Run installer for visual studio. See above instructions"
 
 brew linkapps
 
