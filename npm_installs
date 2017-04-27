@@ -1,6 +1,6 @@
 #!/bin/bash
 
-npm install -g tern
+npm install -g typescript
 npm install -g react-native-cli
 npm install -g create-react-app
 npm install -g phantomjs
