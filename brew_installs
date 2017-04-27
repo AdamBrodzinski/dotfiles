@@ -1,27 +1,30 @@
 #!/bin/bash
 
+# CLI tools
 brew install git
 brew install wget
 brew install z
 brew install ack
 brew install tree
-brew install nvm
-brew install npm
-brew install yarn
 brew install trash
 brew install diff-so-fancy
+
+# languages
 brew install elixir
+
+# databases
 brew install rethinkdb
 brew install mongodb && brew services start mongo
 brew install postgres && brew services start postgresql
+
+# dev tooling
 brew install heroku
 heroku plugins:install heroku-accounts
 
+# GUI apps
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 brew tap d12frosted/emacs-plus # for macOS
 brew install emacs-plus
-brew linkapps emacs-plus
-
 brew cask install graphiql
 brew cask install github-desktop
 brew cask install iterm2
