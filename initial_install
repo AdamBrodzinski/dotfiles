@@ -1,0 +1,14 @@
+#!/bin/bash
+# setup initial programs that can't be installed via brew reliably
+
+
+# Homebrew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# Node Version Manager
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+
+# Oh-My-ZSH
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# remove default zshrc file so symlink will work correctly
+mv .zshrc _default_zshrc
