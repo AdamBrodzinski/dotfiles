@@ -36,7 +36,6 @@ brew cask install brave
 brew cask install google-chrome
 brew cask install spotify
 brew cask install sketch
-brew cask install google-chrome-canary
 brew cask install skype
 brew cask install fluid
 brew cask install balsamiq-mockups
@@ -46,12 +45,8 @@ brew cask install appcleaner
 brew cask install libreoffice
 brew cask install screenhero
 brew cask install psequel
-#brew cask install totalspaces
 brew cask install macvim
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
-brew cask install visual-studio
-echo "Run installer for visual studio. See above instructions"
 
 brew linkapps
 
