@@ -8,13 +8,12 @@ brew install ack
 brew install tree
 brew install trash
 brew install diff-so-fancy
-brew install letsencrypt
+brew install awscli
 
 # languages
 brew install elixir
 
 # databases
-brew install rethinkdb
 brew install mongodb && brew services start mongo
 brew install postgres && brew services start postgresql
 
@@ -23,30 +22,24 @@ brew install heroku
 heroku plugins:install heroku-accounts
 
 # GUI apps
-git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-brew tap d12frosted/emacs-plus # for macOS
-brew install emacs-plus
 brew cask install graphiql
 brew cask install github-desktop
 brew cask install iterm2
 brew cask install slack
 brew cask install alfred
-brew cask install atom
 brew cask install brave
 brew cask install google-chrome
 brew cask install spotify
 brew cask install sketch
-brew cask install skype
+#brew cask install skype
 brew cask install fluid
 brew cask install balsamiq-mockups
 brew cask install the-unarchiver
-brew cask install virtualbox
+#brew cask install virtualbox
 brew cask install appcleaner
-brew cask install libreoffice
+#brew cask install libreoffice
 brew cask install screenhero
-brew cask install psequel
-brew cask install macvim
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 
 brew linkapps
 
