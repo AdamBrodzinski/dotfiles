@@ -3,3 +3,4 @@
 npm install -g typescript
 npm install -g react-native-cli
 npm install -g create-react-app
+npm install -g bs-platform

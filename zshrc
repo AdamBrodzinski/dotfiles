@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+ZSH_DISABLE_COMPFIX=true
+
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -13,7 +15,7 @@ COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # ZSH Plugins
-plugins=(osx git vi-mode npm brew meteor history-substring-search)
+plugins=(osx git vi-mode npm brew history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -26,12 +28,6 @@ bindkey '\e[B' history-beginning-search-forward
 
 
 # --------------------  Aliases  --------------------
-
-
-alias em='emacs . &'
-alias vim='mvim -v' # Use macvim in the terminal
-alias vi='mvim -v'
-alias mivm='mvim'
 
 # ZSH
 alias ezsh="vim ~/.zshrc"
@@ -86,7 +82,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-eval `opam config env`
+#eval `opam config env`
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"

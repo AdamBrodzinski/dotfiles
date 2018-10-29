@@ -15,32 +15,26 @@ brew install elixir
 
 # databases
 brew install mongodb && brew services start mongo
-brew install postgres && brew services start postgresql
+brew install postgres@9.6 && brew services start postgresql@9.6
 
 # dev tooling
 brew install heroku
 heroku plugins:install heroku-accounts
 
 # GUI apps
+brew cask install visual-studio-code
 brew cask install graphiql
-brew cask install github-desktop
+brew cask install github
 brew cask install iterm2
 brew cask install slack
 brew cask install alfred
 brew cask install brave
 brew cask install google-chrome
+brew cask install firefox
 brew cask install spotify
 brew cask install sketch
-#brew cask install skype
 brew cask install fluid
 brew cask install balsamiq-mockups
 brew cask install the-unarchiver
-#brew cask install virtualbox
 brew cask install appcleaner
-#brew cask install libreoffice
-brew cask install screenhero
-
-
-brew linkapps
-
-echo "Set default nvm with:\n  nvm alias default 4.2.0"
+brew tap caskroom/fonts && brew cask install font-source-code-pro
