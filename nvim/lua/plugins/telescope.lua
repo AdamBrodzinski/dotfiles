@@ -20,7 +20,10 @@ end
 return {
 	'nvim-telescope/telescope.nvim',
 	tag = '0.1.2',
-	dependencies = { 'nvim-lua/plenary.nvim' },
+	dependencies = {
+		{ 'nvim-lua/plenary.nvim' },
+		{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
+	},
 	config = function()
 		local builtin = require('telescope.builtin')
 		local actions = require('telescope.actions')
@@ -35,8 +38,8 @@ return {
 			}
 		})
 
-		vim.keymap.set('n', '<leader><leader>', vim.find_files_from_project_git_root, { desc = "files" })
-		--vim.keymap.set('n', '<leader><leader>', builtin.find_files, { desc = "files" })
+		--vim.keymap.set('n', '<leader><leader>', vim.find_files_from_project_git_root, { desc = "files" })
+		vim.keymap.set('n', '<leader><leader>', builtin.find_files, { desc = "fuzzy find files" })
 		vim.keymap.set('n', '<leader>fc', builtin.git_commits, { desc = "by commit message" })
 		vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'buffers' })
 		vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "help docs" })

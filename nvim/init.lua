@@ -12,6 +12,11 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- set cwd to the directory opened
+if vim.fn.isdirectory(vim.v.argv[3]) == 1 then
+  vim.api.nvim_set_current_dir(vim.v.argv[3])
+end
+
 -- must set leader before lazy.vim
 vim.g.mapleader = " "
 -- lazy load all plugins from lua/plugins/*

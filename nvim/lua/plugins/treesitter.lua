@@ -1,9 +1,22 @@
+-- r/w folder to prevent ts from reinstalling parsers on every startup
+local treesitter_path = "$HOME/.local/share/treesitter"
+vim.opt.runtimepath:append(treesitter_path)
+
 return {
 	'nvim-treesitter/nvim-treesitter',
 	lazy = false,
 	run = ':TSUpdate',
+	dependencies = {
+		'windwp/nvim-ts-autotag',
+	},
 	config = function()
 		require 'nvim-treesitter.configs'.setup {
+			autotag = {
+				enable = true,
+			},
+
+			parser_install_dir = treesitter_path,
+
 			-- A list of parser names, or "all" (the five listed parsers should always be installed)
 			ensure_installed = { "javascript", "typescript", "lua", "vim", "vimdoc", "query" },
 
@@ -35,7 +48,9 @@ return {
 				-- Using this option may slow down your editor, and you may see some duplicate highlights.
 				-- Instead of true it can also be a list of languages
 				additional_vim_regex_highlighting = false,
+
 			},
+
 		}
 	end
 }
