@@ -2,30 +2,46 @@ return {
 	{
 		'VonHeikemen/lsp-zero.nvim',
 		branch = 'v2.x',
-		config = function()
-			-- This is where you modify the settings for lsp-zero
-			-- Note: autocompletion settings will not take effect
-			require('lsp-zero.settings').preset({})
-		end
-	},
-
-	-- Autocompletion
-	{
-		'hrsh7th/nvim-cmp',
-		event = 'InsertEnter',
 		dependencies = {
-			{ 'L3MON4D3/LuaSnip' },
+			{ 'neovim/nvim-lspconfig' },
+			{
+				'williamboman/mason.nvim',
+				build = function()
+					pcall(vim.api.nvim_command, 'MasonUpdate')
+				end,
+			},
+			{ 'williamboman/mason-lspconfig.nvim' },
+			{ '/jose-elias-alvarez/null-ls.nvim' },
+			-- Autocompletion
+			{ 'hrsh7th/nvim-cmp' }, -- Required
+			{ 'hrsh7th/cmp-nvim-lsp' }, -- Required
+			{ 'L3MON4D3/LuaSnip' }, -- Required
+			-- lang plugins
+			{ 'jose-elias-alvarez/typescript.nvim' },
 		},
 		config = function()
-			-- Here is where you configure the autocompletion settings.
-			-- The arguments for .extend() have the same shape as `manage_nvim_cmp`:
-			-- https://github.com/VonHeikemen/lsp-zero.nvim/blob/v2.x/doc/md/api-reference.md#manage_nvim_cmp
+			require('lsp-zero.settings').preset({})
+			local lsp = require('lsp-zero')
 
-			require('lsp-zero.cmp').extend()
+			lsp.on_attach(function(client, bufnr)
+				-- see :help lsp-zero-keybindings
+				--lsp.default_keymaps({ buffer = bufnr })
+				local opts = { buffer = bufnr, remap = false }
+				vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
+				vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
+				vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
+				vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
+				vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
+				vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
+				vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
+				vim.keymap.set('n', '<leader>lr', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+				vim.keymap.set('n', '<leader>lf', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
+				vim.keymap.set('n', '<leader>la', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+			end)
 
-			-- And you can configure cmp even more, if you want to.
 			local cmp = require('cmp')
 			local cmp_action = require('lsp-zero.cmp').action()
+
 
 			cmp.setup({
 				mapping = {
@@ -35,49 +51,25 @@ return {
 				}
 			})
 
-			-- format on save
-			vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
-		end
-	},
-
-	-- LSP
-	{
-		'neovim/nvim-lspconfig',
-		cmd = 'LspInfo',
-		event = { 'BufReadPre', 'BufNewFile' },
-		dependencies = {
-			{ 'hrsh7th/cmp-nvim-lsp' },
-			{ 'williamboman/mason-lspconfig.nvim' },
-			{
-				'williamboman/mason.nvim',
-				build = function()
-					pcall(vim.cmd, 'MasonUpdate')
-				end,
-			},
-		},
-		config = function()
-			local lsp = require('lsp-zero')
-
-			lsp.on_attach(function(client, buff)
-				local opts = { buffer = buff, remap = false }
-
-
-				vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
-				vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
-				vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
-				vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
-				vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
-				vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
-				vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
-				vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-				vim.keymap.set({ 'n', 'x' }, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
-				vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
-			end)
-
-			-- (Optional) Configure lua language server for neovim
 			require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
 			lsp.setup()
-		end
-	}
+
+			local null_ls = require('null-ls')
+
+			null_ls.setup({
+				sources = {
+					-- Replace these with the tools you have installed
+					-- make sure the source name is supported by null-ls
+					-- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
+					null_ls.builtins.formatting.prettier,
+					null_ls.builtins.diagnostics.eslint,
+				}
+			})
+
+
+			-- format on save
+			vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+		end,
+	},
 }
