@@ -1,16 +1,18 @@
 return {
-	"folke/which-key.nvim", 
+	"folke/which-key.nvim",
 	event = "VeryLazy",
-	config = function() 
+	config = function()
 		local opts = { prefix = '<leader>' }
 
 		local keys = {
+			c = { name = 'console' },
 			f = { name = 'find' },
 			h = { name = 'harpoon' },
+			l = { name = 'language' },
 		}
 
 		vim.o.timeout = true
-		vim.o.timeoutlen = 500
+		vim.o.timeoutlen = 1000
 
 		require('which-key').register(keys, opts)
 	end
