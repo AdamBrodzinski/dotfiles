@@ -55,18 +55,44 @@ return {
 
 			lsp.setup()
 
+			------------- null_ls setup -----------
+
 			local null_ls = require('null-ls')
 
+			local root_has_file = function(files)
+				return function(utils)
+					return utils.root_has_file(files)
+				end
+			end
+
+			local eslint_root_files = { ".eslintrc", ".eslintrc.js", ".eslintrc.json" }
+			local prettier_root_files = { ".prettierrc", ".prettierrc.js", ".prettierrc.json" }
+
+			local opts = {
+				eslint_formatting = {
+					condition = function(utils)
+						local has_eslint = root_has_file(eslint_root_files)(utils)
+						local has_prettier = root_has_file(prettier_root_files)(utils)
+						return has_eslint and not has_prettier
+					end,
+				},
+				eslint_diagnostics = {
+					condition = root_has_file(eslint_root_files),
+				},
+				prettier_formatting = {
+					condition = root_has_file(prettier_root_files),
+				},
+			}
+
+			-- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
 			null_ls.setup({
 				sources = {
-					-- Replace these with the tools you have installed
-					-- make sure the source name is supported by null-ls
-					-- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
-					null_ls.builtins.formatting.prettier,
-					null_ls.builtins.diagnostics.eslint,
-				}
+					null_ls.builtins.diagnostics.eslint_d.with(opts.eslint_diagnostics),
+					null_ls.builtins.formatting.eslint_d.with(opts.eslint_formatting),
+					null_ls.builtins.formatting.prettier.with(opts.prettier_formatting),
+					null_ls.builtins.code_actions.eslint_d.with(opts.eslint_diagnostics),
+				},
 			})
-
 
 			-- format on save
 			vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
