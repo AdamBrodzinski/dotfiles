@@ -1,4 +1,6 @@
 {
+  "Comment.nvim": { "branch": "master", "commit": "176e85eeb63f1a5970d6b88f1725039d85ca0055" },
+  "FixCursorHold.nvim": { "branch": "master", "commit": "1900f89dc17c603eec29960f57c00bd9ae696495" },
   "LuaSnip": { "branch": "master", "commit": "45a4e899ca8f54936fe32ead6bba65f2a8d42e12" },
   "aura-theme": { "branch": "feat/neovim-port", "commit": "7ea467f5c5b554275b0a6983631bc22b0d860e1e" },
   "autoclose.nvim": { "branch": "main", "commit": "469782b0456f0b4f764378ffda94c18599544e09" },
@@ -12,6 +14,11 @@
   "mason.nvim": { "branch": "main", "commit": "5ad3e113b0c3fde3caba8630599373046f6197e8" },
   "mini.nvim": { "branch": "main", "commit": "aac602e097b99a06bc84e43356f080eb6256dd21" },
   "neo-tree.nvim": { "branch": "v3.x", "commit": "981a43adcca25e7ccc3c589902d49f25e4d48ebc" },
+  "neotest": { "branch": "master", "commit": "bec7be0f13ee19c85561943fc5f7b8daa4f4d465" },
+  "neotest-elixir": { "branch": "master", "commit": "72ead0e41aa88582631ff7a14c13095b87c7ff75" },
+  "neotest-jest": { "branch": "main", "commit": "22b1050dda3ebd401780ec4b8e193cf52523a4da" },
+  "neotest-mocha": { "branch": "main", "commit": "765a4e976927174518bfe311a169780e4d3bf234" },
+  "neotest-vitest": { "branch": "main", "commit": "41bf2f6b743f2ac5c5e9bd0949cee77ca7f2372c" },
   "nordic.nvim": { "branch": "main", "commit": "683b24866856f9b883f73b8c10b11a54074f2a2f" },
   "nui.nvim": { "branch": "main", "commit": "d146966a423e60699b084eeb28489fe3b6427599" },
   "null-ls.nvim": { "branch": "main", "commit": "db09b6c691def0038c456551e4e2772186449f35" },

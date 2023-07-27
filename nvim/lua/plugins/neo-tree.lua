@@ -1,12 +1,13 @@
 return {
 	"nvim-neo-tree/neo-tree.nvim",
 	branch = "v3.x",
+	lazy = false,
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"MunifTanjim/nui.nvim",
 	},
 	keys = {
-		{ "<leader>ft", "<cmd>Neotree position=float<cr>", desc = "NeoTree" },
+		{ "<leader>ft", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
 	},
 	config = function()
 		require('neo-tree').setup({

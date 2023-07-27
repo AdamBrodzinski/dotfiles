@@ -5,7 +5,6 @@ vim.opt.runtimepath:append(treesitter_path)
 return {
 	'nvim-treesitter/nvim-treesitter',
 	lazy = false,
-	run = ':TSUpdate',
 	dependencies = {
 		'windwp/nvim-ts-autotag',
 	},
