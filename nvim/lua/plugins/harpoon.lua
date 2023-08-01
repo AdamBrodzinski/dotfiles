@@ -11,5 +11,9 @@ return {
 		vim.keymap.set('n', '<leader>2', function() ui.nav_file(2) end, { desc = "2nd harpoon mark" })
 		vim.keymap.set('n', '<leader>3', function() ui.nav_file(3) end, { desc = "3rd harpoon mark" })
 		vim.keymap.set('n', '<leader>4', function() ui.nav_file(4) end, { desc = "4th harpoon mark" })
+		vim.keymap.set('n', '<leader>5', function() ui.nav_file(5) end, { desc = "5th harpoon mark" })
+		vim.keymap.set('n', '<leader>6', function() ui.nav_file(6) end, { desc = "6th harpoon mark" })
+		vim.keymap.set('n', '<leader>7', function() ui.nav_file(7) end, { desc = "7th harpoon mark" })
+		vim.keymap.set('n', '<leader>8', function() ui.nav_file(8) end, { desc = "8th harpoon mark" })
 	end
 }
