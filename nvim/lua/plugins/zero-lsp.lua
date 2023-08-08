@@ -66,7 +66,7 @@ return {
 			end
 
 			local eslint_root_files = { ".eslintrc", ".eslintrc.js", ".eslintrc.json" }
-			local prettier_root_files = { ".prettierrc", ".prettierrc.js", ".prettierrc.json" }
+			local prettier_root_files = { ".prettierrc", ".prettierrc.js", ".prettierrc.json", ".prettierignore" }
 
 			local opts = {
 				eslint_formatting = {

@@ -29,7 +29,27 @@ return {
 			},
 			window = {
 				width = 40
-			}
+			},
+			event_handlers = {
+				{
+					event = "vim_buffer_enter",
+					handler = function()
+						if vim.bo.filetype == "neo-tree" then
+							vim.cmd("setlocal number")
+							vim.cmd("setlocal rnu")
+						end
+					end,
+				},
+				{
+					event = "file_opened",
+					handler = function(file_path)
+						-- auto close
+						-- vimc.cmd("Neotree close")
+						-- OR
+						require("neo-tree.command").execute({ action = "close" })
+					end
+				},
+			},
 		})
 	end
 }
