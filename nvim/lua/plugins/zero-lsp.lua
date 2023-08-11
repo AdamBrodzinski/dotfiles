@@ -22,10 +22,16 @@ return {
 		config = function()
 			require('lsp-zero.settings').preset({})
 			local lsp = require('lsp-zero')
+			local lspconfig = require('lspconfig')
+
+			lsp.ensure_installed({
+				'tsserver',
+				'eslint',
+				'pyright',
+				'cssls',
+			})
 
 			lsp.on_attach(function(client, bufnr)
-				-- see :help lsp-zero-keybindings
-				--lsp.default_keymaps({ buffer = bufnr })
 				local opts = { buffer = bufnr, remap = false }
 				vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
 				vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
@@ -51,7 +57,9 @@ return {
 				}
 			})
 
-			require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+
+			lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
+			lspconfig.pyrite.setup({})
 
 			lsp.setup()
 

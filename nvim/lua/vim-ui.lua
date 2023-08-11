@@ -19,6 +19,3 @@ vim.opt.number = true
 vim.opt.rnu = true
 
 vim.opt.scrolloff = 8
-
--- powerline
-vim.opt.cmdheight = 0
