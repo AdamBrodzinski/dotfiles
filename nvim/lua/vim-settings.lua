@@ -16,3 +16,7 @@ vim.opt.incsearch = true
 -- default lang tabs, lang overrides in ftplugin
 vim.o.tabstop = 3    -- size of a hard tabstop
 vim.o.shiftwidth = 3 -- size of the indentation
+
+-- lsp diagnostics
+vim.api.nvim_set_keymap('n', '<leader>eh', function() vim.diagnostic.goto_prev() end,
+	{ noremap = true, desc = "hover current error" })
