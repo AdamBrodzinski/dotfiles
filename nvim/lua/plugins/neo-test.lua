@@ -10,6 +10,12 @@ return {
 		'adrigzr/neotest-mocha',
 		'marilari88/neotest-vitest',
 	},
+	keys = {
+		{ "<leader>tl", "<cmd>Neotest run last<cr>",                   desc = "Run last test" },
+		{ "<leader>tf", "<cmd>Neotest run file<cr>",                   desc = "Run tests in file" },
+		{ "<leader>tt", function() require("neotest").run.run() end,   desc = "Run nearest test" },
+		{ "<leader>te", '<cmd>TroubleToggle document_diagnostics<cr>', desc = "show test errors (file)" },
+	},
 	config = function()
 		require('neotest').setup({
 			adapters = {

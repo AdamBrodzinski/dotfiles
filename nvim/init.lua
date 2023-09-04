@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- set cwd to the directory opened
 if vim.fn.isdirectory(vim.v.argv[3]) == 1 then
-  vim.api.nvim_set_current_dir(vim.v.argv[3])
+	vim.api.nvim_set_current_dir(vim.v.argv[3])
 end
 
 -- must set leader before lazy.vim
