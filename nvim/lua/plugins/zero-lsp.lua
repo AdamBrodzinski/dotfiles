@@ -25,13 +25,11 @@ return {
 			local lspconfig = require('lspconfig')
 
 			lsp.ensure_installed({
-				'lua-language-server',
+				'cssls',
+				'lua_ls',
+				'ocamllsp',
 				'pyright',
 				'tsserver',
-				'eslint',
-				'prettierd',
-				'eslint_d',
-				'cssls',
 			})
 
 			lsp.on_attach(function(_client, bufnr)
@@ -62,7 +60,8 @@ return {
 
 
 			lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
-			lspconfig.pyrite.setup({})
+			lspconfig.pyright.setup({})
+			lspconfig.ocamllsp.setup({})
 
 			lsp.setup()
 

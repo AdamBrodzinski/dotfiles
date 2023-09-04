@@ -12,7 +12,7 @@ return {
 		}
 
 		vim.o.timeout = true
-		vim.o.timeoutlen = 750
+		vim.o.timeoutlen = 450
 
 		require('which-key').register(keys, opts)
 	end

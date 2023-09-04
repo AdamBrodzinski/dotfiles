@@ -21,9 +21,26 @@ return {
 			},
 			filesystem = {
 				filtered_items = {
+					show_hidden_count = false,
 					hide_by_name = {
+						"app.html",
+						"README.md",
+						"Readme.md",
+						"build",
+						"gleam.toml",
+						"gleam.toml",
+						"manifest.toml",
 						"node_modules",
+						"package.json",
+						"static",
+						"svelte.config.js",
+						"vite.config.js",
+						"yarn.lock",
+					},
+					never_show = {
+						".DS_Store",
 					}
+
 				},
 				follow_current_file = { enabled = true }
 			},
@@ -46,7 +63,7 @@ return {
 						-- auto close
 						-- vimc.cmd("Neotree close")
 						-- OR
-						require("neo-tree.command").execute({ action = "close" })
+						-- require("neo-tree.command").execute({ action = "close" })
 					end
 				},
 			},
