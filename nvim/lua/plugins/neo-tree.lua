@@ -22,12 +22,18 @@ return {
 			filesystem = {
 				filtered_items = {
 					show_hidden_count = false,
+					hide_by_pattern = {
+						"*.opam",
+					},
 					hide_by_name = {
-						"app.html",
 						"README.md",
 						"Readme.md",
+						"_build",
+						"buld",
+						"app.html",
 						"build",
-						"gleam.toml",
+						"dune",
+						"dune-project",
 						"gleam.toml",
 						"manifest.toml",
 						"node_modules",
