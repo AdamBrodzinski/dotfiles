@@ -36,6 +36,7 @@ return {
 						"dune-project",
 						"gleam.toml",
 						"manifest.toml",
+						"Makefile",
 						"node_modules",
 						"package.json",
 						"static",
