@@ -1,5 +1,8 @@
 return {
 	'akinsho/toggleterm.nvim',
+	keys = {
+		{ "<leader>r", vim.cmd.ToggleTerm, desc = "toggle console" },
+	},
 	config = function()
 		require('toggleterm').setup({
 			direction = 'float',
@@ -7,8 +10,6 @@ return {
 			auto_scroll = true,
 			start_in_insert = true,
 		})
-
-		vim.keymap.set('n', '<leader>r', vim.cmd.ToggleTerm, { desc = "toggle console" })
 
 		-- change terminal once its open
 		vim.keymap.set('n', '<C-1>', function() vim.cmd.ToggleTerm({ count = 1 }) end, { desc = "toggle 1st" })
