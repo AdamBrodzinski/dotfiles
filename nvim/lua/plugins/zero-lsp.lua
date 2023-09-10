@@ -64,6 +64,7 @@ return {
 			lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
 			lspconfig.pyright.setup({})
 			lspconfig.ocamllsp.setup({})
+			lspconfig.astro.setup({})
 
 			lsp.setup()
 

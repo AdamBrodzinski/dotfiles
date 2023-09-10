@@ -24,11 +24,15 @@ return {
 					show_hidden_count = false,
 					hide_by_pattern = {
 						"*.opam",
+						"*.d.ts",
+						"*config*",
 					},
 					hide_by_name = {
 						"README.md",
 						"Readme.md",
 						"_build",
+						"buld",
+						"bun.lockb",
 						"buld",
 						"app.html",
 						"build",
@@ -39,9 +43,9 @@ return {
 						"Makefile",
 						"node_modules",
 						"package.json",
+						'public',
 						"static",
-						"svelte.config.js",
-						"vite.config.js",
+						"tsconfig.json",
 						"yarn.lock",
 					},
 					never_show = {
