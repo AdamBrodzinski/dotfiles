@@ -1,6 +1,6 @@
 return {
 	"ggandor/leap.nvim",
-	lazy = false,
+	keys = { "s" },
 	config = function()
 		require('leap').add_default_mappings()
 	end

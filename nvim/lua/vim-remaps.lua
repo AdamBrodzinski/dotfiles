@@ -1,5 +1,3 @@
-vim.keymap.set("n", "<leader>fe", vim.cmd.Ex, { desc = "Find Explorer" })
-
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "q", "<nop>")
 

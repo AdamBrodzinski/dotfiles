@@ -44,10 +44,12 @@ return {
 
 		--vim.keymap.set('n', '<leader><leader>', vim.find_files_from_project_git_root, { desc = "files" })
 		vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "fuzzy find files" })
+		vim.keymap.set('n', '<leader>fm', builtin.marks, { desc = "find marks" })
 		vim.keymap.set('n', '<leader>fc', builtin.git_commits, { desc = "by commit message" })
 		vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'buffers' })
 		vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "help docs" })
 		vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'grep popup' })
+		vim.keymap.set('n', '<leader>fe', builtin.diagnostics, { desc = 'find errors' })
 		vim.keymap.set('n', '<leader>fs',
 			function() builtin.grep_string({ search = vim.fn.input("Grep >") }) end, { desc = 'search' })
 		vim.keymap.set('n', '<leader>fr', builtin.lsp_references, { desc = 'reference' })

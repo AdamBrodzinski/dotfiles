@@ -1,13 +1,14 @@
 return {
 	'numToStr/Comment.nvim',
-	config = function()
-		require('Comment').setup({
-			toggler = {
-				line = '<Esc>cmdq'
-			},
-			opleader = {
-				line = '<Esc>cmdq'
-			}
-		})
-	end
+	keys = {
+		'<Esc>cmdc'
+	},
+	opts = {
+		toggler = {
+			line = '<Esc>cmdc'
+		},
+		opleader = {
+			line = '<Esc>cmdc'
+		}
+	}
 }

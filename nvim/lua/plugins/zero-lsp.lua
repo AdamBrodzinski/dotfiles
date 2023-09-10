@@ -27,8 +27,6 @@ return {
 			lsp.ensure_installed({
 				'cssls',
 				'lua_ls',
-				'ocamllsp',
-				'pyright',
 				'tsserver',
 			})
 
