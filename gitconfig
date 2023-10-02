@@ -17,7 +17,7 @@
 [credential]
 	helper = osxkeychain
 [core]
-	excludesfile = /Users/work/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [difftool "gitk"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
@@ -27,34 +27,15 @@
 	trustExitCode = true
 
 [alias]
-  co = checkout
-  ammend = commit --amend
   aa = add --all
+  ammend = commit --amend
+  b = branch
   lazy = commit -am
   pom = push origin master
-  b = branch
-  unstage = reset
   uncommit = reset --soft HEAD^
+  unstage = reset
 
   details = "!source ~/.githelpers && pretty_git_log"
   l = log --oneline --decorate --graph --all
   gl = log -E -i --grep
-	glog = log -E -i --grep
-
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[filter "hawser"]
-	clean = git hawser clean %f
-	smudge = git hawser smudge %f
-	required = true
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-[push]
-	default = matching
+  glog = log -E -i --grep

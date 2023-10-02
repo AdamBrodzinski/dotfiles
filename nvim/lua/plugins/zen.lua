@@ -1,11 +1,13 @@
 return {
 	"folke/zen-mode.nvim",
 	keys = {
-		{ "<leader>z", '<cmd>Zenmode<cr>', desc = "Zen mode" },
+		{ "<leader>z", '<cmd>ZenMode<cr>', desc = "Zen mode" },
 	},
-	opts = {
-		window = {
-			width = 100
-		}
-	}
+	config = function()
+		require('zen-mode').setup({
+			window = {
+				width = 110
+			}
+		})
+	end
 }

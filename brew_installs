@@ -8,33 +8,12 @@ brew install ack
 brew install tree
 brew install trash
 brew install diff-so-fancy
-brew install awscli
 
-# languages
-brew install elixir
+# zsh plugins
+brew install zsh-history-substring-search
 
 # databases
-brew install mongodb && brew services start mongo
-brew install postgres@9.6 && brew services start postgresql@9.6
+brew install postgres && brew services start postgresql
+brew install sqlite
 
-# dev tooling
-brew install heroku
-heroku plugins:install heroku-accounts
-
-# GUI apps
-brew cask install visual-studio-code
-brew cask install graphiql
-brew cask install github
-brew cask install iterm2
-brew cask install slack
-brew cask install alfred
-brew cask install brave
-brew cask install google-chrome
-brew cask install firefox
-brew cask install spotify
-brew cask install sketch
-brew cask install fluid
-brew cask install balsamiq-mockups
-brew cask install the-unarchiver
-brew cask install appcleaner
 brew tap caskroom/fonts && brew cask install font-source-code-pro

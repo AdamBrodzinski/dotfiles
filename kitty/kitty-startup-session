@@ -1,0 +1,18 @@
+# tab 1
+cd ~
+launch --title '~'
+
+# tab 2
+new_tab
+cd ~/code/foo
+launch --title 'Foo'
+
+# tab 3
+new_tab
+cd ~/code/bar
+launch --title 'Bar'
+
+# tab 4
+new_tab
+cd ~/code/baz
+launch --title 'Baz'
