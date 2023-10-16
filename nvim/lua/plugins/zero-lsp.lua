@@ -10,27 +10,22 @@ return {
 					pcall(vim.api.nvim_command, 'MasonUpdate')
 				end,
 			},
+			-- automatically calls setup on lsps installed via mason
 			{ 'williamboman/mason-lspconfig.nvim' },
 			{ '/jose-elias-alvarez/null-ls.nvim' },
-			-- Autocompletion
+			-- autocompletion
 			{ 'hrsh7th/nvim-cmp' }, -- Required
 			{ 'hrsh7th/cmp-nvim-lsp' }, -- Required
 			{ 'L3MON4D3/LuaSnip' }, -- Required
-			-- lang plugins
-			{ 'jose-elias-alvarez/typescript.nvim' },
 		},
 		config = function()
 			require('lsp-zero.settings').preset({})
 			local lsp = require('lsp-zero')
 			local lspconfig = require('lspconfig')
 
-			lsp.ensure_installed({
-				'cssls',
-				'lua_ls',
-				'tsserver',
-			})
+			lsp.ensure_installed({ 'lua_ls' })
 
-			lsp.on_attach(function(_client, bufnr)
+			lsp.on_attach(function(client, bufnr)
 				local opts = { buffer = bufnr, remap = false }
 				vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
 				vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
@@ -49,7 +44,6 @@ return {
 			local cmp = require('cmp')
 			local cmp_action = require('lsp-zero.cmp').action()
 
-
 			cmp.setup({
 				mapping = {
 					['<C-Space>'] = cmp.mapping.complete(),
@@ -58,52 +52,17 @@ return {
 				}
 			})
 
-
 			lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
-			lspconfig.pyright.setup({})
-			lspconfig.ocamllsp.setup({})
-			lspconfig.astro.setup({})
+
+			-- disable formatting with tsserver so that eslint can format instead
+			lspconfig.tsserver.setup({
+				on_init = function(client)
+					client.server_capabilities.documentFormattingProvider = false
+					client.server_capabilities.documentFormattingRangeProvider = false
+				end,
+			})
 
 			lsp.setup()
-
-			------------- null_ls setup -----------
-
-			local null_ls = require('null-ls')
-
-			local root_has_file = function(files)
-				return function(utils)
-					return utils.root_has_file(files)
-				end
-			end
-
-			local eslint_root_files = { ".eslintrc", ".eslintrc.js", ".eslintrc.json" }
-			local prettier_root_files = { ".prettierrc", ".prettierrc.js", ".prettierrc.json", ".prettierignore" }
-
-			local opts = {
-				eslint_formatting = {
-					condition = function(utils)
-						local has_eslint = root_has_file(eslint_root_files)(utils)
-						local has_prettier = root_has_file(prettier_root_files)(utils)
-						return has_eslint and not has_prettier
-					end,
-				},
-				eslint_diagnostics = {
-					condition = root_has_file(eslint_root_files),
-				},
-				prettier_formatting = {
-					condition = root_has_file(prettier_root_files),
-				},
-			}
-
-			-- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
-			null_ls.setup({
-				sources = {
-					null_ls.builtins.diagnostics.eslint_d.with(opts.eslint_diagnostics),
-					null_ls.builtins.formatting.eslint_d.with(opts.eslint_formatting),
-					null_ls.builtins.formatting.prettierd.with(opts.prettier_formatting),
-					null_ls.builtins.code_actions.eslint_d.with(opts.eslint_diagnostics),
-				},
-			})
 
 			-- format on save
 			vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]

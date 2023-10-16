@@ -46,6 +46,7 @@ return {
 						'public',
 						"static",
 						"tsconfig.json",
+						"webpack",
 						"yarn.lock",
 					},
 					never_show = {
