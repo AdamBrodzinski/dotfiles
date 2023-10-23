@@ -22,6 +22,7 @@ return {
 			require('lsp-zero.settings').preset({})
 			local lsp = require('lsp-zero')
 			local lspconfig = require('lspconfig')
+			local null_ls = require('null-ls')
 
 			lsp.ensure_installed({ 'lua_ls' })
 
@@ -62,10 +63,18 @@ return {
 				end,
 			})
 
+
 			lsp.setup()
 
 			-- format on save
 			vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+
+			-- eslint doesn't expose lsp.buf.format so we call eslint with js files
+			vim.api.nvim_create_autocmd('BufWritePre', {
+				pattern = { '*.tsx', '*.ts', '*.jsx', '*.js' },
+				command = 'silent! EslintFixAll',
+				group = vim.api.nvim_create_augroup('MyAutocmdsJavaScripFormatting', {}),
+			})
 		end,
 	},
 }
