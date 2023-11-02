@@ -55,6 +55,7 @@ return {
 		vim.keymap.set('n', '<leader>fr', builtin.lsp_references, { desc = 'reference' })
 		vim.keymap.set('n', '<leader>fd', builtin.lsp_definitions, { desc = 'definition' })
 		vim.keymap.set('n', '<leader>fi', builtin.lsp_type_definitions, { desc = 'implementation?' })
+		vim.keymap.set('n', '<leader>fl', builtin.resume, { desc = 'resume last search' })
 		-- vim.keymap.set('n', '<leader>fv', function() builtin.find_files.find_files({ cwd = '~/.config/nvim' }) end, { desc = "vim config files" })
 		vim.keymap.set('n', '<leader>fv', [[<cmd>Telescope find_files cwd=~/.config/nvim <cr>]],
 			{ desc = "vim config files" })

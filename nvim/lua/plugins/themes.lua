@@ -19,4 +19,5 @@ return {
 	{ 'catppuccin/nvim' },
 	{ 'baliestri/aura-theme' },
 	{ 'rebelot/kanagawa.nvim' },
+	{ "savq/melange-nvim" },
 }

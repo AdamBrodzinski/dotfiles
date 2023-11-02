@@ -1,6 +1,3 @@
-link_all: link_kitty link_nvim
-	echo "Done"
-
 link_kitty:
 	ln -s kitty ~/.config/kitty
 

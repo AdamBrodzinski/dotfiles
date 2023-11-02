@@ -8,7 +8,6 @@ sed 's/\\n/\n/g'
 foo | sed '/level/G'
 foo | sed '/^{/G'
 
-
 # ------- Testing ------
 
 # show stdout logs, ony run failed tests, stop on failed test

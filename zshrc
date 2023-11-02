@@ -1,93 +1,58 @@
-#!/bin/zsh
+# ------------ ZSH Theme -------------
+autoload -Uz vcs_info
+precmd() { vcs_info }
+zstyle ':vcs_info:git:*' formats '(%b)'
+setopt PROMPT_SUBST
+PROMPT='%F{cyan}%2~%B%F{green}${vcs_info_msg_0_}%f%b %F{white}$%f '
 
-ZSH_DISABLE_COMPFIX=true
 
-# Path to your oh-my-zsh configuration.
-export ZSH=$HOME/.oh-my-zsh
+# ------------ ZSH History ------------
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE=~/.cache/zsh/history
 
-ZSH_THEME="miloshadzic"
 
-# red dots to be displayed while waiting for completion
-COMPLETION_WAITING_DOTS="true"
+# ---------- ZSH tab complete ---------
+autoload -Uz compinit && compinit
+zstyle ':completion:*' menu select
 
-# Uncomment following line if you want to disable marking untracked files under
-# VCS as dirty. This makes repository status check for large repos much faster.
-DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# ZSH Plugins
-plugins=(osx git vi-mode npm brew history-substring-search)
-
-source $ZSH/oh-my-zsh.sh
-
-# get Z running
-. `brew --prefix`/etc/profile.d/z.sh
-
-# Fixes up/down key search for substrings
+# ---------- fix up/down key search for substrings
 bindkey '\e[A' history-beginning-search-backward
 bindkey '\e[B' history-beginning-search-forward
 
 
-# --------------------  Aliases  --------------------
+# ----------- ZSH plugin setup ----------
+source ~/code/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
-# ZSH
-alias ezsh="vim ~/.zshrc"
-alias rzsh="source ~/.zshrc"
+# when printing std out, show tabs as 3 spaces
+tabs -3
 
-# Git
-alias gd='git diff | mvim -'
+
+# -----------  bootstrap binaries (homebrew, asdf, etc..)  ----------
+if [[ -f ~/.work ]]; then
+	source ~/.config/zsh/bootstrap-binaries-work.sh
+else
+	source ~/.config/zsh/bootstrap-binaries.sh
+fi
+
+
+# ---------------- env vars ----------------
+# see ~/.zshenv for exported variables
+
+
+# ---------------- alias ----------------
+alias ezsh='nvim ~/.zshrc && source ~/.zshrc'
+alias evim='nvim ~/.config/nvim'
+alias ekitty='nvim ~/.config/kitty'
+alias vim='nvim'
+alias vi='nvim'
+alias l='ls -l'
+alias ll='ls -la'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias gs='git status'
+alias gb='git branch'
 alias co='git checkout'
 alias cob='git checkout -b'
-alias gs='git status'
-
-# Misc.
-alias be='bundle exec'
-alias mochac='mocha --compilers coffee:coffee-script -R spec'
-alias cleardns='dscacheutil -flushcache'
-# startup a Python server
-alias server='open http://localhost:8000 && python -m SimpleHTTPServer'
-alias met='./met'
-alias rethink='cd ~ && rethinkdb'
-alias rn=react-native
-
-alias dmgen='~/projects/meteor-generate/bin/mgen'
-alias red='~/projects/RedScript/bin/redscript'
-alias run='./run'
-alias l='clear && ls -la'
-
-
-# ----------------- Exports -----------------
-
-export VISUAL=vim
-export EDITOR="$VISUAL"
-
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-
-# C Libs
-export LDLIBS=-lcs50
-
-# add Android commands to path
-#export PATH=${PATH}:~/Development/android-sdk/tools
-#export PATH=${PATH}:~/Development/android-sdk/build-tools/19.1.0
-#export ANDROID_HOME=/usr/local/opt/android-sdk
-
-
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
-
-export ANDROID_HOME=~/Library/Android/sdk
-export PATH=$PATH:~/Library/Android/sdk/platform-tools
-export PATH=$PATH:~/Library/Android/sdk/tools
-eval $(/usr/libexec/path_helper -s)
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-#eval `opam config env`
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
-
-. $HOME/.asdf/asdf.sh
-
-. $HOME/.asdf/completions/asdf.bash
-export PATH="/usr/local/opt/erlang@20/bin:$PATH"

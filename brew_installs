@@ -1,19 +1,27 @@
 #!/bin/bash
 
 # CLI tools
+brew install ack
+brew install coreutils
+brew install diff-so-fancy
 brew install git
+brew install opam
+brew install trash
+brew install tree
 brew install wget
 brew install z
-brew install ack
-brew install tree
-brew install trash
-brew install diff-so-fancy
+
+# neovim
+brew install lua
+brew install neovim
+brew install tree-sitter
+brew install ripgrep
+brew install fd
 
 # zsh plugins
 brew install zsh-history-substring-search
 
-# databases
-brew install postgres && brew services start postgresql
-brew install sqlite
-
-brew tap caskroom/fonts && brew cask install font-source-code-pro
+# fonts
+brew tap caskroom/fonts
+brew cask install font-source-code-pro
+brew cask install font-sauce-code-pro-nerd-font

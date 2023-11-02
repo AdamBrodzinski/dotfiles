@@ -6,9 +6,6 @@
 --ignore-dir=build/
 --ignore-dir=deps/
 
-#make sure ack knows how to search common filetypes used in rails projects
 --type-add=css=scss
 
-#make sure ack knows how to search common filetypes
---ignore-dir=node_modules
 --type-set=json=.json
