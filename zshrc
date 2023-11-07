@@ -21,25 +21,13 @@ zstyle ':completion:*' menu select
 bindkey '\e[A' history-beginning-search-backward
 bindkey '\e[B' history-beginning-search-forward
 
-
-# ----------- ZSH plugin setup ----------
-source ~/code/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-
 # when printing std out, show tabs as 3 spaces
 tabs -3
 
 
-# -----------  bootstrap binaries (homebrew, asdf, etc..)  ----------
-if [[ -f ~/.work ]]; then
-	source ~/.config/zsh/bootstrap-binaries-work.sh
-else
-	source ~/.config/zsh/bootstrap-binaries.sh
-fi
-
-
-# ---------------- env vars ----------------
-# see ~/.zshenv for exported variables
+# ----------- ZSH plugin setup ----------
+source ~/code/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 
 # ---------------- alias ----------------

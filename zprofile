@@ -1,0 +1,25 @@
+# homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# asdf
+. $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
+
+# z cmd
+. $HOMEBREW_PREFIX/etc/profile.d/z.sh
+
+# setup put GNU utils on the path so `awk` executes gawk`
+export PATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="$HOMEBREW_PREFIX/opt/gawk/libexec/gnubin:$PATH"
+export PATH="$HOMEBREW_PREFIX/opt/grep/libexec/gnubin:$PATH"
+export PATH="$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin:$PATH"
+
+# setup apps that are not on path by default
+export PATH="$HOMEBREW_PREFIX/opt/curl/bin:$PATH"
+
+# setup autocompletion for zsh
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+  autoload -Uz compinit
+  compinit
+fi

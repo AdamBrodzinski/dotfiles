@@ -1,3 +1,5 @@
+# sample only, don't symlink
+
 # tab 1
 cd ~
 launch --title '~'

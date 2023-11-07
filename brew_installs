@@ -1,20 +1,24 @@
 #!/bin/bash
 
 # CLI tools
-brew install ack
 brew install coreutils
+brew install ack
+brew install curl
 brew install diff-so-fancy
+brew install gawk
 brew install git
+brew install grep
 brew install opam
+brew install sed
 brew install trash
 brew install tree
 brew install wget
 brew install z
+brew install asdf # deps: coreutils curl git
 
 # neovim
 brew install lua
 brew install neovim
-brew install tree-sitter
 brew install ripgrep
 brew install fd
 
@@ -22,6 +26,6 @@ brew install fd
 brew install zsh-history-substring-search
 
 # fonts
-brew tap caskroom/fonts
-brew cask install font-source-code-pro
-brew cask install font-sauce-code-pro-nerd-font
+brew tap homebrew/cask-fonts
+brew install --cask font-source-code-pro
+brew install --cask font-sauce-code-pro-nerd-font

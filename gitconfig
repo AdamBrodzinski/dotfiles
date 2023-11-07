@@ -1,41 +1,22 @@
 [user]
 	name = Adam Brodzinski
 	email = adambrodzinski@gmail.com
- [filter "media"]
-  required = true
-	clean = git media clean %f
-	smudge = git media smudge %f
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
 [color]
 	ui = true
 [color "status"]
-    added = yellow
-    changed = green
-    untracked = cyan
+  added = yellow
+  changed = green
+  untracked = cyan
 [color "branch"]
-    current = green reverse
-    remote = cyan
-[credential]
-	helper = osxkeychain
-[core]
-	excludesfile = ~/.gitignore_global
-	pager = diff-so-fancy | less --tabs=4 -RFX
-[difftool "gitk"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "gitk"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-
+  current = green reverse
+  remote = cyan
 [alias]
-  aa = add --all
   ammend = commit --amend
   b = branch
-  lazy = commit -am
-  pom = push origin master
-  uncommit = reset --soft HEAD^
-  unstage = reset
-
-  details = "!source ~/.githelpers && pretty_git_log"
-  l = log --oneline --decorate --graph --all
-  gl = log -E -i --grep
-  glog = log -E -i --grep
+  all = commit -am
+  undo = reset --soft HEAD^
