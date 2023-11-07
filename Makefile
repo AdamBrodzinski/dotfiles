@@ -1,19 +1,18 @@
-.PHONY: link setup_macos
-
+# symlink the files in this repo to the home or ~/.config folder so that any changes will
+# get saved to source control. Note, if an app (like Karabiner) overwrites the config and
+# then you run the link command again, the -f flag will happily overwrite the existing file
+link: DOTFILES=$(HOME)/code/dotfiles
 link:
-	# TODO don't run this, the symlinks break, for now just copy/paste each line
-	mkdir -p .config/karabiner
-	mkdir -p .config/kitty
-	cd ~/.config/karabiner
-	ln -sf ../../code/dotfiles/karabiner.json karabiner.json
-	cd ~/.config/kitty
-	ln -sf ../../code/dotfiles/kitty/kitty.conf kitty.conf
-	cd ~/.config
-	ln -sf ../code/dotfiles/nvim nvim
-	ln -sf code/dotfiles/ackrc .ackrc
-	ln -sf code/dotfiles/gitignore_global .gitignore_global
-	ln -sf code/dotfiles/zshrc .zshrc
-	ln -sf code/dotfiles/zprofile .zprofile
+	mkdir -p ~/.config/karabiner
+	mkdir -p ~/.config/kitty
+	ln -sf $(DOTFILES)/ackrc $(HOME)/.ackrc
+	ln -sf $(DOTFILES)/gitignore_global $(HOME)/.gitignore_global
+	ln -sf $(DOTFILES)/zshrc $(HOME)/.zshrc
+	ln -sf $(DOTFILES)/zprofile $(HOME)/.zprofile
+	ln -sf $(DOTFILES)/nvim $(HOME)/.config/nvim
+	ln -sf $(DOTFILES)/karabiner.json $(HOME)/.config/karabiner/karabiner.json
+	ln -sf $(DOTFILES)/kitty/kitty.conf $(HOME)/.config/kitty/kitty.conf
+	@echo "All files linked!"
 
 setup_macos:
 	./osx
