@@ -44,3 +44,6 @@ alias gs='git status'
 alias gb='git branch'
 alias co='git checkout'
 alias cob='git checkout -b'
+alias delete-all-branches='git branch | grep -v "main" | xargs git branch -D'
+alias python=python3
+alias pip=pip3

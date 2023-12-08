@@ -8,6 +8,7 @@ brew install diff-so-fancy
 brew install gawk
 brew install git
 brew install grep
+brew install jq
 brew install opam
 brew install sed
 brew install trash

@@ -8,3 +8,6 @@ vim.api.nvim_set_keymap('n', '<C-j>', '<C-W>j', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-k>', '<C-W>k', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-W>h', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-W>l', { noremap = true })
+
+-- copy the current filepath into OS clipboard
+vim.api.nvim_set_keymap('n', '<leader>qf', '<Cmd>let @+=expand("%:p")<CR>', { noremap = true, silent = true })

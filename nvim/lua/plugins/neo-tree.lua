@@ -18,6 +18,9 @@ return {
 					default = "*",
 					highlight = "NeoTreeFileIcon"
 				},
+				indent = {
+					indent_size = 4,
+				},
 			},
 			filesystem = {
 				filtered_items = {
