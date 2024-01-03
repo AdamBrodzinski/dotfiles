@@ -65,6 +65,13 @@ return {
 				end,
 			})
 
+			lspconfig.prismals.setup({
+				on_init = function(_, bufnr)
+					vim.api.nvim_buf_set_option(bufnr, 'tabstop', 2)
+					vim.api.nvim_buf_set_option(bufnr, 'shiftwidth', 2)
+				end,
+			})
+
 
 			lsp.setup()
 
