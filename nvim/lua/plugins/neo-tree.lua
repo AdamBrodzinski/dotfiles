@@ -19,7 +19,7 @@ return {
 					highlight = "NeoTreeFileIcon"
 				},
 				indent = {
-					indent_size = 4,
+					indent_size = 3,
 				},
 			},
 			filesystem = {
@@ -41,6 +41,7 @@ return {
 						"app.html",
 						"build",
 						"bun.lockb",
+						"Dockerfile",
 						"dune",
 						"dune-project",
 						"Makefile",
