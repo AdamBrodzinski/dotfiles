@@ -8,6 +8,7 @@ brew install gawk
 brew install git
 brew install grep
 brew install jq
+brew install lazygit
 brew install opam
 brew install gnu-sed
 brew install trash
