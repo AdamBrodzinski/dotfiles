@@ -28,7 +28,7 @@ tabs -3
 # ----------- ZSH plugin setup ----------
 source ~/code/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-
+eval "$(atuin init zsh --disable-up-arrow)"
 
 # ---------------- alias ----------------
 alias ezsh='nvim ~/.zshrc && source ~/.zshrc'
@@ -47,3 +47,5 @@ alias cob='git checkout -b'
 alias delete-all-branches='git branch | grep -v "main" | xargs git branch -D'
 alias python=python3
 alias pip=pip3
+alias lg=lazygit
+alias run='make -f MyMakefile'
