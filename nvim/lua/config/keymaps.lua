@@ -11,5 +11,5 @@ vim.api.nvim_set_keymap("n", "<Up>", "<C-W>k", { desc = "Move focus to upper pan
 vim.api.nvim_set_keymap("n", "<Left>", "<C-W>h", { desc = "Move focus to left pane" })
 vim.api.nvim_set_keymap("n", "<Right>", "<C-W>l", { desc = "Move focus to right pane" })
 
--- Double tap to exit the terminal
-vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+-- close terminal with esc key (always in insert mode)
+vim.keymap.set("t", "<Esc>", "<cmd>close<cr>", { desc = "Hide Terminal" })
