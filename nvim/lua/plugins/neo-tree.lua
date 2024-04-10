@@ -2,11 +2,11 @@ return {
   "nvim-neo-tree/neo-tree.nvim",
   keys = {
     {
-      "<leader>ft",
+      "<leader>fe",
       function()
         require("neo-tree.command").execute({ toggle = true, dir = vim.uv.cwd() })
       end,
-      desc = "[F]ile [T]ree",
+      desc = "[F]ile [E]xplorer",
     },
   },
   opts = {
