@@ -5,7 +5,8 @@
     "lazyvim.plugins.extras.formatting.prettier",
     "lazyvim.plugins.extras.lang.elixir",
     "lazyvim.plugins.extras.lang.typescript",
-    "lazyvim.plugins.extras.linting.eslint"
+    "lazyvim.plugins.extras.linting.eslint",
+    "lazyvim.plugins.extras.test.core"
   ],
   "news": {
     "NEWS.md": "3314"
