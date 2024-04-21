@@ -2,23 +2,18 @@ return {
   "nvim-neo-tree/neo-tree.nvim",
   keys = function()
     return {
-      {
-        "<leader>fe",
-        function()
-          require("neo-tree.command").execute({ toggle = true, dir = vim.uv.cwd() })
-        end,
-        desc = "File Explorer",
-      },
+      { "<leader>fe", "<Cmd>Neotree position=current reveal<CR>", desc = "File Explorer" },
     }
   end,
   opts = {
     event_handlers = {
-      {
-        event = "file_opened",
-        handler = function()
-          require("neo-tree.command").execute({ action = "close" })
-        end,
-      },
+      -- auto close neotree when selecting file
+      -- {
+      --   event = "file_opened",
+      --   handler = function()
+      --     require("neo-tree.command").execute({ action = "close" })
+      --   end,
+      -- },
     },
     filesystem = {
       filtered_items = {

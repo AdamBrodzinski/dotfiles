@@ -8,7 +8,8 @@ local map_toggle = function(keymap, count, desc)
   }
 end
 
-function _G.set_terminal_keymaps()
+-- global fn for autocommand to set keymaps for toggleterm only
+function Set_toggle_term_keymaps()
   local opts = { buffer = 0 }
   vim.keymap.set("t", "<esc><esc>", vim.cmd.ToggleTerm, opts)
   vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
@@ -16,9 +17,6 @@ function _G.set_terminal_keymaps()
   vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
   vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
 end
-
--- if you only want these mappings for toggle term use term://*toggleterm#* instead
-vim.cmd("autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()")
 
 return {
   "akinsho/toggleterm.nvim",
@@ -28,6 +26,7 @@ return {
     map_toggle("<C-2>", 2, "Toggle 2nd Terminal"),
     map_toggle("<C-3>", 3, "Toggle 3rd Terminal"),
     map_toggle("<C-4>", 4, "Toggle 4th Terminal"),
+    -- see autocommand
   },
   opts = {
     direction = "float",
