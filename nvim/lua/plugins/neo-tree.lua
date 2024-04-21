@@ -1,17 +1,18 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
-  keys = {
-    {
-      "<leader>fe",
-      function()
-        require("neo-tree.command").execute({ toggle = true, dir = vim.uv.cwd() })
-      end,
-      desc = "[F]ile [E]xplorer",
-    },
-  },
+  keys = function()
+    return {
+      {
+        "<leader>fe",
+        function()
+          require("neo-tree.command").execute({ toggle = true, dir = vim.uv.cwd() })
+        end,
+        desc = "File Explorer",
+      },
+    }
+  end,
   opts = {
     event_handlers = {
-
       {
         event = "file_opened",
         handler = function()

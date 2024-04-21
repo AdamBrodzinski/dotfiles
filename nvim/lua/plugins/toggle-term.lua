@@ -1,37 +1,38 @@
+local map_toggle = function(keymap, count, desc)
+  return {
+    keymap,
+    function()
+      vim.cmd.ToggleTerm({ count = count })
+    end,
+    desc,
+  }
+end
+
+function _G.set_terminal_keymaps()
+  local opts = { buffer = 0 }
+  vim.keymap.set("t", "<esc><esc>", vim.cmd.ToggleTerm, opts)
+  vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
+  vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
+  vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
+  vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
+end
+
+-- if you only want these mappings for toggle term use term://*toggleterm#* instead
+vim.cmd("autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()")
+
 return {
   "akinsho/toggleterm.nvim",
-  event = "VeryLazy",
   keys = {
-    { "<leader>r", vim.cmd.ToggleTerm, desc = "Te[r]minal" },
+    { "<leader>r", vim.cmd.ToggleTerm, desc = "Terminal" },
+    map_toggle("<C-1>", 1, "Toggle 1st Terminal"),
+    map_toggle("<C-2>", 2, "Toggle 2nd Terminal"),
+    map_toggle("<C-3>", 3, "Toggle 3rd Terminal"),
+    map_toggle("<C-4>", 4, "Toggle 4th Terminal"),
   },
-  config = function()
-    require("toggleterm").setup({
-      direction = "float",
-      shade = true,
-      auto_scroll = true,
-      start_in_insert = true,
-    })
-
-    -- change terminal once its open
-    vim.keymap.set("n", "<C-1>", function()
-      vim.cmd.ToggleTerm({ count = 1 })
-    end, { desc = "Toggle 1st Terminal" })
-    vim.keymap.set("n", "<C-2>", function()
-      vim.cmd.ToggleTerm({ count = 2 })
-    end, { desc = "Toggle 2nd Terminal" })
-    vim.keymap.set("n", "<C-3>", function()
-      vim.cmd.ToggleTerm({ count = 3 })
-    end, { desc = "Toggle 3rd Terminal" })
-    vim.keymap.set("n", "<C-4>", function()
-      vim.cmd.ToggleTerm({ count = 4 })
-    end, { desc = "Toggle 4th Terminal" })
-    vim.keymap.set("n", "<C-5>", function()
-      vim.cmd.ToggleTerm({ count = 5 })
-    end, { desc = "Toggle 5th Terminal" })
-    vim.keymap.set("n", "<C-6>", function()
-      vim.cmd.ToggleTerm({ count = 5 })
-    end, { desc = "Toggle 5th Terminal" })
-
-    -- vim.keymap.set("t", "<esc>", vim.cmd.ToggleTerm)
-  end,
+  opts = {
+    direction = "float",
+    shade = true,
+    auto_scroll = true,
+    start_in_insert = true,
+  },
 }
