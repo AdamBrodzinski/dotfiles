@@ -5,4 +5,11 @@ return {
       colorscheme = "tokyonight-moon",
     },
   },
+
+  {
+    "folke/tokyonight.nvim",
+    opts = {
+      transparent = true,
+    },
+  },
 }
