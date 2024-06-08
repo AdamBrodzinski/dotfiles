@@ -6,15 +6,11 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[color]
-	ui = true
-[color "status"]
-  added = yellow
-  changed = green
-  untracked = cyan
-[color "branch"]
-  current = green reverse
-  remote = cyan
+[init]
+	defaultBranch = main
+[core]
+	excludesfile = /Users/adam/.gitignore_global
+	pager = less -x3
 [alias]
   ammend = commit --amend
   b = branch
