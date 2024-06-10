@@ -1,0 +1,25 @@
+# update the package database
+sudo pacman -Syy
+
+# cli tools
+sudo pacman -S curl
+sudo pacman -S wget
+sudo pacman -S stow
+sudo pacman -S ack
+sudo pacman -S fd
+sudo pacman -S jq
+sudo pacman -S tree
+sudo pacman -S xsel
+sudo pacman -S z
+
+# programming tools
+sudo pacman -S git
+sudo pacman -S asdf
+sudo pacman -S lazygit
+sudo pacman -S lazydocker
+sudo pacman -S ripgrep
+sudo pacman -S neovim
+
+# language support
+sudo pacman -S lua
+sudo pacman -S opam
