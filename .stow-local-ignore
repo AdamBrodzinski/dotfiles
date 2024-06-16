@@ -1,6 +1,9 @@
-.profile
+.git
 .zshenv
+.bashenv
 README.md
 bash-recipes.sh
 linux
 mac-os
+linux/install_script
+mac-os/install_script

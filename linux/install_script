@@ -4,6 +4,7 @@ sudo pacman -Syy
 # cli tools
 sudo pacman -S curl
 sudo pacman -S wget
+sudo pacman -S less
 sudo pacman -S stow
 sudo pacman -S ack
 sudo pacman -S fd
@@ -11,6 +12,7 @@ sudo pacman -S jq
 sudo pacman -S tree
 sudo pacman -S xsel
 sudo pacman -S z
+sudo package -S trash-cli
 
 # programming tools
 sudo pacman -S git
@@ -23,3 +25,14 @@ sudo pacman -S neovim
 # language support
 sudo pacman -S lua
 sudo pacman -S opam
+
+# framework13 laptop (arch)
+sudo pacman -S bluez bluez-utils
+sudo systemctl enable bluetooth
+
+# scaling 1.58
+
+# enable intercept plugin
+# https://wiki.archlinux.org/title/Interception-tools
+sudo pacman -S interception-tools interception-caps2esc
+# systemctl enable udevmon
