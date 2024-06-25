@@ -3,7 +3,9 @@ autoload -Uz vcs_info
 precmd() { vcs_info }
 zstyle ':vcs_info:git:*' formats '(%b)'
 setopt PROMPT_SUBST
-PROMPT='%F{cyan}%1~%f%b %F{green}❯%f '
+
+PROMPT='%F{yellow}❯%f '
+RPROMPT='%F{blue}%3~'
 
 
 # ------------ ZSH History ------------
@@ -33,7 +35,7 @@ tabs -3
 
 # ---------------- alias ----------------
 alias ezsh='nvim ~/.zshrc && source ~/.zshrc'
-alias evim='nvim ~/.config/nvim'
+alias evim='nvim ~/.config/nvim/init.lua'
 alias ekitty='nvim ~/.config/kitty/kitty.conf'
 alias vim='nvim'
 alias vi='nvim'
@@ -45,6 +47,7 @@ alias gs='git status'
 alias gb='git branch'
 alias co='git checkout'
 alias cob='git checkout -b'
+alias gg='lazygit'
 alias delete-all-branches='git branch | grep -v "main" | xargs git branch -D'
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'

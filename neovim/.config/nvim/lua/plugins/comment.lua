@@ -2,11 +2,11 @@ return {
   "echasnovski/mini.comment",
   keys = {
     -- kitty binding char for Cmd /
-    "<Esc>cmdc",
+    "<Esc>cmdfs",
   },
   opts = {
     mappings = {
-      comment_line = "<Esc>cmdc",
+      comment_line = "<Esc>cmdfs",
     },
   },
 }
