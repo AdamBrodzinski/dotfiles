@@ -25,27 +25,17 @@ bindkey '\e[B' history-beginning-search-forward
 tabs -3
 
 
-# ----------- ZSH plugin setup ----------
+# ----------- ZSH plugins -----------
 source ~/code/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-eval "$(atuin init zsh --disable-up-arrow)"
 
-# ---------------- alias ----------------
-alias ezsh='nvim ~/.zshrc && source ~/.zshrc'
-alias evim='nvim ~/.config/nvim'
-alias ekitty='nvim ~/.config/kitty'
-alias vim='nvim'
-alias vi='nvim'
-alias l='ls -l'
-alias ll='ls -la'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias gs='git status'
-alias gb='git branch'
-alias co='git checkout'
-alias cob='git checkout -b'
-alias delete-all-branches='git branch | grep -v "main" | xargs git branch -D'
-alias python=python3
-alias pip=pip3
-alias lg=lazygit
-alias run='make -f MyMakefile'
+
+# ----------- Aliases -----------
+if [ -f .zshalias ]; then
+  source .zshalias
+fi
+
+
+# ----------- Setup brew apps -----------
+if [ -f .zshapps ]; then
+  source .zshapps
+fi
