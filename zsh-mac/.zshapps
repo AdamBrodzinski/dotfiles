@@ -26,3 +26,6 @@ fi
 
 # atuin shell history
 eval "$(atuin init zsh --disable-up-arrow)"
+
+# setup fzf
+source <(fzf --zsh)
