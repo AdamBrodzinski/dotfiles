@@ -18,3 +18,5 @@
   undo = reset --soft HEAD^
 [credential]
 	helper = cache
+[pull]
+	rebase = true
