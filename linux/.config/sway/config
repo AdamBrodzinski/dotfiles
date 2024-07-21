@@ -16,13 +16,14 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-#set $term foot
 set $term kitty 
+
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | wmenu | xargs swaymsg exec --
-#set $menu 'rofi -modi run, drun, window  -show drun' 
+#set $menu dmenu_path | wmenu | xargs swaymsg exec --
+#set $menu 'wofi -modi run, drun, window  -show drun' 
+set $menu ulauncher
 
 ### Output configuration
 output eDP-1 scale 1
@@ -71,13 +72,13 @@ output eDP-1 scale 1
     bindsym $mod+Return exec $term
 
     # Kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym $mod+w kill
 
-    # Start your launcher
-    bindsym $mod+d exec $menu
+    # Start launcher
+    bindsym $mod+space exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
+    # Resize them with right mouse button + $mod
     # Despite the name, also works for non-floating windows.
     # Change normal to inverse to use left mouse button for resizing and right
     # mouse button for dragging.
@@ -150,8 +151,8 @@ output eDP-1 scale 1
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+    #bindsym $mod+w layout tabbed
+    #bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
@@ -160,7 +161,7 @@ output eDP-1 scale 1
     bindsym $mod+Shift+space floating toggle
 
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+    #bindsym $mod+space focus mode_toggle
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
