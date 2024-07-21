@@ -40,6 +40,8 @@ yay -S asdf-vm.git
 # --------- Desktop environment
 sudo pacman -S flatpack
 yay -S ttf-ms-fonts
+sudo pacman -S adobe-source-sans-fonts
+sudo pacman -S ttf-open-sans
 flatpak install chrome
 flatpak install datagrip
 
