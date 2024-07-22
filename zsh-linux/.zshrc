@@ -1,3 +1,6 @@
+# init asdf for 
+. /opt/asdf-vm/asdf.sh
+
 # ------------ ZSH Theme -------------
 autoload -Uz vcs_info
 precmd() { vcs_info }
@@ -53,9 +56,5 @@ alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 
 
-# ----------- enable plugins -----------
-# asdf plugin manager
-. /opt/asdf-vm/asdf.sh
-
-# enable 'z' jump command
-[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+# init applications
+source .zsh-apps
