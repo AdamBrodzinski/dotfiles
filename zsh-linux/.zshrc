@@ -55,6 +55,7 @@ alias delete-all-branches='git branch | grep -v "main" | xargs git branch -D'
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 
+source .zshalias
 
 # init applications
 source .zsh-apps
