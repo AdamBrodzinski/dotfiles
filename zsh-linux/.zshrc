@@ -2,7 +2,9 @@
 . /opt/asdf-vm/asdf.sh
 
 # exit if shell is not interactive
-if [[ ! $- == *i* ]]; then return fi
+if [[ ! $- == *i* ]]; then 
+  return 
+fi
 
 # ------------ ZSH Theme -------------
 autoload -Uz vcs_info
@@ -38,7 +40,7 @@ tabs -3
 #source $HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # ----------- cross platform aliases -----------
-source .zshalias
+source ~/.zshalias
 
 # ----------- init applications -----------
-source .zsh-apps
+source ~/.zsh-apps
