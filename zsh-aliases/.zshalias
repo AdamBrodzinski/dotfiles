@@ -1,18 +1,35 @@
+# edit configs
 alias ezsh='nvim ~/.zshrc && source ~/.zshrc'
 alias evim='nvim ~/.config/nvim'
 alias ekitty='nvim ~/.config/kitty'
+alias ehyp='nvim ~/.config/hypr/hyprland.conf'
+
+# apps
 alias vim='nvim'
 alias vi='nvim'
+alias python=python3
+alias pip=pip3
+alias lg=lazygit
+
+# unix
 alias l='ls -l --color'
 alias ll='ls -la --color'
 alias ..='cd ..'
 alias ...='cd ../..'
+
+# development
+alias run='make -f MyMakefile'
 alias gs='git status'
 alias gb='git branch'
 alias co='git checkout'
 alias cob='git checkout -b'
 alias delete-all-branches='git branch | grep -v "main" | xargs git branch -D'
-alias python=python3
-alias pip=pip3
-alias lg=lazygit
-alias run='make -f MyMakefile'
+alias gg='lazygit'
+
+# system
+alias shutdown='shutdown -h now'
+alias suspend='systemctl suspend'
+alias upgrade_system='sudo pacman -Syu'
+alias ins='sudo pacman -S'
+alias pbcopy='wl-copy'
+alias pbpaste='wl-paste'
