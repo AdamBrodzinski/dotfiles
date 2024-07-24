@@ -27,7 +27,6 @@ return {
           "*.plantuml",
           "*.toml",
           "*.yml",
-          "*config*",
         },
         hide_by_name = {
           "_build",
