@@ -11,4 +11,8 @@ foo | sed '/^{/G'
 # ------- Testing ------
 
 # show stdout logs, ony run failed tests, stop on failed test
-pytest -v --lf -x 
+pytest -v --lf -x
+
+# update arch
+# update all packages
+sudo pacman -Syu

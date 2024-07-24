@@ -1,9 +1,0 @@
-.DS_Store
-.sass-cache
-*.swp
-*.swo
-.netrwhist
-.tern-port
-\#*\#
-.\#*
-MyMakefile

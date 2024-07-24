@@ -1,3 +1,8 @@
+#!/bin/bash
+
+set -e # exit when a cmd fails
+set -x # print cmd before running it
+
 # update the package database
 sudo pacman -Syy
 
@@ -5,20 +10,23 @@ sudo pacman -Syy
 sudo pacman -S yay
 
 # cli tools
-sudo pacman -S curl
-sudo pacman -S wget
-sudo pacman -S less
-sudo pacman -S stow
 sudo pacman -S ack
+sudo pacman -S curl
 sudo pacman -S fd
 sudo pacman -S jq
+sudo pacman -S less
+sudo pacman -S stow
+sudo pacman -S tldr
+sudo pacman -S trash-cli
 sudo pacman -S tree
+sudo pacman -S wget
 sudo pacman -S xsel
 sudo pacman -S z
-sudo package -S trash-cli
 
 # programming tools
 sudo pacman -S git
+sudo pacman -S docker
+systemctl enable docker.service
 sudo pacman -S lazygit
 sudo pacman -S lazydocker
 sudo pacman -S ripgrep
@@ -26,25 +34,36 @@ sudo pacman -S neovim
 yay -S asdf-vm.git
 
 # language support
-sudo pacman -S opam
+# sudo pacman -S opam
 # see asdf readme for erlang install on arch
 
-# framework13 laptop (arch)
-sudo pacman -S bluez bluez-utils
-sudo systemctl enable bluetooth
-
-# enable intercept plugin
-# https://wiki.archlinux.org/title/Interception-tools
-sudo pacman -S interception-tools interception-caps2esc
-systemctl enable udevmon
-
-
-# Desktop environment
+# --------- Desktop environment
 sudo pacman -S flatpack
-
 yay -S ttf-ms-fonts
-flatpack install chrome
+sudo pacman -S adobe-source-sans-fonts
+sudo pacman -S ttf-open-sans
+flatpak install chrome
+flatpak install datagrip
+
 # gnome desktop
 yay -S ulauncher
 yay -S gnome-shell-extension-forge
 yay -S gnome-shell-extension-space-bar
+# gnome themes
+sudo pacman -S gnome-browser-connector
+
+# --------- Setup framework13
+
+COMPUTER_MAKER=$(sudo dmidecode -t system | grep 'Manufacturer:' | awk '{print $2}')
+
+if [ "$COMPUTER_MAKER" == "Framework" ]; then
+	# enable intercept plugin
+	# https://wiki.archlinux.org/title/Interception-tools
+	sudo pacman -S interception-tools interception-caps2esc
+	systemctl enable udevmon
+
+	sudo pacman -S bluez bluez-utils
+	sudo systemctl enable bluetooth
+	# https://wiki.archlinux.org/title/Network_configuration/Wireless#Respecting_the_regulatory_domain
+	sudo pacman -S wireless-regdb
+fi
