@@ -30,12 +30,10 @@ source ~/code/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 # ----------- Aliases -----------
-if [ -f .zshalias ]; then
-  source .zshalias
-fi
+  source ~/.zshalias
 
 
 # ----------- Setup brew apps -----------
 if [ -f .zshapps ]; then
-  source .zshapps
+  source ~/.zshapps
 fi

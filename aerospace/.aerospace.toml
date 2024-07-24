@@ -62,8 +62,8 @@ cmd-shift-r = 'mode resize'
 
 [mode.resize.binding]
 h = 'resize width -50'
-j = 'resize height +50'
-k = 'resize height -50'
+j = 'resize height -50'
+k = 'resize height +50'
 l = 'resize width +50'
 enter = 'mode main'
 esc = 'mode main'
@@ -73,11 +73,6 @@ esc = 'mode main'
 # if.workspace = '1'
 # check-further-callbacks = true
 # run = ['layout floating']
-
-[[on-window-detected]]
-if.workspace = '2'
-check-further-callbacks = true
-run = ['layout tiling']
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'zoom'
@@ -90,7 +85,6 @@ run = ['layout floating']
 [[on-window-detected]]
 if.window-title-regex-substring = 'Karabiner'
 run = ['layout floating']
-
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Alfred Preferences'
