@@ -47,16 +47,13 @@ sudo pacman -S --needed \
   opam \
   ;
 
+yay -S --needed lazydocker
+
 if ! systemctl is-active --quiet docker.service; then
   echo "Enabling & starting docker.service"
   systemctl enable docker.service
   systemctl start docker.service
 fi
-
-yay -S --needed \
-  asdf-vm \
-  lazydocker \
-  ;
 
 # ------------------------------------------
 echo "Installing Languages..."
@@ -109,22 +106,12 @@ fi
 echo "Done!"
 # ------------------------------------------
 
+# # https://wiki.archlinux.org/title/Network_configuration/Wireless#Respecting_the_regulatory_domain
+# sudo pacman -S wireless-regdb
+
 # legacy gnome desktop
 # yay -S gnome-shell-extension-forge
 # yay -S gnome-shell-extension-space-bar
 
-# --------- Setup framework13
-
-# COMPUTER_MAKER=$(sudo dmidecode -t system | grep 'Manufacturer:' | awk '{print $2}')
-# if [ "$COMPUTER_MAKER" == "Framework" ]; then
-#   # enable intercept plugin
-#   # https://wiki.archlinux.org/title/Interception-tools
-#   sudo pacman -S interception-tools interception-caps2esc
-#   systemctl enable udevmon
-#
-#   sudo pacman -S bluez bluez-utils
-#   sudo systemctl enable bluetooth
-#
-#   # https://wiki.archlinux.org/title/Network_configuration/Wireless#Respecting_the_regulatory_domain
-#   sudo pacman -S wireless-regdb
-# fi
+# keyboard remapping
+sudo pacman -S keyd
