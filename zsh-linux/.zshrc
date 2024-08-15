@@ -44,3 +44,6 @@ source ~/.zshalias
 
 # ----------- init applications -----------
 source ~/.zsh-apps
+
+# env vars not in source ctrl
+source ~/.zshenv
