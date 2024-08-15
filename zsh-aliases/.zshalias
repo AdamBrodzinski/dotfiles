@@ -33,3 +33,10 @@ alias upgrade_system='sudo pacman -Syu'
 alias ins='sudo pacman -S'
 alias pbcopy='wl-copy'
 alias pbpaste='wl-paste'
+
+
+# functions
+scripts () {
+  selected_npm_target=$(jq -r '.scripts | keys[]' package.json | fzf)
+  yarn run $selected_npm_target
+}
