@@ -61,6 +61,13 @@ echo "Installing Languages..."
 
 sudo pacman -S --needed opam
 yay -S --needed asdf-vm
+asdf plugin-add elixir
+asdf plugin-add erlang
+asdf plugin-add gleam
+asdf plugin-add golang
+asdf plugin-add nodejs
+asdf plugin-add rust
+asdf plugin-add yarn
 
 # ------------------------------------------
 echo "Installing Desktop Env..."

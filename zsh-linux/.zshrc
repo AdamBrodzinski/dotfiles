@@ -36,8 +36,8 @@ bindkey '\e[B' history-beginning-search-forward
 tabs -3
 
 # ----------- ZSH plugin setup ----------
-#source ~/code/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-#source $HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source ~/Code/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source <(fzf --zsh) # fzf key bindings & fuzzy complete
 
 # ----------- cross platform aliases -----------
 source ~/.zshalias
@@ -47,3 +47,7 @@ source ~/.zsh-apps
 
 # env vars not in source ctrl
 source ~/.zshenv
+
+# temp work around for pipewire
+pactl set-sink-mute 0 toggle
+pactl set-sink-mute 0 toggle

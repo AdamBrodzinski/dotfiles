@@ -19,10 +19,7 @@ vim.keymap.del("n", "<leader><tab>d", { desc = "Close Tab" })
 vim.keymap.del("n", "<leader><tab>[", { desc = "Previous Tab" })
 
 -- windows
-vim.keymap.del("n", "<leader>ww") -- other window
 vim.keymap.del("n", "<leader>wd") --
-vim.keymap.del("n", "<leader>w-")
-vim.keymap.del("n", "<leader>w|")
 
 -- buffers
 vim.keymap.del("n", "]b")
@@ -46,8 +43,3 @@ vim.keymap.del("t", "<C-k>", { desc = "Go to Upper Window" })
 vim.keymap.del("t", "<C-l>", { desc = "Go to Right Window" })
 vim.keymap.del("t", "<C-/>", { desc = "Hide Terminal" })
 vim.keymap.del("t", "<esc><esc>", { desc = "Enter Normal Mode" })
-
--- Add undo break-points
--- map("i", ",", ",<c-g>u")
--- map("i", ".", ".<c-g>u")
--- map("i", ";", ";<c-g>u")
