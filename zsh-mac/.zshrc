@@ -31,6 +31,8 @@ source ~/code/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # ----------- Aliases -----------
   source ~/.zshalias
+  alias borders-stop='brew services stop borders'
+  alias borders-start='brew services start borders'
 
 
 # ----------- Setup brew apps -----------

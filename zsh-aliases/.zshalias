@@ -19,6 +19,7 @@ alias ...='cd ../..'
 
 # development
 alias run='make -f MyMakefile'
+alias rg='rg --hidden'
 alias gs='git status'
 alias gb='git branch'
 alias co='git checkout'

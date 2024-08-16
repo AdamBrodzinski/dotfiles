@@ -30,7 +30,7 @@ alt-v = 'split vertical'
 
 cmd-shift-f = 'fullscreen'
 
-cmd-e = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
+cmd-shift-e = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
 
 cmd-shift-space = 'layout floating tiling' # 'floating toggle' in i3
 
@@ -76,7 +76,7 @@ esc = 'mode main'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'zoom'
-run = ['layout floating', 'move-node-to-workspace 1']
+run = ['layout floating', 'move-node-to-workspace 9']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
