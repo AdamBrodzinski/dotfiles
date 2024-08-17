@@ -1,7 +1,8 @@
 # edit configs
 alias ezsh='nvim ~/.zshrc && source ~/.zshrc'
+alias eali='nvim ~/.zshalias && source ~/.zshalias'
 alias evim='nvim ~/.config/nvim'
-alias ekitty='nvim ~/.config/kitty'
+alias ekit='nvim ~/.config/kitty'
 alias ehyp='nvim ~/.config/hypr/hyprland.conf'
 
 # apps
@@ -9,13 +10,14 @@ alias vim='nvim'
 alias vi='nvim'
 alias python=python3
 alias pip=pip3
-alias lg=lazygit
+alias gg=lazygit
 
 # unix
 alias l='ls -l --color'
 alias ll='ls -la --color'
 alias ..='cd ..'
 alias ...='cd ../..'
+alias c='clear'
 
 # development
 alias run='make -f MyMakefile'
@@ -25,7 +27,6 @@ alias gb='git branch'
 alias co='git checkout'
 alias cob='git checkout -b'
 alias delete-all-branches='git branch | grep -v "main" | xargs git branch -D'
-alias gg='lazygit'
 
 # system
 alias shutdown='shutdown -h now'
@@ -40,4 +41,16 @@ alias pbpaste='wl-paste'
 scripts () {
   selected_npm_target=$(jq -r '.scripts | keys[]' package.json | fzf)
   yarn run $selected_npm_target
+}
+
+reset-datagrip() {
+  trash ~/.var/app/com.jetbrains.DataGrip/config/JetBrains/DataGrip2024.1/.lock
+}
+
+dark-mode() {
+  kitten themes --reload-in=all Catppuccin-Frappe
+}
+
+light-mode() {
+  kitten themes --reload-in=all Catppuccin-Latte
 }
