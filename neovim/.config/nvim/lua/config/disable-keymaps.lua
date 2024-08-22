@@ -18,9 +18,6 @@ vim.keymap.del("n", "<leader><tab>]", { desc = "Next Tab" })
 vim.keymap.del("n", "<leader><tab>d", { desc = "Close Tab" })
 vim.keymap.del("n", "<leader><tab>[", { desc = "Previous Tab" })
 
--- windows
-vim.keymap.del("n", "<leader>wd") --
-
 -- buffers
 vim.keymap.del("n", "]b")
 vim.keymap.del("n", "<leader>bb")

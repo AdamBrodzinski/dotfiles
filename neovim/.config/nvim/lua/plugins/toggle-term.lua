@@ -11,7 +11,7 @@ end
 -- global fn for autocommand to set keymaps for toggleterm only
 function Set_toggle_term_keymaps()
   local opts = { buffer = 0 }
-  vim.keymap.set("t", "<esc>", vim.cmd.ToggleTerm, opts)
+  vim.keymap.set("t", "<C-enter>", vim.cmd.ToggleTerm, opts)
   vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
   vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
   vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
