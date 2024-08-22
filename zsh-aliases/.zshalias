@@ -38,9 +38,19 @@ alias pbpaste='wl-paste'
 
 
 # functions
-scripts () {
+scr () {
   selected_npm_target=$(jq -r '.scripts | keys[]' package.json | fzf)
   yarn run $selected_npm_target
+}
+
+proj () {
+  selected_project=$(
+    find ~/Code -mindepth 1 -maxdepth 1 -type d \
+    | sed 's|/home/adam/Code/||g' \
+    | fzf
+  )
+  cd ~/Code/"$selected_project"
+  nvim
 }
 
 reset-datagrip() {
