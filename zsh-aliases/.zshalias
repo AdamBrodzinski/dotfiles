@@ -27,6 +27,7 @@ alias gb='git branch'
 alias co='git checkout'
 alias cob='git checkout -b'
 alias delete-all-branches='git branch | grep -v "main" | xargs git branch -D'
+alias deploy-to-dev='git push origin HEAD:develop --force'
 
 # system
 alias shutdown='shutdown -h now'
