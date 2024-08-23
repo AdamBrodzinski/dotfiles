@@ -40,18 +40,27 @@ alias pbpaste='wl-paste'
 
 # functions
 scr () {
-  selected_npm_target=$(jq -r '.scripts | keys[]' package.json | fzf)
-  yarn run $selected_npm_target
+  if [[ -f package.json ]]; then # skip if file not found
+    # fuzzy find keys in package.json scripts array
+    local selected_npm_target=$(jq -r '.scripts | keys[]' package.json | fzf)
+    if [[ -n $selected_npm_target ]]; then # if something was selected in fzf
+      yarn run $selected_npm_target
+    fi
+  fi
 }
 
 proj () {
-  selected_project=$(
-    find ~/Code -mindepth 1 -maxdepth 1 -type d \
-    | sed 's|/home/adam/Code/||g' \
+  # use find to list all the directories in the code folder, trim abs path, fuzzy find
+  local selected_project=$(
+    find ~/Code ~/code/mfes ~/code/services -mindepth 1 -maxdepth 1 -type d \
+    | sed -E 's|/home/adam/code/||I; s|/Users/adambrodzinski/code/||I' \
     | fzf
   )
-  cd ~/Code/"$selected_project"
-  nvim
+  # if one is selected, launch in editor
+  if [[ -n $selected_project ]]; then
+    cd ~/Code/"$selected_project"
+    nvim
+  fi
 }
 
 reset-datagrip() {
