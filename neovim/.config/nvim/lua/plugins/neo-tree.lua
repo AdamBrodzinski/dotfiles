@@ -27,6 +27,7 @@ return {
           "*.plantuml",
           "*.toml",
           "*.yml",
+          "eslint*",
         },
         hide_by_name = {
           "_build",
