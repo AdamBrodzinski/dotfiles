@@ -7,7 +7,6 @@
     "lazyvim.plugins.extras.lang.docker",
     "lazyvim.plugins.extras.lang.elixir",
     "lazyvim.plugins.extras.lang.gleam",
-    "lazyvim.plugins.extras.lang.go",
     "lazyvim.plugins.extras.lang.ocaml",
     "lazyvim.plugins.extras.lang.svelte",
     "lazyvim.plugins.extras.lang.typescript",
@@ -15,7 +14,7 @@
     "lazyvim.plugins.extras.test.core"
   ],
   "news": {
-    "NEWS.md": "6296"
+    "NEWS.md": "6520"
   },
   "version": 6
 }
