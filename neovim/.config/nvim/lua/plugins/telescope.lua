@@ -9,13 +9,22 @@ return {
       { "<leader>fI", builtin.lsp_implementations, desc = "Find LSP Implementations" },
       { "<leader>fR", builtin.lsp_references, desc = "Find LSP References" },
       { "<leader>fE", builtin.diagnostics, desc = "Find Errors" },
-      --      { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File" },
       {
         "<leader>ff",
         function()
-          require("telescope.builtin").find_files({ cwd = vim.fn.expand("%:p:h") })
+          local args = vim.fn.argv()
+          require("telescope.builtin").find_files({
+            cwd = vim.fn.fnamemodify(args[1], ":p:h"),
+          })
         end,
         desc = "Find File",
+      },
+      {
+        "<leader>fF",
+        function()
+          require("telescope.builtin").find_files({ cwd = vim.fn.expand("%:p:h") })
+        end,
+        desc = "Find File in current directory",
       },
 
       { "<leader>fg", builtin.live_grep, desc = "Find by Grep" },
