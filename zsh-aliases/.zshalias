@@ -13,8 +13,8 @@ alias pip=pip3
 alias gg=lazygit
 
 # unix
-alias l='ls -l --color'
-alias ll='ls -la --color'
+alias l='eza -l --no-user --time-style="+%b %d %I:%M %P  "'
+alias ll='eza -la --no-user --time-style="+%b %d %I:%M %P  "'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias c='clear'
@@ -28,6 +28,7 @@ alias co='git checkout'
 alias cob='git checkout -b'
 alias delete-all-branches='git branch | grep -v "main" | xargs git branch -D'
 alias deploy-to-dev='git push origin HEAD:develop --force'
+alias count-loc="find . ! -name '*generated*' ! -name '*graphql' ! -name '*json' -type f | xargs wc -l | sort -n"
 
 # system
 alias shutdown='shutdown -h now'

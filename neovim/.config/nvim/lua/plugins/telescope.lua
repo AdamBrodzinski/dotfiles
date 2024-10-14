@@ -9,13 +9,22 @@ return {
       { "<leader>fI", builtin.lsp_implementations, desc = "Find LSP Implementations" },
       { "<leader>fR", builtin.lsp_references, desc = "Find LSP References" },
       { "<leader>fE", builtin.diagnostics, desc = "Find Errors" },
-      { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File" },
+      --      { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File" },
+      {
+        "<leader>ff",
+        function()
+          require("telescope.builtin").find_files({ cwd = vim.fn.expand("%:p:h") })
+        end,
+        desc = "Find File",
+      },
+
       { "<leader>fg", builtin.live_grep, desc = "Find by Grep" },
       { "<leader>fr", builtin.resume, desc = "Find Resume" },
     }
   end,
   opts = {
     defaults = {
+      file_ignore_patterns = { "yarn.lock", "db_updates" },
       mappings = {
         i = {
           ["<esc>"] = "close",

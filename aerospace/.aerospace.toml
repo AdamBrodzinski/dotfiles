@@ -29,10 +29,8 @@ alt-z = 'split horizontal'
 alt-v = 'split vertical'
 
 cmd-shift-f = 'fullscreen'
-
 cmd-shift-e = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
-
-cmd-shift-space = 'layout floating tiling' # 'floating toggle' in i3
+cmd-shift-w = 'layout floating tiling' # 'floating toggle' in i3
 
 cmd-1 = 'workspace 1'
 cmd-2 = 'workspace 2'
@@ -61,18 +59,12 @@ ctrl-alt-c = 'reload-config'
 cmd-shift-r = 'mode resize'
 
 [mode.resize.binding]
-h = 'resize width -50'
+h = 'resize width +50'
 j = 'resize height -50'
 k = 'resize height +50'
-l = 'resize width +50'
+l = 'resize width -50'
 enter = 'mode main'
 esc = 'mode main'
-
-# if any window is sent to workspace 1, float it
-#[[on-window-detected]]
-# if.workspace = '1'
-# check-further-callbacks = true
-# run = ['layout floating']
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'zoom'
@@ -83,9 +75,9 @@ if.app-id = 'com.apple.finder'
 run = ['layout floating']
 
 [[on-window-detected]]
-if.window-title-regex-substring = 'Karabiner'
+if.window-title-regex-substring = 'Karabiner|Alfred Preferences'
 run = ['layout floating']
 
-[[on-window-detected]]
-if.app-name-regex-substring = 'Alfred Preferences'
-run = ['layout floating']
+#[[on-window-detected]]
+#if.app-name-regex-substring = 'Alfred Preferences'
+#run = ['layout floating']
