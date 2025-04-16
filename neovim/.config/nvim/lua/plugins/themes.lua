@@ -16,5 +16,12 @@ return {
   },
   {
     "neanias/everforest-nvim",
+    lazy = false,
+  },
+  { "catppuccin/nvim", name = "catppuccin", lazy = false },
+  {
+    "HoNamDuong/hybrid.nvim",
+    lazy = false,
+    opts = {},
   },
 }
