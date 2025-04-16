@@ -6,4 +6,6 @@ return {
   -- { "rcarriga/nvim-notify", enabled = false }, -- notify toasts
   { "echasnovski/mini.indentscope", enabled = false }, -- animated indent lines
   { "nvimdev/dashboard-nvim", enabled = false }, -- intro dashboard
+  { "nvim-neo-tree/neo-tree.nvim", enabled = false },
+  { "kdheepak/lazygit.nvim", enabled = false },
 }

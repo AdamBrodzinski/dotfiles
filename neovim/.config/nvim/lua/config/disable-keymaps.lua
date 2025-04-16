@@ -1,10 +1,12 @@
--- disable default keymaps in LazyVim
+------------------------------------------------------------
+--           Disable default LazyVim keymaps
 -- https://www.lazyvim.org/configuration/keymaps
+------------------------------------------------------------
 
-vim.keymap.del("v", "<") -- indent out
-vim.keymap.del("v", ">") -- indent in
+vim.keymap.del("v", "<", { desc = "indent out" })
+vim.keymap.del("v", ">", { desc = "indent in" })
 
--- Resize window using <ctrl> arrow keys
+-- resize window using <ctrl> arrow keys
 vim.keymap.del("n", "<C-Up>", { desc = "Increase Window Height" })
 vim.keymap.del("n", "<C-Down>", { desc = "Decrease Window Height" })
 vim.keymap.del("n", "<C-Left>", { desc = "Decrease Window Width" })
@@ -30,7 +32,6 @@ vim.keymap.del("n", "<leader>K", { desc = "Keywordprg" })
 
 vim.keymap.del("n", "<leader>l") -- open Lazy
 
-vim.keymap.del("n", "<leader>fn") -- new file
 vim.keymap.del("n", "<leader>qq") -- quit
 
 -- Terminal Mappings
@@ -40,3 +41,12 @@ vim.keymap.del("t", "<C-k>", { desc = "Go to Upper Window" })
 vim.keymap.del("t", "<C-l>", { desc = "Go to Right Window" })
 vim.keymap.del("t", "<C-/>", { desc = "Hide Terminal" })
 vim.keymap.del("t", "<esc><esc>", { desc = "Enter Normal Mode" })
+
+-- find
+vim.keymap.del("n", "<leader>fn", { desc = "new file" })
+vim.keymap.del("n", "<leader>ft", { desc = "terminal" })
+vim.keymap.del("n", "<leader>fT", { desc = "terminal" })
+
+vim.keymap.del("n", "<leader><Tab>o", { desc = "Close other tabs" })
+
+vim.keymap.del("n", "<leader>gg") -- lazyvim
