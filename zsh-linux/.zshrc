@@ -1,6 +1,3 @@
-# init asdf for 
-. /opt/asdf-vm/asdf.sh
-
 # exit if shell is not interactive
 if [[ ! $- == *i* ]]; then 
   return 
@@ -12,7 +9,7 @@ precmd() { vcs_info }
 zstyle ':vcs_info:git:*' formats '(%b)'
 setopt PROMPT_SUBST
 
-PROMPT='%F{yellow}❯%f '
+PROMPT=' %F{yellow}❯%f '
 RPROMPT='%F{blue}%3~'
 
 
@@ -32,12 +29,15 @@ zstyle ':completion:*' menu select
 bindkey '\e[A' history-beginning-search-backward
 bindkey '\e[B' history-beginning-search-forward
 
+# bindkey '^[[A' atuin-up-search
+# bindkey '^[OA' atuin-up-search
+
 # when printing std out, show tabs as 3 spaces
 tabs -3
 
 # ----------- ZSH plugin setup ----------
-source ~/Code/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source <(fzf --zsh) # fzf key bindings & fuzzy complete
+# source ~/Code/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source <(fzf --zsh) # fzf key bindings & fuzzy complete
 
 # ----------- cross platform aliases -----------
 source ~/.zshalias
@@ -51,3 +51,4 @@ source ~/.zshenv
 # temp work around for pipewire
 pactl set-sink-mute 0 toggle
 pactl set-sink-mute 0 toggle
+eval "$(/home/adam/.local/bin/mise activate zsh)"
