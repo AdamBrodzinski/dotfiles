@@ -1,5 +1,2 @@
-# enable 'z' jump command
-[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
-
-# enable opam to manage switches
-[[ ! -r '~/.opam/opam-init/init.zsh' ]] || source '~/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+eval "$(atuin init zsh --disable-up-arrow)"
+eval "$(zoxide init zsh)"
