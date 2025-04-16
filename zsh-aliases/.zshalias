@@ -4,9 +4,9 @@ alias eali='nvim ~/.zshalias && source ~/.zshalias'
 alias evim='nvim ~/.config/nvim'
 alias ekit='nvim ~/.config/kitty'
 alias ehyp='nvim ~/.config/hypr/hyprland.conf'
+alias ezel='nvim ~/.config/zellij/config.kdl'
 
 # apps
-alias vim='nvim'
 alias vi='nvim'
 alias python=python3
 alias pip=pip3
@@ -65,13 +65,30 @@ proj () {
 }
 
 reset-datagrip() {
-  trash ~/.var/app/com.jetbrains.DataGrip/config/JetBrains/DataGrip2024.1/.lock
+  trash ~/.var/app/com.jetbrains.DataGrip/config/JetBrains/DataGrip202*.*/.lock
 }
 
 dark-mode() {
-  kitten themes --reload-in=all Catppuccin-Frappe
+  kitten themes --reload-in=all Catppuccin-Mocha
 }
 
 light-mode() {
   kitten themes --reload-in=all Catppuccin-Latte
+}
+
+zel() {
+  local SESH=$(zellij list-sessions | sed -E 's/ \[.*$//' | fzf --ansi)
+  echo $SESH
+  zellij attach $SESH
+}
+
+kill_port() {
+  local PORT=$1
+  local PID=$(lsof -t -i :$PORT)
+  if [ -z "$PID" ]; then
+    echo "No process found on port $PORT"
+    return 1
+  fi
+  kill -9 $PID
+  echo "Killed process on port $PORT on pid $PID"
 }
