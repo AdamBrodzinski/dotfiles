@@ -1,0 +1,20 @@
+{
+  "Function": {
+    "prefix": "fun",
+    "description": "Create a function",
+    "body": [
+      "function ${1:fnName}(${2:args}) {",
+      "  $0",
+      "}"
+    ]
+  },
+  "AnonFunction": {
+    "prefix": "funa",
+    "description": "Create an anonymous function",
+    "body": [
+      "(${1:args}) => {",
+      "  $0",
+      "}"
+    ]
+  }
+}
