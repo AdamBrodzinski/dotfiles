@@ -52,3 +52,9 @@ source ~/.zshenv
 pactl set-sink-mute 0 toggle
 pactl set-sink-mute 0 toggle
 eval "$(/home/adam/.local/bin/mise activate zsh)"
+
+
+# startup zellij home session
+if [[ -z "$ZELLIJ_SESSION_NAME" ]]; then
+    zellij attach -c home
+fi
