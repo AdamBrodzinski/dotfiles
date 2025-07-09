@@ -1,6 +1,6 @@
 # exit if shell is not interactive
 if [[ ! $- == *i* ]]; then 
-  return 
+  return
 fi
 
 # ------------ ZSH Theme -------------
@@ -51,7 +51,7 @@ source ~/.zshenv
 # temp work around for pipewire
 pactl set-sink-mute 0 toggle
 pactl set-sink-mute 0 toggle
-eval "$(/home/adam/.local/bin/mise activate zsh)"
+eval "$(/usr/bin/mise activate zsh)"
 
 
 # startup zellij home session
