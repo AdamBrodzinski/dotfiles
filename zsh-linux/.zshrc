@@ -55,6 +55,6 @@ eval "$(/usr/bin/mise activate zsh)"
 
 
 # startup zellij home session
-if [[ -z "$ZELLIJ_SESSION_NAME" ]]; then
-    zellij attach -c home
-fi
+# if [[ -z "$ZELLIJ_SESSION_NAME" ]]; then
+#     zellij attach -c home
+# fi
