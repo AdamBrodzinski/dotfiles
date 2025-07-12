@@ -2,7 +2,7 @@
 alias ezsh='nvim ~/.zshrc && source ~/.zshrc'
 alias eali='nvim ~/.zshalias && source ~/.zshalias'
 alias evim='nvim ~/.config/nvim'
-alias ekit='nvim ~/.config/kitty'
+alias ealc='nvim ~/.config/alacritty/alacritty.toml'
 alias ehyp='nvim ~/.config/hypr/hyprland.conf'
 alias ezel='nvim ~/.config/zellij/config.kdl'
 
@@ -11,8 +11,12 @@ alias vi='nvim'
 alias python=python3
 alias pip=pip3
 alias gg=lazygit
+alias wifi=nmtui
+alias bluetooth=bluetui
+alias bt=bluetui
 
 # unix
+alias ls='eza'
 alias l='eza -l --no-user --time-style="+%b %d %I:%M %P  "'
 alias ll='eza -la --no-user --time-style="+%b %d %I:%M %P  "'
 alias ..='cd ..'
