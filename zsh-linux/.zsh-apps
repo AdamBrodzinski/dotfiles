@@ -1,2 +1,4 @@
 eval "$(atuin init zsh --disable-up-arrow)"
 eval "$(zoxide init zsh)"
+eval "$(/usr/bin/mise activate zsh)"
+. "$HOME/.cargo/env"
