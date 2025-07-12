@@ -45,16 +45,11 @@ source ~/.zshalias
 # ----------- init applications -----------
 source ~/.zsh-apps
 
-# env vars not in source ctrl
+# ----------- set env vars not checked in -----------
 source ~/.zshenv
 
-# temp work around for pipewire
-pactl set-sink-mute 0 toggle
-pactl set-sink-mute 0 toggle
-eval "$(/usr/bin/mise activate zsh)"
-
-
-# startup zellij home session
-# if [[ -z "$ZELLIJ_SESSION_NAME" ]]; then
-#     zellij attach -c home
-# fi
+# startup zellij home session only when in Hyprland
+if [[ -z "$ZELLIJ_SESSION_NAME" && "$XDG_CURRENT_DESKTOP" == "Hyprland" ]]; then
+    zellij delete-session home 2>/dev/null
+    zellij attach -c home
+fi
