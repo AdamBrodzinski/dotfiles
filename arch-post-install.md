@@ -16,6 +16,11 @@
 - Setup keyd services
   1. manually cp dotfile into /etc/keyd
 
+- Install software manually
+  1. Cargo: https://www.rust-lang.org/tools/install
+  2. Set global Node with Mise `mise use -g node@lts`
+  3. Install Claude Code `npm install -g @anthropic-ai/claude-code`
+
 - Modify wifi
   1. https://wiki.archlinux.org/title/Network_configuration/Wireless#Respecting_the_regulatory_domain
   2. `sudo pacman -S wireless-regdb`
