@@ -26,11 +26,9 @@ zstyle ':completion:*' menu select
 
 
 # ---------- fix up/down key search for substrings
-bindkey '\e[A' history-beginning-search-backward
-bindkey '\e[B' history-beginning-search-forward
+bindkey '^[[A' atuin-up-search
+bindkey '^[OA' atuin-up-search
 
-# bindkey '^[[A' atuin-up-search
-# bindkey '^[OA' atuin-up-search
 
 # when printing std out, show tabs as 3 spaces
 tabs -3
