@@ -82,9 +82,16 @@ light-mode() {
 
 zel() {
   local SESH=$(zellij list-sessions | sed -E 's/ \[.*$//' | fzf --ansi)
-  echo $SESH
-  zellij attach $SESH
+
+  if [[ -z "$SESH" ]]; then
+    echo "No session selected." >&2
+    return 1
+  fi
+
+  echo "Attaching to session: $SESH"
+  zellij attach "$SESH"
 }
+
 
 kill_port() {
   local PORT=$1

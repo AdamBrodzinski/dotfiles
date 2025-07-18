@@ -1,0 +1,20 @@
+layout {
+    tab name="Vim" focus=true hide_floating_panes=true {
+        pane command="nvim" args="src"
+    }
+    tab name="Git" {
+        pane command="lazygit"
+    }
+    tab name="Claude" {
+        pane command="claude" start_suspended=true
+    }
+    tab name="Cwd" {
+        pane size=1 borderless=true {
+            plugin location="tab-bar"
+        }
+        pane
+        pane size=1 borderless=true {
+            plugin location="status-bar"
+        }
+    }
+}

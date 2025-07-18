@@ -48,8 +48,14 @@ source ~/.zsh-apps
 # ----------- set env vars not checked in -----------
 source ~/.zshenv
 
-# startup zellij home session only when in Hyprland
-if [[ -z "$ZELLIJ_SESSION_NAME" && "$XDG_CURRENT_DESKTOP" == "Hyprland" ]]; then
+# # startup zellij home session only when in Hyprland
+# if [[ -z "$ZELLIJ_SESSION_NAME" && "$XDG_CURRENT_DESKTOP" == "Hyprland" ]]; then
+#     zellij delete-session home 2>/dev/null
+#     zellij attach -c home
+# fi
+# Startup zellij "home" session only when in Hyprland and not already inside Zellij
+
+if [[ -z "${ZELLIJ:-}" && -z "${ZELLIJ_SESSION_NAME:-}" && "$XDG_CURRENT_DESKTOP" == "Hyprland" ]]; then
     zellij delete-session home 2>/dev/null
     zellij attach -c home
 fi
