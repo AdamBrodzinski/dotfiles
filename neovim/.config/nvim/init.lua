@@ -27,6 +27,9 @@ end)
 vim.opt.breakindent = true
 vim.opt.smartindent = true
 
+-- Hide the cmd until it's in use (shares lualine)
+vim.opt.cmdheight = 0
+
 -- Save undo history
 vim.opt.undofile = true
 
@@ -769,8 +772,8 @@ require("lazy").setup({
 					-- If you prefer more traditional completion keymaps,
 					-- you can uncomment the following lines
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
-					["<Tab>"] = cmp.mapping.select_next_item(),
-					["<S-Tab>"] = cmp.mapping.select_prev_item(),
+					-- ["<Tab>"] = cmp.mapping.select_next_item(),
+					-- ["<S-Tab>"] = cmp.mapping.select_prev_item(),
 
 					-- Manually trigger a completion from nvim-cmp.
 					--  Generally you don't need this, because nvim-cmp will display
