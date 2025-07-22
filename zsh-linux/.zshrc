@@ -3,6 +3,10 @@ if [[ ! $- == *i* ]]; then
   return
 fi
 
+# # START zsh profiling
+# zmodload zsh/zprof
+
+
 # ------------ ZSH Theme -------------
 autoload -Uz vcs_info
 precmd() { vcs_info }
@@ -21,7 +25,6 @@ HISTFILE=~/.cache/zsh/history
 
 # ---------- ZSH tab complete ---------
 autoload -Uz compinit
-compinit
 zstyle ':completion:*' menu select
 
 
@@ -37,6 +40,7 @@ tabs -3
 
 # ----------- ZSH plugin setup ----------
 # source ~/Code/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# bindkey '^[[A' atuin-up-search
 # source <(fzf --zsh) # fzf key bindings & fuzzy complete
 
 # ----------- cross platform aliases -----------
@@ -48,14 +52,11 @@ source ~/.zsh-apps
 # ----------- set env vars not checked in -----------
 source ~/.zshenv
 
-# # startup zellij home session only when in Hyprland
-# if [[ -z "$ZELLIJ_SESSION_NAME" && "$XDG_CURRENT_DESKTOP" == "Hyprland" ]]; then
-#     zellij delete-session home 2>/dev/null
-#     zellij attach -c home
-# fi
 # Startup zellij "home" session only when in Hyprland and not already inside Zellij
-
 if [[ -z "${ZELLIJ:-}" && -z "${ZELLIJ_SESSION_NAME:-}" && "$XDG_CURRENT_DESKTOP" == "Hyprland" ]]; then
     zellij delete-session home 2>/dev/null
     zellij attach -c home
 fi
+
+# # END zsh profiling
+# zprof

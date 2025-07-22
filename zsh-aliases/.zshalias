@@ -33,6 +33,7 @@ alias cob='git checkout -b'
 alias delete-all-branches='git branch | grep -v "main" | xargs git branch -D'
 alias deploy-to-dev='git push origin HEAD:develop --force'
 alias count-loc="find . ! -name '*generated*' ! -name '*graphql' ! -name '*json' -type f | xargs wc -l | sort -n"
+alias ssh='TERM=xterm-256color ssh'
 
 # system
 alias shutdown='shutdown -h now'
@@ -41,6 +42,7 @@ alias upgrade_system='sudo pacman -Syu'
 alias ins='sudo pacman -S'
 alias pbcopy='wl-copy'
 alias pbpaste='wl-paste'
+alias energy='upower -i $(upower -e | grep BAT)'
 
 
 # functions

@@ -12,6 +12,9 @@
   2. restart
 
 - Setup Docker services
+  1. run install script to install & setup service
+  2. `sudo groupadd docker`
+  3. `sudo usermod -aG docker $USER`
 
 - Setup keyd services
   1. manually cp dotfile into /etc/keyd
@@ -25,4 +28,13 @@
   1. https://wiki.archlinux.org/title/Network_configuration/Wireless#Respecting_the_regulatory_domain
   2. `sudo pacman -S wireless-regdb`
   3. `iw reg set US`
+  3. note you may want to install iwd instead of network manager to prevent this next step
+  <!-- 4. set network manager backend to iwd in `/etc/NetworkManager/NetworkManager.conf` -->
+  <!--    ``` -->
+  <!--    [device] -->
+  <!--    wifi.backend=iwd -->
+  <!--    ``` -->
 
+# todo ssh?
+systemctl --user enable ssh-agent
+systemctl --user start ssh-agent
