@@ -26,6 +26,7 @@ HISTFILE=~/.cache/zsh/history
 # ---------- ZSH tab complete ---------
 autoload -Uz compinit
 zstyle ':completion:*' menu select
+compinit
 
 
 # ---------- fix up/down key search for substrings
