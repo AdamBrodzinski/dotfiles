@@ -21,6 +21,8 @@
 
 - Install software manually
   1. Cargo: https://www.rust-lang.org/tools/install
+    - `cargo install --locked bacon`
+    - `cargo install --locked sqlx-cli`
   2. Set global Node with Mise `mise use -g node@lts`
   3. Install Claude Code `npm install -g @anthropic-ai/claude-code`
 
