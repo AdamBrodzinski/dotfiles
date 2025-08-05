@@ -123,12 +123,24 @@ vim.api.nvim_set_keymap(
 	'<Cmd>let @+=expand("%:p")<CR>',
 	{ desc = "Copy Full File Path to clipboard" }
 )
-vim.api.nvim_set_keymap(
-	"n",
-	"<leader>fp",
-	'<Cmd>let @+=expand("%")<CR>',
-	{ desc = "Copy Relative File Path to clipboard" }
-)
+vim.keymap.set("n", "<leader>fp", function()
+	local path = vim.fn.fnamemodify(vim.fn.expand("%"), ":~:.")
+	vim.fn.setreg("+", path)
+	print("Copied to clipboard: " .. path)
+end, { desc = "Copy relative path to clipboard" })
+
+-- vim.api.nvim_set_keymap(
+--     "n",
+--     "<leader>fp",
+--     '<Cmd>let @+=expand("%:.")<CR>',
+--     { desc = "Copy Relative File Path to clipboard" }
+-- )
+-- vim.api.nvim_set_keymap(
+-- 	"n",
+-- 	"<leader>fp",
+-- 	'<Cmd>let @+=expand("%")<CR>',
+-- 	{ desc = "Copy Relative File Path to clipboard" }
+-- )
 
 -- Go to next/prev diagnostic message
 vim.keymap.set("n", "]e", vim.diagnostic.goto_next)
