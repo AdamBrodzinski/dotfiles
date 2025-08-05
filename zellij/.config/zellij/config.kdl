@@ -22,6 +22,8 @@ keybinds clear-defaults=true {
         bind "Ctrl ;" { // "normal" session manager
             LaunchOrFocusPlugin "zj-smart-sessions" {
                 floating true
+                find_command "/home/adam/Dotfiles/zellij/.config/zellij/plugins/find-project-folders.sh"
+                base_path "/home/adam/code"
                 move_to_focused_tab true
             };
             SwitchToMode "Locked"
