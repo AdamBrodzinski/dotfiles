@@ -9,7 +9,6 @@ vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
 
 vim.opt.number = true
-vim.opt.relativenumber = true
 
 -- Enable mouse mode for resizing splits
 vim.opt.mouse = "a"
@@ -139,6 +138,9 @@ vim.keymap.set("n", "<leader>z1", ":set foldlevel=1<CR>", { desc = "Fold level 1
 vim.keymap.set("n", "<leader>z2", ":set foldlevel=2<CR>", { desc = "Fold level 2" })
 vim.keymap.set("n", "<leader>z3", ":set foldlevel=3<CR>", { desc = "Fold level 3" })
 
+vim.keymap.set("n", "<leader>gb", ":Gitsigns blame_line<CR>", { desc = "Blame hover" })
+vim.keymap.set("n", "<leader>gB", ":Gitsigns blame<CR>", { desc = "Blame all lines" })
+
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --
@@ -181,24 +183,24 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 })
 
 -- Auto-fold "it" blocks in test files
-vim.api.nvim_create_autocmd({ "BufReadPost", "BufWinEnter" }, {
-	desc = "Auto-fold test 'it' blocks",
-	group = vim.api.nvim_create_augroup("fold-test-blocks", { clear = true }),
-	pattern = { "*.spec.ts", "*.spec.js", "*.test.ts", "*.test.js" },
-	callback = function()
-		-- Wait a bit for treesitter to parse and for saved folds to load
-		vim.defer_fn(function()
-			-- Only auto-fold if there's no saved view (first time opening)
-			local viewfile = vim.fn.expand("%:p:~"):gsub("/", "%%") .. "="
-			local viewpath = vim.fn.stdpath("state") .. "/view/" .. viewfile
-			if vim.fn.filereadable(viewpath) == 0 then
-				-- Set fold level to hide "it" blocks but show "describe" blocks
-				-- Typically: describe = level 1, it = level 2
-				vim.cmd("set foldlevel=1")
-			end
-		end, 150)
-	end,
-})
+-- vim.api.nvim_create_autocmd({ "BufReadPost", "BufWinEnter" }, {
+-- 	desc = "Auto-fold test 'it' blocks",
+-- 	group = vim.api.nvim_create_augroup("fold-test-blocks", { clear = true }),
+-- 	pattern = { "*.spec.ts", "*.spec.js", "*.test.ts", "*.test.js" },
+-- 	callback = function()
+-- 		-- Wait a bit for treesitter to parse and for saved folds to load
+-- 		vim.defer_fn(function()
+-- 			-- Only auto-fold if there's no saved view (first time opening)
+-- 			local viewfile = vim.fn.expand("%:p:~"):gsub("/", "%%") .. "="
+-- 			local viewpath = vim.fn.stdpath("state") .. "/view/" .. viewfile
+-- 			if vim.fn.filereadable(viewpath) == 0 then
+-- 				-- Set fold level to hide "it" blocks but show "describe" blocks
+-- 				-- Typically: describe = level 1, it = level 2
+-- 				vim.cmd("set foldlevel=1")
+-- 			end
+-- 		end, 150)
+-- 	end,
+-- })
 
 -- ------------------------------------------------------------------
 --                           Plugins
@@ -674,7 +676,7 @@ require("lazy").setup({
 					return nil
 				else
 					return {
-						timeout_ms = 500,
+						timeout_ms = 800,
 						lsp_format = "fallback",
 					}
 				end
