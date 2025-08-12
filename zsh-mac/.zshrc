@@ -36,6 +36,8 @@ source ~/code/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 # ----------- Setup brew apps -----------
-if [ -f .zshapps ]; then
+if [ -f ~/.zshapps ]; then
   source ~/.zshapps
 fi
+
+. "$HOME/.local/bin/env"

@@ -4,8 +4,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # asdf
 . $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
 
-# z cmd
-. $HOMEBREW_PREFIX/etc/profile.d/z.sh
+eval "$(zoxide init zsh)"
 
 # setup put GNU utils on the path so `awk` executes gawk`
 export PATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
