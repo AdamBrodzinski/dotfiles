@@ -413,7 +413,7 @@ require("lazy").setup({
 					-- Jump to the definition of the word under your cursor.
 					--  This is where a variable was first declared, or where a function is defined, etc.
 					--  To jump back, press <C-t>.
-					map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+					--					map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
 
 					-- Find references for the word under your cursor.
 					map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
@@ -511,7 +511,12 @@ require("lazy").setup({
 					end
 
 					-- Disable formatting for eslint and tsserver - use conform.nvim instead
-					if client.name == "eslint" or client.name == "tsserver" or client.name == "typescript-tools" then
+					if
+						client.name == "eslint"
+						or client.name == "tsserver"
+						or client.name == "typescript-tools"
+						or client.name == "vtsls"
+					then
 						client.server_capabilities.documentFormattingProvider = false
 					end
 				end,
@@ -563,6 +568,30 @@ require("lazy").setup({
 			--  - settings (table): Override the default settings passed when initializing the server.
 			--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 			local servers = {
+				--tsserver = { enabled = false },
+				--ts_ls = { enabled = false },
+				vtsls = {
+					settings = {
+						complete_function_calls = true,
+						vtsls = {
+							enableMoveToFileCodeAction = true,
+							autoUseWorkspaceTsdk = true,
+							experimental = {
+								completion = {
+									enableServerSideFuzzyMatch = true,
+								},
+							},
+						},
+						typescript = {
+							updateImportsOnFileMove = { enabled = "always" },
+							inlayHints = {
+								parameterNames = { enabled = "literals" },
+								parameterTypes = { enabled = true },
+								propertyDeclarationTypes = { enabled = true },
+							},
+						},
+					},
+				},
 				-- clangd = {},
 				-- gopls = {},
 				-- pyright = {},
@@ -630,11 +659,6 @@ require("lazy").setup({
 
 	-- language lsp plugins
 
-	{ -- TypeScript config
-		"pmizio/typescript-tools.nvim",
-		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-		opts = {},
-	},
 	{ -- Lua/Neovim config
 		"folke/lazydev.nvim",
 		ft = "lua",
@@ -693,6 +717,8 @@ require("lazy").setup({
 				typescriptreact = { "biome", "prettierd", "prettier", stop_after_first = true },
 				json = { "biome", "prettierd", "prettier", stop_after_first = true },
 				jsonc = { "biome", "prettierd", "prettier", stop_after_first = true },
+
+				-- TODO
 			},
 		},
 	},
