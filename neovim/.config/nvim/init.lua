@@ -58,6 +58,7 @@ vim.opt.listchars = { tab = "  ", trail = "»", nbsp = "␣" }
 -- Show hard tabs as 4 spaces instead of 8
 vim.opt.tabstop = 4
 --vim.opt.shiftwidth = 4
+--vim.opt.expandtab = true
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = "split"
@@ -413,7 +414,8 @@ require("lazy").setup({
 					-- Jump to the definition of the word under your cursor.
 					--  This is where a variable was first declared, or where a function is defined, etc.
 					--  To jump back, press <C-t>.
-					--					map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+					-- map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+					map("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
 
 					-- Find references for the word under your cursor.
 					map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
@@ -568,15 +570,22 @@ require("lazy").setup({
 			--  - settings (table): Override the default settings passed when initializing the server.
 			--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 			local servers = {
-				--tsserver = { enabled = false },
-				--ts_ls = { enabled = false },
 				vtsls = {
+					filetypes = {
+						"javascript",
+						"javascriptreact",
+						"javascript.jsx",
+						"typescript",
+						"typescriptreact",
+						"typescript.tsx",
+					},
 					settings = {
 						complete_function_calls = true,
 						vtsls = {
 							enableMoveToFileCodeAction = true,
 							autoUseWorkspaceTsdk = true,
 							experimental = {
+								maxInlayHintLength = 30,
 								completion = {
 									enableServerSideFuzzyMatch = true,
 								},
@@ -584,7 +593,14 @@ require("lazy").setup({
 						},
 						typescript = {
 							updateImportsOnFileMove = { enabled = "always" },
+							suggest = {
+								completeFunctionCalls = true,
+							},
 							inlayHints = {
+								enumMemberValues = { enabled = true },
+								functionLikeReturnTypes = { enabled = true },
+								variableTypes = { enabled = false },
+								-- todo what do these do
 								parameterNames = { enabled = "literals" },
 								parameterTypes = { enabled = true },
 								propertyDeclarationTypes = { enabled = true },
@@ -700,7 +716,7 @@ require("lazy").setup({
 					return nil
 				else
 					return {
-						timeout_ms = 800,
+						timeout_ms = 1000,
 						lsp_format = "fallback",
 					}
 				end
@@ -712,13 +728,18 @@ require("lazy").setup({
 				--
 				-- You can use 'stop_after_first' to run the first available formatter from the list
 				javascript = { "biome", "prettierd", "prettier", stop_after_first = true },
-				typescript = { "biome", "prettierd", "prettier", stop_after_first = true },
+				typescript = {
+					"biome",
+					"biome-format",
+					"biome-organize-imports",
+					"prettierd",
+					"prettier",
+					stop_after_first = true,
+				},
 				javascriptreact = { "biome", "prettierd", "prettier", stop_after_first = true },
 				typescriptreact = { "biome", "prettierd", "prettier", stop_after_first = true },
 				json = { "biome", "prettierd", "prettier", stop_after_first = true },
 				jsonc = { "biome", "prettierd", "prettier", stop_after_first = true },
-
-				-- TODO
 			},
 		},
 	},
