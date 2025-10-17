@@ -721,26 +721,45 @@ require("lazy").setup({
 					}
 				end
 			end,
-			formatters_by_ft = {
-				lua = { "stylua" },
-				-- Conform can also run multiple formatters sequentially
-				-- python = { "isort", "black" },
-				--
-				-- You can use 'stop_after_first' to run the first available formatter from the list
-				javascript = { "biome", "prettierd", "prettier", stop_after_first = true },
-				typescript = {
-					"biome",
-					"biome-format",
-					"biome-organize-imports",
-					"prettierd",
-					"prettier",
-					stop_after_first = true,
-				},
-				javascriptreact = { "biome", "prettierd", "prettier", stop_after_first = true },
-				typescriptreact = { "biome", "prettierd", "prettier", stop_after_first = true },
-				json = { "biome", "prettierd", "prettier", stop_after_first = true },
-				jsonc = { "biome", "prettierd", "prettier", stop_after_first = true },
+		formatters_by_ft = {
+			lua = { "stylua" },
+			-- Conform can also run multiple formatters sequentially
+			-- python = { "isort", "black" },
+			--
+			-- You can use 'stop_after_first' to run the first available formatter from the list
+			javascript = { "biome", "prettierd", "prettier", stop_after_first = true },
+			typescript = {
+				"biome",
+				"biome-format",
+				"biome-organize-imports",
+				"prettierd",
+				"prettier",
+				stop_after_first = true,
 			},
+			javascriptreact = { "biome", "prettierd", "prettier", stop_after_first = true },
+			typescriptreact = { "biome", "prettierd", "prettier", stop_after_first = true },
+			json = { "biome", "prettierd", "prettier", stop_after_first = true },
+			jsonc = { "biome", "prettierd", "prettier", stop_after_first = true },
+		},
+		-- Custom formatter configuration
+		formatters = {
+			biome = {
+				-- Only use biome if biome.jsonc or biome.json exists in project root
+				condition = function(self, ctx)
+					local root_dir = vim.fs.dirname(vim.fs.find({ ".git", "package.json" }, {
+						upward = true,
+						path = vim.fn.fnamemodify(ctx.filename, ":h"),
+					})[1])
+
+					if not root_dir then
+						root_dir = vim.fn.getcwd()
+					end
+
+					return vim.fn.filereadable(root_dir .. "/biome.jsonc") == 1
+						or vim.fn.filereadable(root_dir .. "/biome.json") == 1
+				end,
+			},
+		},
 		},
 	},
 
