@@ -12,8 +12,8 @@ outer.top =        12
 outer.right =      12
 
 
-[mode.main.binding]
-alt-enter = 'exec-and-forget open -n /Applications/kitty.app'
+#[mode.main.binding]
+#alt-enter = 'exec-and-forget open -n /Applications/kitty.app'
 
 cmd-h = 'focus left'
 cmd-j = 'focus down'
