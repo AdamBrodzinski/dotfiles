@@ -255,10 +255,34 @@ require("lazy").setup({
 		opts = {
 			--    default_file_explorer = true,
 			view_options = {
-				show_hidden = true,
+				show_hidden = false,
 				cleanup_delay_ms = 200,
 				is_hidden_file = function(name, bufnr)
-					return name ~= ".." and vim.startswith(name, ".")
+					if vim.startswith(name, "..") then
+						return false
+					end
+
+					local patterns = {
+						"^node_modules$",
+						"^target$",
+						"^.git$",
+						"^.cargo$",
+						"^Cargo.lock$",
+						"^package.lock.json$",
+					}
+
+					for _, pat in ipairs(patterns) do
+						if name:match(pat) then
+							return true
+						end
+					end
+
+					return false
+					-- if vim.startswith(name, "target") then
+					-- 	return true
+					-- end
+					--
+					-- return name ~= ".." and vim.startswith(name, ".")
 				end,
 			},
 		},
@@ -315,7 +339,10 @@ require("lazy").setup({
 						"**/*.webp",
 						"**/*.jpg",
 						"**/*.woff2",
+						"Cargo.lock",
+						".git",
 						"priv/static/*",
+						"target/*",
 					},
 				},
 				-- pickers = {}
