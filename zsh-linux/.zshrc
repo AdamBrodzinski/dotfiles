@@ -59,5 +59,8 @@ if [[ -z "${ZELLIJ:-}" && -z "${ZELLIJ_SESSION_NAME:-}" && "$XDG_CURRENT_DESKTOP
     zellij attach -c home
 fi
 
+# ignore Ctrl+d presses in zellij
+setopt IGNORE_EOF
+
 # # END zsh profiling
 # zprof
