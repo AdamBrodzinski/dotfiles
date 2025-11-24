@@ -43,6 +43,8 @@ alias ins='sudo pacman -S'
 alias pbcopy='wl-copy'
 alias pbpaste='wl-paste'
 alias energy='upower -i $(upower -e | grep BAT)'
+alias j=just
+alias csv=csvlens
 
 
 # functions
@@ -51,7 +53,8 @@ scr () {
     # fuzzy find keys in package.json scripts array
     local selected_npm_target=$(jq -r '.scripts | keys[]' package.json | fzf)
     if [[ -n $selected_npm_target ]]; then # if something was selected in fzf
-      yarn run $selected_npm_target
+      # Prefill the command in the shell without executing
+      print -z "yarn run $selected_npm_target"
     fi
   fi
 }
