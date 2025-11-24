@@ -1,7 +1,7 @@
-# Reference: https://github.com/i3/i3/blob/next/etc/config
-
 enable-normalization-flatten-containers = false
 enable-normalization-opposite-orientation-for-nested-containers = false
+
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
 [gaps]
 inner.horizontal = 12
@@ -11,14 +11,11 @@ outer.bottom =     12
 outer.top =        12
 outer.right =      12
 
-
-#[mode.main.binding]
-#alt-enter = 'exec-and-forget open -n /Applications/kitty.app'
-
-cmd-h = 'focus left'
-cmd-j = 'focus down'
-cmd-k = 'focus up'
-cmd-l = 'focus right'
+[mode.main.binding]
+cmd-h =         'focus --boundaries-action wrap-around-the-workspace left'
+cmd-j =         'focus --boundaries-action wrap-around-the-workspace down'
+cmd-k =         'focus --boundaries-action wrap-around-the-workspace up'
+cmd-l = 'focus --boundaries-action wrap-around-the-workspace right'
 
 cmd-shift-h = 'move left'
 cmd-shift-j = 'move down'
@@ -29,7 +26,7 @@ alt-z = 'split horizontal'
 alt-v = 'split vertical'
 
 cmd-shift-f = 'fullscreen'
-cmd-shift-e = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
+
 cmd-shift-w = 'layout floating tiling' # 'floating toggle' in i3
 
 cmd-1 = 'workspace 1'
@@ -54,21 +51,15 @@ cmd-shift-8 = 'move-node-to-workspace 8'
 cmd-shift-9 = 'move-node-to-workspace 9'
 cmd-shift-0 = 'move-node-to-workspace 10'
 
-ctrl-alt-c = 'reload-config'
-
 cmd-shift-r = 'mode resize'
 
 [mode.resize.binding]
-h = 'resize width +50'
-j = 'resize height -50'
-k = 'resize height +50'
-l = 'resize width -50'
-enter = 'mode main'
-esc = 'mode main'
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'zoom'
-run = ['layout floating', 'move-node-to-workspace 9']
+    h = 'resize width -50'
+    j = 'resize height +50'
+    k = 'resize height -50'
+    l = 'resize width +50'
+    enter = 'mode main'
+    esc = 'mode main'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
@@ -78,6 +69,6 @@ run = ['layout floating']
 if.window-title-regex-substring = 'Karabiner|Alfred Preferences'
 run = ['layout floating']
 
-#[[on-window-detected]]
-#if.app-name-regex-substring = 'Alfred Preferences'
-#run = ['layout floating']
+[[on-window-detected]]
+if.app-name-regex-substring = 'zoom'
+run = ['layout floating', 'move-node-to-workspace 9']
