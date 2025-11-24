@@ -301,6 +301,7 @@ require("lazy").setup({
 						},
 					},
 					file_ignore_patterns = {
+						".DS_Store",
 						"**/*.png",
 						"**/*.svg",
 						"**/*.webp",
@@ -750,7 +751,7 @@ require("lazy").setup({
 				biome = {
 					-- Only use biome if biome.jsonc or biome.json exists in project root
 					condition = function(self, ctx)
-						local root_dir = vim.fs.dirname(vim.fs.find({ ".git", "package.json" }, {
+						local root_dir = vim.fs.dirname(vim.fs.find({ ".git" }, {
 							upward = true,
 							path = vim.fn.fnamemodify(ctx.filename, ":h"),
 						})[1])
