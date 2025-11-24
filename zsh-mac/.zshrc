@@ -41,3 +41,5 @@ if [ -f ~/.zshapps ]; then
 fi
 
 . "$HOME/.local/bin/env"
+
+HISTORY_IGNORE="(scr|m|mf|j)"
