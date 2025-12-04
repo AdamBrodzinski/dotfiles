@@ -266,8 +266,11 @@ require("lazy").setup({
 						"^node_modules$",
 						"^target$",
 						"^.git$",
+						"^.gitignore$",
 						"^.cargo$",
-						"^Cargo.lock$",
+						"^.claude$",
+						"^Cargo.*$",
+						"^CLAUDE.md$",
 						"^package.lock.json$",
 					}
 
