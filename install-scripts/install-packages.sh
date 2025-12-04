@@ -13,6 +13,7 @@ dev_packages=(
   fd
   fzf
   git
+  htop
   jq
   just
   lazygit
@@ -42,11 +43,13 @@ desktop_packages=(
   flatpak
   fprint
   fwupd
+  grim
   hyprland
   impala # wifi iwd TUI
   iwd
   keyd
   nautilus
+  slurp
   wireless-regdb
   wl-clipboard
   xdg-desktop-portal-gtk
@@ -67,6 +70,8 @@ systemd_services=(
   "docker"
   "iwd"
   "keyd"
+  # "ssh-agent" # must be started with user mode
+  # systemctl --user enable ssh-agent.service
 )
 
 
