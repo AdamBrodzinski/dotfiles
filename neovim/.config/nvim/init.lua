@@ -1007,39 +1007,9 @@ require("lazy").setup({
 		--    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 	},
 
-	{
-		"ThePrimeagen/harpoon",
-		keys = function()
-			local keys = {
-				{
-					"<leader>hm",
-					function()
-						require("harpoon"):list():add()
-					end,
-					desc = "Harpoon File",
-				},
-				{
-					"<leader>hh",
-					function()
-						local harpoon = require("harpoon")
-						harpoon.ui:toggle_quick_menu(harpoon:list())
-					end,
-					desc = "Harpoon Quick Menu",
-				},
-			}
-
-			for i = 1, 5 do
-				table.insert(keys, {
-					"<leader>" .. i,
-					function()
-						require("harpoon"):list():select(i)
-					end,
-					desc = "Harpoon to File " .. i,
-				})
-			end
-			return keys
-		end,
-	},
+	-- add config for harpoon
+	-- 				"<leader>hh" to list files
+	-- 				"<leader>hm" to add file
 
 	{ -- Zellij
 		"https://git.sr.ht/~swaits/zellij-nav.nvim",
