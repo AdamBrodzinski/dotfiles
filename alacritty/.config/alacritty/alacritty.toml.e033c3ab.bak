@@ -15,9 +15,6 @@ bold = { family = "Berkeley Mono", style = "Bold" }
 bold_italic = { family = "Berkeley Mono", style = "Bold Italic" }
 italic = { family = "Berkeley Mono", style = "Regular" }
 
-[keyboard]
-bindings = [{ key = "V", mods = "Control|Shift", action = "Paste" }]
-
 # size = 15
 # offset = { y = 4 }
 # normal = { family = "SauceCodePro Nerd Font", style = "Regular" }

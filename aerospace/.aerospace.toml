@@ -12,9 +12,9 @@ outer.top =        12
 outer.right =      12
 
 [mode.main.binding]
-cmd-h =         'focus --boundaries-action wrap-around-the-workspace left'
-cmd-j =         'focus --boundaries-action wrap-around-the-workspace down'
-cmd-k =         'focus --boundaries-action wrap-around-the-workspace up'
+cmd-h = 'focus --boundaries-action wrap-around-the-workspace left'
+cmd-j = 'focus --boundaries-action wrap-around-the-workspace down'
+cmd-k = 'focus --boundaries-action wrap-around-the-workspace up'
 cmd-l = 'focus --boundaries-action wrap-around-the-workspace right'
 
 cmd-shift-h = 'move left'
@@ -54,12 +54,12 @@ cmd-shift-0 = 'move-node-to-workspace 10'
 cmd-shift-r = 'mode resize'
 
 [mode.resize.binding]
-    h = 'resize width -50'
-    j = 'resize height +50'
-    k = 'resize height -50'
-    l = 'resize width +50'
-    enter = 'mode main'
-    esc = 'mode main'
+h = 'resize width -50'
+j = 'resize height +50'
+k = 'resize height -50'
+l = 'resize width +50'
+enter = 'mode main'
+esc = 'mode main'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'

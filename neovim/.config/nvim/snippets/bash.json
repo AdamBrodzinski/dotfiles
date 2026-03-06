@@ -1,0 +1,7 @@
+{
+  "Function": {
+    "prefix": "shebang",
+    "description": "Setup a bash script header",
+    "body": ["#!/usr/bin/env bash", "set -eo pipefail", ""]
+  }
+}

@@ -249,7 +249,7 @@ plugins {
     welcome-screen location="zellij:session-manager" {
         welcome_screen true
     }
-    zj-smart-sessions location="file:/home/adam/Dotfiles/zellij/.config/zellij/plugins/zj-smart-sessions.wasm"
+    zj-smart-sessions location="file:~/Dotfiles/zellij/.config/zellij/plugins/zj-smart-sessions.wasm"
 }
 
 // Plugins to load in the background when a new session starts
