@@ -1,5 +1,7 @@
 [general]
 import = [ "~/Dotfiles/alacritty/.config/alacritty/dark-theme.toml" ]
+#import = [ "~/Dotfiles/alacritty/.config/alacritty/light-theme.toml" ]
+#import = [ "~/Dotfiles/alacritty/.config/alacritty/everforest_light.toml" ]
 
 [window]
 decorations = "None"

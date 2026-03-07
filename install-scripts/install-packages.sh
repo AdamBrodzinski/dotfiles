@@ -6,6 +6,7 @@ set -e
 dev_packages=(
   alacritty
   atuin
+  android-udev
   curl
   docker
   docker-compose
@@ -25,6 +26,7 @@ dev_packages=(
   ripgrep
   stow
   tldr
+  tokei # loc count
   trash-cli
   tree
   uutils-coreutils
@@ -36,6 +38,7 @@ dev_packages=(
 
 desktop_packages=(
   adobe-source-sans-fonts
+  amd-ucode
   bluetui
   bluez
   bluez-utils
@@ -48,8 +51,11 @@ desktop_packages=(
   impala # wifi iwd TUI
   iwd
   keyd
+  linux-firmware
   nautilus
   slurp
+  systemd-resolvconf # for wireguard
+  wireguard-tools
   wireless-regdb
   wl-clipboard
   xdg-desktop-portal-gtk
@@ -70,6 +76,7 @@ systemd_services=(
   "docker"
   "iwd"
   "keyd"
+  "systemd-resolved"
   # "ssh-agent" # must be started with user mode
   # systemctl --user enable ssh-agent.service
 )

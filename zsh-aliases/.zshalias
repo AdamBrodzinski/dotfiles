@@ -44,6 +44,7 @@ alias ins='sudo pacman -S'
 alias pbcopy='wl-copy'
 alias pbpaste='wl-paste'
 alias battery="upower -i $(upower -e | grep BAT) | grep percentage | grep -oE '[0-9]+%'"
+alias vpn='wg-quick'
 
 
 # functions
