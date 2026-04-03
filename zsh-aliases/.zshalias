@@ -45,6 +45,7 @@ alias pbcopy='wl-copy'
 alias pbpaste='wl-paste'
 alias battery="upower -i $(upower -e | grep BAT) | grep percentage | grep -oE '[0-9]+%'"
 alias vpn='wg-quick'
+alias darkmode='~/scripts/dark-mode.sh'
 
 
 # functions
@@ -74,14 +75,6 @@ proj () {
 
 reset-datagrip() {
   trash ~/.var/app/com.jetbrains.DataGrip/config/JetBrains/DataGrip202*.*/.lock
-}
-
-dark-mode() {
-  kitten themes --reload-in=all Catppuccin-Mocha
-}
-
-light-mode() {
-  kitten themes --reload-in=all Catppuccin-Latte
 }
 
 zel() {
