@@ -904,6 +904,20 @@ require("lazy").setup({
 		end,
 	},
 
+	{
+		"maxmx03/solarized.nvim",
+		lazy = false,
+		priority = 1000,
+		---@type solarized.config
+		opts = {},
+		config = function(_, opts)
+			vim.o.termguicolors = true
+			vim.o.background = "light"
+			require("solarized").setup(opts)
+			vim.cmd.colorscheme("solarized")
+		end,
+	},
+
 	{ "ellisonleao/gruvbox.nvim", lazy = false, priority = 1000 },
 
 	{ "thesimonho/kanagawa-paper.nvim", lazy = false, priority = 1000 },
@@ -935,6 +949,21 @@ require("lazy").setup({
 				},
 			},
 		},
+	},
+
+	{
+		"zenbones-theme/zenbones.nvim",
+		-- Optionally install Lush. Allows for more configuration or extending the colorscheme
+		-- If you don't want to install lush, make sure to set g:zenbones_compat = 1
+		-- In Vim, compat mode is turned on as Lush only works in Neovim.
+		dependencies = "rktjmp/lush.nvim",
+		lazy = false,
+		priority = 1000,
+		-- you can set set configuration options here
+		-- config = function()
+		--     vim.g.zenbones_darken_comments = 45
+		--     vim.cmd.colorscheme('zenbones')
+		-- end
 	},
 
 	{ -- Collection of various small independent plugins/modules
