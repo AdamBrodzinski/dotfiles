@@ -263,15 +263,22 @@ require("lazy").setup({
 					end
 
 					local patterns = {
-						"^node_modules$",
-						"^target$",
-						"^.git$",
-						"^.gitignore$",
 						"^.cargo$",
 						"^.claude$",
-						"^Cargo.*$",
+						"^.env",
+						"^.git$",
+						"^.gitignore$",
+						"^.planning$",
+						"^AGENTS.md$",
 						"^CLAUDE.md$",
+						"^Cargo.*$",
+						"^Dockerfile$",
+						"^.dockerignore$",
+						"^docker%-compose%.yml$",
+						"^justfile$",
+						"^node_modules$",
 						"^package.lock.json$",
+						"^target$",
 					}
 
 					for _, pat in ipairs(patterns) do
