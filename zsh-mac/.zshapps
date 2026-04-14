@@ -19,7 +19,7 @@ fi
 # atuin shell history
 eval "$(atuin init zsh --disable-up-arrow)"
 eval "$(zoxide init zsh)"
-eval "$(tp init zsh)"
+#eval "$(tp init zsh)"
 
 # setup fzf
 source <(fzf --zsh)

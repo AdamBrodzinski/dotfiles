@@ -26,7 +26,7 @@ tabs -3
 
 
 # ----------- ZSH plugins -----------
-source ~/code/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/code/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 # ----------- Aliases -----------
@@ -40,10 +40,12 @@ if [ -f ~/.zshapps ]; then
   source ~/.zshapps
 fi
 
-. "$HOME/.local/bin/env"
+# what is this
+# . "$HOME/.local/bin/env"
 
 HISTORY_IGNORE="(scr|m|mf|j)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH="$HOME/.local/bin:$PATH"

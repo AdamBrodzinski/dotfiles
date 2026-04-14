@@ -14,15 +14,18 @@ brew install \
 # cli tools
 brew install \
 	ack \
+	atuin \
+	eza \
 	fd \
+	fzf \
 	jq \
 	trash \
 	tree \
-	z
+	zellij \
+	zoxide
 
 # programming tools
 brew install \
-	asdf \
 	git \
 	lazygit \
 	lazydocker \
@@ -45,3 +48,5 @@ brew install --cask \
 
 # apps
 brew install --cask nikitabobko/tap/aerospace
+brew tap FelixKratz/formulae
+brew install borders
