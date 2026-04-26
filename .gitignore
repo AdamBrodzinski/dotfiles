@@ -1,1 +1,4 @@
 .DS_Store
+alacritty/.config/alacritty/light-or-dark-theme.toml
+alacritty/.config/alacritty/light-theme.toml
+alacritty/.config/alacritty/dark-theme.toml
