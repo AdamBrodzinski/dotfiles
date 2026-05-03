@@ -1,0 +1,2 @@
+[general]
+import = [ "~/Dotfiles/alacritty/.config/alacritty/light-theme.toml" ]
