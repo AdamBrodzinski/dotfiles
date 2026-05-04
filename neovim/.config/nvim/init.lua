@@ -31,6 +31,7 @@ require("theme")
 require("keymaps")
 require("lsp")
 require("formatting")
+require("snippets")
 
 -- config plugins
 
