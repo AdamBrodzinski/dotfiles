@@ -1,0 +1,91 @@
+{
+  "plugins": {
+    "auto-dark-mode.nvim": {
+      "rev": "54058b4fe414bd64bd2904a6f8a63f1f14e3d8df",
+      "src": "https://github.com/f-person/auto-dark-mode.nvim",
+      "version": "'54058b4'"
+    },
+    "conform.nvim": {
+      "rev": "3543d000dafbc41cc7761d860cfdb24e82154f75",
+      "src": "https://github.com/stevearc/conform.nvim",
+      "version": "'v9.1.0'"
+    },
+    "flash.nvim": {
+      "rev": "ec0bf2842189f65f60fd40bf3557cac1029cc932",
+      "src": "https://github.com/folke/flash.nvim",
+      "version": "'v2.1.0'"
+    },
+    "gitsigns.nvim": {
+      "rev": "a462f416e2ce4744531c6256252dee99a7d34a83",
+      "src": "ssh://git@github.com/lewis6991/gitsigns.nvim",
+      "version": "'v2.1.0'"
+    },
+    "gruvbox.nvim": {
+      "rev": "154eb5ff5b96d0641307113fa385eaf0d36d9796",
+      "src": "https://github.com/ellisonleao/gruvbox.nvim"
+    },
+    "kanso.nvim": {
+      "rev": "1afbbb449aa0254823dbe1932e3cbb51886ff9fe",
+      "src": "https://github.com/webhooked/kanso.nvim"
+    },
+    "mason-tool-installer.nvim": {
+      "rev": "443f1ef8b5e6bf47045cb2217b6f748a223cf7dc",
+      "src": "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
+      "version": "'443f1ef'"
+    },
+    "mason.nvim": {
+      "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
+      "src": "https://github.com/mason-org/mason.nvim",
+      "version": "'v2.2.1'"
+    },
+    "mini.nvim": {
+      "rev": "4f6f84a96b076747b736d100388a8d7844771d7d",
+      "src": "ssh://git@github.com/nvim-mini/mini.nvim",
+      "version": "'4f6f84a'"
+    },
+    "miniharp.nvim": {
+      "rev": "b935ce9b593e58c99aba7ab0978c146acdcce843",
+      "src": "https://github.com/vieitesss/miniharp.nvim",
+      "version": "'v0.4.0'"
+    },
+    "nvim-lspconfig": {
+      "rev": "8fde495949782bb61c2605174e231d145a048d8c",
+      "src": "ssh://git@github.com/neovim/nvim-lspconfig",
+      "version": "'8fde495'"
+    },
+    "nvim-treesitter": {
+      "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
+      "src": "ssh://git@github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "oil.nvim": {
+      "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
+      "src": "ssh://git@github.com/stevearc/oil.nvim",
+      "version": "'v2.15.0'"
+    },
+    "solarized.nvim": {
+      "rev": "a8085e29883ddcfb39bd46197eb32ef00df05368",
+      "src": "https://github.com/maxmx03/solarized.nvim"
+    },
+    "todo-comments.nvim": {
+      "rev": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668",
+      "src": "https://github.com/folke/todo-comments.nvim",
+      "version": "'v1.5.0'"
+    },
+    "tokyonight.nvim": {
+      "rev": "cdc07ac78467a233fd62c493de29a17e0cf2b2b6",
+      "src": "https://github.com/folke/tokyonight.nvim"
+    },
+    "vinyl.nvim": {
+      "rev": "7753817e4c0d9f01d7625e8d074f295162d9b4f8",
+      "src": "https://github.com/kamwitsta/vinyl.nvim"
+    },
+    "zellij-nav.nvim": {
+      "rev": "1d6657d8b8e1f6bbb275a48bc96092b248b8f522",
+      "src": "https://git.sr.ht/~swaits/zellij-nav.nvim"
+    },
+    "zenbones.nvim": {
+      "rev": "22b7fb75593412e0dc81b4bdefae718e9e84aa82",
+      "src": "https://github.com/zenbones-theme/zenbones.nvim"
+    }
+  }
+}
