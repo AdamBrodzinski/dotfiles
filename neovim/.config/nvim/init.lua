@@ -47,7 +47,43 @@ require("mini.hipatterns").setup({
 	},
 })
 
-require("mini.pick").setup({})
+require("mini.pick").setup({
+	mappings = {
+		paste = "<C-r>", -- Standard register paste
+		choose_in_vsplit = "",
+		-- Alternative bindings for system clipboard
+		sys_paste = {
+			char = "<C-v>",
+			func = function()
+				vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-r>+", true, true, true), "n", true)
+			end,
+		},
+	},
+})
+local paste = vim.paste
+local paste_chunks = {}
+vim.paste = function(lines, phase)
+	local pick = require("mini.pick")
+	if not pick.is_picker_active() then
+		return paste(lines, phase)
+	end
+	if phase == -1 or phase == 1 then
+		paste_chunks = {}
+	end
+	table.insert(paste_chunks, table.concat(lines, "\n"))
+	if phase == -1 or phase == 3 then
+		local query = pick.get_picker_query()
+		local caret = pick.get_picker_state().caret
+		local text = table.concat(paste_chunks):gsub("[\r\n\t]", " ")
+		for _, char in ipairs(vim.fn.split(text, "\\zs")) do
+			table.insert(query, caret, char)
+			caret = caret + 1
+		end
+		pick.set_picker_query(query)
+		paste_chunks = {}
+	end
+	return true
+end
 vim.keymap.set("n", "<leader><leader>", "<cmd>Pick buffers<cr>", { desc = "[F]uzzy Find [F]iles" })
 vim.keymap.set("n", "<leader>ff", "<cmd>Pick files<cr>", { desc = "[F]uzzy Find [F]iles" })
 vim.keymap.set("n", "<leader>fg", "<cmd>Pick grep_live<cr>", { desc = "[F]uzzy Find by [G]rep" })
@@ -106,6 +142,8 @@ require("oil").setup({
 				"^Cargo.*$",
 				"^Dockerfile$",
 				"^docker%-compose%.yml$",
+				"^compose%.yaml$",
+				"^rust-toolchain.toml$",
 				"^justfile$",
 				"^node_modules$",
 				"^package.lock.json$",
