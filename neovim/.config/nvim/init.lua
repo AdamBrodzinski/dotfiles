@@ -47,19 +47,7 @@ require("mini.hipatterns").setup({
 	},
 })
 
-require("mini.pick").setup({
-	mappings = {
-		paste = "<C-r>", -- Standard register paste
-		choose_in_vsplit = "",
-		-- Alternative bindings for system clipboard
-		sys_paste = {
-			char = "<C-v>",
-			func = function()
-				vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-r>+", true, true, true), "n", true)
-			end,
-		},
-	},
-})
+require("mini.pick").setup({})
 local paste = vim.paste
 local paste_chunks = {}
 vim.paste = function(lines, phase)
@@ -129,6 +117,7 @@ require("oil").setup({
 			end
 
 			local patterns = {
+				"^bacon.toml$",
 				"^.cargo$",
 				"^.claude$",
 				"^.dockerignore$",

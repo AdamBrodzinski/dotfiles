@@ -3,7 +3,7 @@ alias ezsh='nvim ~/.zshrc && source ~/.zshrc'
 alias eali='nvim ~/.zshalias && source ~/.zshalias'
 alias evim='nvim ~/.config/nvim'
 alias ealc='nvim ~/.config/alacritty/alacritty.toml'
-alias ehyp='nvim ~/.config/hypr/hyprland.conf'
+alias ehyp='nvim ~/.config/hypr/hyprland.lua'
 alias ezel='nvim ~/.config/zellij/config.kdl'
 
 # apps
